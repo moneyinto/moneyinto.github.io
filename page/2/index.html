@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="null" class="js-avatar">
+			<img lazy-src="/img/moneyinto.png" class="js-avatar">
 			
 		</a>
 
@@ -54,11 +54,6 @@
 							<div class="ribbon"></div>
 						</div>
 						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
 						
 						<div class="icon-wrap icon-me hide" data-idx="3">
 							<div class="user"></div>
@@ -72,12 +67,10 @@
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
 						<li>菜单</li>
-						<li>標籤</li>
-						
-						<li>友情链接</li>
+						<li>标签</li>
 						
 						
-						<li>關於</li>
+						<li>关于我</li>
 						
 					</ul>
 				</div>
@@ -94,18 +87,14 @@
 				        
 							<li><a href="/archives">所有文章</a></li>
 				        
+							<li><a href="/about">关于</a></li>
+				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="/#" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+								<a class="github" target="_blank" href="https://github.com/moneyinto" title="github">github</a>
 					        
 						</div>
 					</nav>
@@ -120,30 +109,12 @@
 				
 				
 				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
 
 				
 				
-				<section class="switch-part switch-part4">
+				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+					<div id="js-aboutme">屌丝前端一枚</div>
 				</section>
 				
 			</div>
@@ -162,7 +133,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="null" class="js-avatar">
+				<img lazy-src="/img/moneyinto.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -176,19 +147,15 @@
 		        
 					<li><a href="/archives">所有文章</a></li>
 		        
+					<li><a href="/about">关于</a></li>
+		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="/#" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+						<a class="github" target="_blank" href="https://github.com/moneyinto" title="github">github</a>
 			        
 				</div>
 			</nav>
@@ -197,6 +164,70 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-JQuery-place" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/23/JQuery-place/" class="article-date">
+  	<time datetime="2015-03-23T07:43:56.000Z" itemprop="datePublished">2015-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/23/JQuery-place/">JQuery获取元素的位置信息</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"fatherElement"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"childElement"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-获取设置元素的高度和宽度">1.获取设置元素的高度和宽度</h5><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'#fatherElement'</span>).width();  <span class="comment">//获取元素的宽度</span></span><br><span class="line"><span class="variable">$(</span><span class="string">'#fatherElement'</span>).height();  <span class="comment">//获取元素的高度</span></span><br><span class="line"><span class="variable">$(</span><span class="string">'#fatherElement'</span>).width(<span class="keyword">size</span>);  <span class="comment">//设置元素的宽度，size为宽度值</span></span><br><span class="line"><span class="variable">$(</span><span class="string">'#fatherElement'</span>).height(<span class="keyword">size</span>);  <span class="comment">//设置元素的高度，size为高度值</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-获取元素相对于浏览器的偏移量">2.获取元素相对于浏览器的偏移量</h5><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.<span class="built_in">offset</span><span class="params">()</span>.left;　　<span class="comment">//返回id为fatherElement相对于浏览器窗口最左边的距离</span></span><br><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.<span class="built_in">offset</span><span class="params">()</span>.top;　　<span class="comment">//返回id为fatherElement相对于浏览器窗口最顶部的距离</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-获取元素相对父元素的偏移量">3.获取元素相对父元素的偏移量</h5><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$<span class="params">(<span class="string">"#childElement"</span>)</span>.position<span class="params">()</span>.left;</span><br><span class="line">$<span class="params">(<span class="string">"#childElement"</span>)</span>.position<span class="params">()</span>.top;</span><br></pre></td></tr></table></figure>
+<h5 id="4-获取元素距离滚动条顶部的距离(可视区域)">4.获取元素距离滚动条顶部的距离(可视区域)</h5><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.scrollTop<span class="params">()</span>;</span><br><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.scrollLeft<span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="5-获取元素的高度值和宽度值,包括padding,不包括border">5.获取元素的高度值和宽度值,包括padding,不包括border</h5><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.innerWidth<span class="params">()</span>;</span><br><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.innerHeight<span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="6-获取元素的高度值和宽度值,包括padding和border">6.获取元素的高度值和宽度值,包括padding和border</h5><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.outerWidth<span class="params">()</span>;   <span class="comment">//包括边框和内边距</span></span><br><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.outerHeight<span class="params">()</span>; <span class="comment">//包括边框和内边距</span></span><br><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.outerWidth<span class="params">(<span class="literal">true</span>)</span>;   <span class="comment">//包括边框、外边距和内边距(也就是元素实际占用的大小)</span></span><br><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.outerHeight<span class="params">(<span class="literal">true</span>)</span>; <span class="comment">//包括边框、外边距和内边距(也就是元素实际占用的大小)</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/JQuery/">JQuery</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-JSCompress" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -224,6 +255,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+
         <h3 id="1-_JS压缩字符串">1. JS压缩字符串</h3><p><a href="http://www.cnblogs.com/liyinkan/archive/2011/09/16/2178686.html" target="_blank" rel="external">摘录</a></p>
 <ul>
 <li><h5 id="对字符串进行压缩">对字符串进行压缩</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Compress</span>(<span class="params">strNormalString</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> strCompressedString = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ht = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">128</span>; i++) &#123;</span><br><span class="line">        ht[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> used = <span class="number">128</span>;</span><br><span class="line">    <span class="keyword">var</span> intLeftOver = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> intOutputCode = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> pcode = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> ccode = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> k = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;strNormalString.length; i++) &#123;</span><br><span class="line">        ccode = strNormalString.charCodeAt(i);</span><br><span class="line">        k = (pcode &lt;&lt; <span class="number">8</span>) | ccode;</span><br><span class="line">        <span class="keyword">if</span>(ht[k] != <span class="literal">null</span>) &#123;</span><br><span class="line">            pcode = ht[k];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            intLeftOver += <span class="number">12</span>;</span><br><span class="line">            intOutputCode &lt;&lt;= <span class="number">12</span>;</span><br><span class="line">            intOutputCode |= pcode;</span><br><span class="line">            pcode = ccode;</span><br><span class="line">            <span class="keyword">if</span>(intLeftOver &gt;= <span class="number">16</span>) &#123;</span><br><span class="line">                strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode &gt;&gt; ( intLeftOver - <span class="number">16</span> ) );</span><br><span class="line">                intOutputCode &amp;= (<span class="built_in">Math</span>.pow(<span class="number">2</span>, (intLeftOver - <span class="number">16</span>)) - <span class="number">1</span>);</span><br><span class="line">                intLeftOver -= <span class="number">16</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(used &lt; <span class="number">4096</span>) &#123;</span><br><span class="line">                used ++;</span><br><span class="line">                ht[k] = used - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(pcode != <span class="number">0</span>) &#123;</span><br><span class="line">        intLeftOver += <span class="number">12</span>;</span><br><span class="line">        intOutputCode &lt;&lt;= <span class="number">12</span>;</span><br><span class="line">        intOutputCode |= pcode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(intLeftOver &gt;= <span class="number">16</span>) &#123;</span><br><span class="line">        strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode &gt;&gt; ( intLeftOver - <span class="number">16</span> ) );</span><br><span class="line">        intOutputCode &amp;= (<span class="built_in">Math</span>.pow(<span class="number">2</span>,(intLeftOver - <span class="number">16</span>)) - <span class="number">1</span>);</span><br><span class="line">        intLeftOver -= <span class="number">16</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( intLeftOver &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        intOutputCode &lt;&lt;= (<span class="number">16</span> - intLeftOver);</span><br><span class="line">        strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> strCompressedString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -296,6 +328,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+
         <ul>
 <li><h5 id="安装Nodemailer">安装Nodemailer</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nodemailer@v0.7.1</span><br></pre></td></tr></table></figure>
 </li>
@@ -395,6 +428,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+
         <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chars=<span class="string">'0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghijklmnopqrstuvwxyz'</span>.split(<span class="string">''</span>);</span><br><span class="line"><span class="keyword">var</span> length = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * chars.length);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    str += chars[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * chars.length)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -451,6 +485,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+
         <h5 id="1-首先了解一下javascript_Date对象的一些基本方法：">1.首先了解一下javascript Date对象的一些基本方法：</h5><blockquote>
 <p>可以打印一下Date对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Date</span>)</span><br></pre></td></tr></table></figure></p>
 <p>可以看一下它的原型 <strong><em>prototype</em></strong>，里面是Date对象的function</p>
@@ -493,78 +528,9 @@
 
 
   
-    <article id="post-tengyuanzuowei" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/12/01/tengyuanzuowei/" class="article-date">
-  	<time datetime="2014-12-01T05:16:44.000Z" itemprop="datePublished">2014-12-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/01/tengyuanzuowei/">藤原佐为</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="藤原佐为，千年执着">藤原佐为，千年执着</h4><p><img src="/img/tengyuanzuowei/9.jpg"><img></p>
-<p>偶然间看了一个动漫，对围棋执着的藤原佐为。</p>
-<p>看了之后，被里面人物的努力，执着，冷静，耐心深深折服，感慨自己。。。</p>
-<p>一个棋盘，黑白的棋子，静静坐在旁边思考自己的人生，领悟围棋的真谛。</p>
-<p>我需要的不是围棋，只是它给我带来的心的宁静！</p>
-<p>吾日三省吾身，每天净化自己的灵魂，提升自己的境界！</p>
-<p><img src="/img/tengyuanzuowei/7.jpg"><img></p>
-<p>我要珍惜每时每刻，人总是在自己拥有的时候挥霍，不知道珍惜，当有一天失去的时候追悔莫及。</p>
-<p>没有一样东西是永恒的，要懂得珍惜所有，虽然失去了还是会伤心，会去寻找，但留下的可以追忆的东西还是有很多。</p>
-<p>听首音乐，<a href="http://www.xiami.com/song/1772089878" target="_blank" rel="external">Bokura</a></p>
-<p>欣赏一下藤原佐为的风采：</p>
-<p><img src="/img/tengyuanzuowei/1.jpg"><img></p>
-<p><img src="/img/tengyuanzuowei/5.jpg"><img></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/随笔/">随笔</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
