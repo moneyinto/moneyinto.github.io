@@ -22,7 +22,7 @@
 
 下面就简单介绍几种常用的方法：(详细请看http://www.w3school.com.cn/jsref/jsref_obj_date.asp)
 12345678var myDate = n">
-<meta property="og:updated_time" content="2014-12-14T06:09:47.000Z">
+<meta property="og:updated_time" content="2016-05-13T03:54:41.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js时间上的操作">
 <meta name="twitter:description" content="1.首先了解一下javascript Date对象的一些基本方法：
@@ -35,7 +35,7 @@
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -223,8 +223,7 @@
 </blockquote>
 <p>下面就简单介绍几种常用的方法：(详细请看<a href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp" target="_blank" rel="external">http://www.w3school.com.cn/jsref/jsref_obj_date.asp</a>)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">myDate.getDate();   <span class="comment">//返回日期</span></span><br><span class="line">myDate.getDay();    <span class="comment">//返回周几（0~6，0为周日）</span></span><br><span class="line">myDate.getMouth();    <span class="comment">//返回月份</span></span><br><span class="line">mydate.getFullYear();    <span class="comment">//返回年份</span></span><br><span class="line">myDate.getHours();    <span class="comment">//返回小时（0~23）</span></span><br><span class="line">myDate.getMinutes();    <span class="comment">//返回分钟（0~59）</span></span><br><span class="line">myDate.getSeconds();     <span class="comment">//返回秒数（0~59）</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>注：get如果在没有设置时间的情况下，获取的时间日期为当天的；</em></strong></p>
-<p><strong>所以对应上面的，还有set的函数：</strong></p>
+<p><strong><em>注：get如果在没有设置时间的情况下，获取的时间日期为当天的；</em></strong><br><a id="more"></a><br><strong>所以对应上面的，还有set的函数：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设今天为2014-12-14</span></span><br><span class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">myDate.getDate();  <span class="comment">//14</span></span><br><span class="line">myDate.setDate(<span class="number">13</span>);  <span class="comment">//设置日期为13号</span></span><br><span class="line">myDate.getDate();  <span class="comment">//13</span></span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h5 id="2-时间的比较">2.时间的比较</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time1 = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(time1);  <span class="comment">//Sun Dec 14 2014 11:12:15 GMT+0800 (CST)</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> time1);  <span class="comment">//object</span></span><br><span class="line"><span class="keyword">var</span> time2 = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(time2);  <span class="comment">//Sun Dec 14 2014 11:15:11 GMT+0800 (CST)</span></span><br><span class="line"><span class="built_in">console</span>.log(time2 &gt; time1);  <span class="comment">//true</span></span><br><span class="line"><span class="comment">//时间的差</span></span><br><span class="line">time2 - time1  <span class="comment">//176288</span></span><br></pre></td></tr></table></figure>

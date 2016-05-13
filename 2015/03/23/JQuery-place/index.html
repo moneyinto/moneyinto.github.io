@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="萧书语">
 <meta property="og:description" content="123&amp;lt;div id=&quot;fatherElement&quot;&amp;gt;	&amp;lt;div id=&quot;childElement&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
 1.获取设置元素的高度和宽度1234$(&apos;#fatherElement&apos;).width();  //获取元素的宽度$(&apos;#fatherElement&apos;).height();  //获取元素的高度$(&apos;#fatherEleme">
-<meta property="og:updated_time" content="2015-04-04T01:49:13.000Z">
+<meta property="og:updated_time" content="2016-05-13T03:54:41.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JQuery获取元素的位置信息">
 <meta name="twitter:description" content="123&amp;lt;div id=&quot;fatherElement&quot;&amp;gt;	&amp;lt;div id=&quot;childElement&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
@@ -23,7 +23,7 @@
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -207,6 +207,7 @@
 
         <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"fatherElement"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"childElement"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h5 id="1-获取设置元素的高度和宽度">1.获取设置元素的高度和宽度</h5><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'#fatherElement'</span>).width();  <span class="comment">//获取元素的宽度</span></span><br><span class="line"><span class="variable">$(</span><span class="string">'#fatherElement'</span>).height();  <span class="comment">//获取元素的高度</span></span><br><span class="line"><span class="variable">$(</span><span class="string">'#fatherElement'</span>).width(<span class="keyword">size</span>);  <span class="comment">//设置元素的宽度，size为宽度值</span></span><br><span class="line"><span class="variable">$(</span><span class="string">'#fatherElement'</span>).height(<span class="keyword">size</span>);  <span class="comment">//设置元素的高度，size为高度值</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h5 id="2-获取元素相对于浏览器的偏移量">2.获取元素相对于浏览器的偏移量</h5><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.<span class="built_in">offset</span><span class="params">()</span>.left;　　<span class="comment">//返回id为fatherElement相对于浏览器窗口最左边的距离</span></span><br><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.<span class="built_in">offset</span><span class="params">()</span>.top;　　<span class="comment">//返回id为fatherElement相对于浏览器窗口最顶部的距离</span></span><br></pre></td></tr></table></figure>
 <h5 id="3-获取元素相对父元素的偏移量">3.获取元素相对父元素的偏移量</h5><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$<span class="params">(<span class="string">"#childElement"</span>)</span>.position<span class="params">()</span>.left;</span><br><span class="line">$<span class="params">(<span class="string">"#childElement"</span>)</span>.position<span class="params">()</span>.top;</span><br></pre></td></tr></table></figure>
 <h5 id="4-获取元素距离滚动条顶部的距离(可视区域)">4.获取元素距离滚动条顶部的距离(可视区域)</h5><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.scrollTop<span class="params">()</span>;</span><br><span class="line">$<span class="params">(<span class="string">"#fatherElement"</span>)</span>.scrollLeft<span class="params">()</span>;</span><br></pre></td></tr></table></figure>

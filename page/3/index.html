@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -248,20 +248,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-
         <h5 id="1-首先了解一下javascript_Date对象的一些基本方法：">1.首先了解一下javascript Date对象的一些基本方法：</h5><blockquote>
 <p>可以打印一下Date对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Date</span>)</span><br></pre></td></tr></table></figure></p>
 <p>可以看一下它的原型 <strong><em>prototype</em></strong>，里面是Date对象的function</p>
 </blockquote>
-<p>下面就简单介绍几种常用的方法：(详细请看<a href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp" target="_blank" rel="external">http://www.w3school.com.cn/jsref/jsref_obj_date.asp</a>)</p>
+<p>下面就简单介绍几种常用的方法：(详细请看<a href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp">http://www.w3school.com.cn/jsref/jsref_obj_date.asp</a>)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">myDate.getDate();   <span class="comment">//返回日期</span></span><br><span class="line">myDate.getDay();    <span class="comment">//返回周几（0~6，0为周日）</span></span><br><span class="line">myDate.getMouth();    <span class="comment">//返回月份</span></span><br><span class="line">mydate.getFullYear();    <span class="comment">//返回年份</span></span><br><span class="line">myDate.getHours();    <span class="comment">//返回小时（0~23）</span></span><br><span class="line">myDate.getMinutes();    <span class="comment">//返回分钟（0~59）</span></span><br><span class="line">myDate.getSeconds();     <span class="comment">//返回秒数（0~59）</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>注：get如果在没有设置时间的情况下，获取的时间日期为当天的；</em></strong></p>
-<p><strong>所以对应上面的，还有set的函数：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设今天为2014-12-14</span></span><br><span class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">myDate.getDate();  <span class="comment">//14</span></span><br><span class="line">myDate.setDate(<span class="number">13</span>);  <span class="comment">//设置日期为13号</span></span><br><span class="line">myDate.getDate();  <span class="comment">//13</span></span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h5 id="2-时间的比较">2.时间的比较</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time1 = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(time1);  <span class="comment">//Sun Dec 14 2014 11:12:15 GMT+0800 (CST)</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> time1);  <span class="comment">//object</span></span><br><span class="line"><span class="keyword">var</span> time2 = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(time2);  <span class="comment">//Sun Dec 14 2014 11:15:11 GMT+0800 (CST)</span></span><br><span class="line"><span class="built_in">console</span>.log(time2 &gt; time1);  <span class="comment">//true</span></span><br><span class="line"><span class="comment">//时间的差</span></span><br><span class="line">time2 - time1  <span class="comment">//176288</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>时间的差为毫秒数，两者的时间差为将近176秒，差为176288毫秒。</em></strong></p>
-<h5 id="注：关于时间方面的操作可以借助第三方的库（Moment-js）"><strong><em>注：关于时间方面的操作可以借助第三方的库（<a href="http://momentjs.com/docs/" target="_blank" rel="external">Moment.js</a>）</em></strong></h5>
+<p><strong><em>注：get如果在没有设置时间的情况下，获取的时间日期为当天的；</em></strong><br>
       
     </div>
     
@@ -274,6 +267,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/14/js-date/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -317,21 +314,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-
         <h4 id="藤原佐为，千年执着">藤原佐为，千年执着</h4><p><img src="/img/tengyuanzuowei/9.jpg"><img></p>
 <p>偶然间看了一个动漫，对围棋执着的藤原佐为。</p>
 <p>看了之后，被里面人物的努力，执着，冷静，耐心深深折服，感慨自己。。。</p>
 <p>一个棋盘，黑白的棋子，静静坐在旁边思考自己的人生，领悟围棋的真谛。</p>
 <p>我需要的不是围棋，只是它给我带来的心的宁静！</p>
-<p>吾日三省吾身，每天净化自己的灵魂，提升自己的境界！</p>
-<p><img src="/img/tengyuanzuowei/7.jpg"><img></p>
-<p>我要珍惜每时每刻，人总是在自己拥有的时候挥霍，不知道珍惜，当有一天失去的时候追悔莫及。</p>
-<p>没有一样东西是永恒的，要懂得珍惜所有，虽然失去了还是会伤心，会去寻找，但留下的可以追忆的东西还是有很多。</p>
-<p>听首音乐，<a href="http://www.xiami.com/song/1772089878" target="_blank" rel="external">Bokura</a></p>
-<p>欣赏一下藤原佐为的风采：</p>
-<p><img src="/img/tengyuanzuowei/1.jpg"><img></p>
-<p><img src="/img/tengyuanzuowei/5.jpg"><img></p>
-
+<p>吾日三省吾身，每天净化自己的灵魂，提升自己的境界！<br>
       
     </div>
     
@@ -344,6 +332,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/01/tengyuanzuowei/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -387,32 +379,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-
         <ul>
 <li>创建数据库</li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use test    //&#21019;&#24314;&#25968;&#25454;&#24211;test</span><br></pre></td></tr></table></figure>
-<p><br></p>
+<p><br/></p>
 <ul>
 <li>创建collection并插入数据</li>
 </ul>
 <p>在传统的数据库中，创建完库后就会是创建表，但在mongodb中没有表的概念，而与其对应的概念是集合，即collection。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.insert(&#123;&#39;name&#39;:&#39;moneyinto&#39;,&#39;sex&#39;:&#39;man&#39;&#125;)&#10;//&#24403;&#26377;users&#26102;&#65292;&#36825;&#26465;&#21629;&#20196;&#21363;&#20026;&#22312;users&#20013;&#25554;&#20837;&#19968;&#26465;&#25968;&#25454;&#65292;&#22914;&#26524;&#27809;&#26377;users&#65292;&#21017;&#20250;&#26032;&#24314;&#19968;&#20010;&#22312;&#20889;&#20837;&#25968;&#25454;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<ul>
-<li>数据的查看</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show dbs     //&#26174;&#31034;&#25152;&#26377;&#25968;&#25454;&#24211;&#10;show collections     //&#26174;&#31034;&#24403;&#21069;&#25968;&#25454;&#24211;&#19979;&#25152;&#26377;&#30340;&#38598;&#21512;&#10;db.users.find()      //&#26174;&#31034;users&#38598;&#21512;&#19979;&#30340;&#25152;&#26377;&#25968;&#25454;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<ul>
-<li>更新数据</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.update(&#123;&#39;name&#39;:&#39;moneyinto&#39;&#125;,&#123;&#39;$set&#39;:&#123;&#39;sex&#39;:&#39;woman&#39;&#125;&#125;,upsert = true,multi = false)&#10;//&#20462;&#25913;name&#20026;moneyinto&#30340;sex&#20026;woman</span><br></pre></td></tr></table></figure>
-<p>第一个参数：查询的条件；<br>第二个参数：更新的数据；<br>第三个参数：如果不存在就插入<br>第四个参数：是否允许修改多条数据<br><br></p>
-<ul>
-<li>删除数据</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.remove(&#123;&#39;name&#39;:&#39;moneyinto&#39;&#125;)  //&#21024;&#38500;name&#20026;moneyinto&#30340;&#25968;&#25454;&#10;db.users.remove()   //&#21024;&#38500;&#25152;&#26377;&#30340;&#25968;&#25454;&#10;db.users.drop()     //&#21024;&#38500;collections&#65292;&#25104;&#21151;&#36820;&#22238;true&#65292;&#21542;&#21017;&#36820;&#22238;false&#10;db.dorpDatebase()   //&#21024;&#38500;&#24403;&#21069;&#25968;&#25454;&#24211;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -425,6 +401,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2014/11/27/mongodb-base/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -468,34 +448,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-
         <h4 id="Mongodb提供了数据加权限的方法">Mongodb提供了数据加权限的方法</h4><ul>
 <li>开启安全认证模式<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#25214;&#21040;mongodb.conf&#25991;&#20214;&#65292;&#23558;auth = true&#30340;&#27880;&#37322;&#21435;&#25481;&#65292;&#10;//&#22914;&#26524;&#26159;linux&#25110;ubuntu&#31995;&#32479;&#20351;&#29992;apt-get&#23433;&#35013;&#30340;mongodb&#30340;&#35805;&#10;$ cd /etc&#10;$ vim mongodb.conf&#10;//&#20854;&#19982;&#31995;&#32479;&#25110;&#20854;&#20182;&#23433;&#35013;&#26041;&#27861;&#27809;&#26377;&#23581;&#35797;&#36807;&#65292;&#20854;&#33258;&#34892;&#26597;&#25214;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><br></p>
-<ul>
-<li>admin数据库添加管理员账号<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo&#10;$ use admin&#10;$ db.system.users.find()  //&#30475;&#30475;&#26377;&#27809;&#26377;&#25968;&#25454;&#10;$ db.addUser(&#39;name&#39;,&#39;password&#39;)  //&#28155;&#21152;&#31649;&#29702;&#21592;&#36134;&#21495;&#21450;&#23494;&#30721;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><br></p>
-<ul>
-<li>用户数据库添加用户管理员账号<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo&#10;$ use &#39;dbName&#39;   //dbName&#20026;&#25968;&#25454;&#24211;&#30340;&#21517;&#10;$ db.addUser(&#39;name&#39;,&#39;password&#39;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><br></p>
-<ul>
-<li>重启mongodb<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#20851;&#38381;mongodb&#10;$ sudo service mongodb stop&#10;$ sudo /etc/init.d/mongodb stop&#10;//&#24320;&#21551;mongodb&#10;$ sudo service mongodb start&#10;$ sudo /etc/init.d/mongodb start</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><br></p>
-<ul>
-<li>mongodb验证登陆<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo&#10;$ show dbs   //&#26174;&#31034;&#25968;&#25454;&#22833;&#36133;&#65292;&#22240;&#20026;&#27809;&#26377;&#35748;&#35777;&#10;$ use admin   //&#20999;&#25442;&#21040;admin&#25968;&#25454;&#24211;&#10;$ db.auth(&#39;name&#39;,&#39;password&#39;)   //&#39564;&#35777;&#25104;&#21151;&#36820;&#22238;1&#65292;&#22833;&#36133;&#36820;&#22238;0&#10;//&#20063;&#21487;&#20197;&#20999;&#25442;&#21040;&#26222;&#36890;&#29992;&#25143;&#25968;&#25454;&#24211;&#65292;&#20877;&#36827;&#34892;&#30331;&#38470;&#65292;&#20004;&#32773;&#30340;&#30331;&#38470;&#26435;&#38480;&#19981;&#21516;&#65292;&#19968;&#20010;&#26435;&#38480;&#26159;&#25805;&#20316;&#25152;&#26377;&#30340;&#25968;&#25454;&#24211;&#65292;&#19968;&#20010;&#26159;&#21482;&#33021;&#25805;&#20316;&#29992;&#25143;&#33258;&#24049;&#30340;&#25968;&#25454;&#24211;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><br></p>
-<h4 id="那么工程应该如何登陆呢？">那么工程应该如何登陆呢？</h4><p>下面以nodejs工程为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链接数据库时候要加上用户名和密码</span></span><br><span class="line"><span class="string">"mongodb://"</span> + dbUsername + <span class="string">":"</span> + dbPassword + <span class="string">"@"</span> + host + <span class="string">":"</span> + port + <span class="string">"/"</span> + dbName</span><br></pre></td></tr></table></figure></p>
-
       
     </div>
     
@@ -508,6 +464,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2014/11/27/mongodbPermission/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

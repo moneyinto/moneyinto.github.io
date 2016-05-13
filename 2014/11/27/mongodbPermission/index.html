@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="萧书语">
 <meta property="og:description" content="Mongodb提供了数据加权限的方法
 开启安全认证模式1//&amp;#25214;&amp;#21040;mongodb.conf&amp;#25991;&amp;#20214;&amp;#65292;&amp;#23558;auth = true&amp;#30340;&amp;#27880;&amp;#37322;&amp;#21435;&amp;#25481;&amp;#65292;&amp;#10;//&amp;#22914;&amp;#26524;&amp;#26159;linux&amp;#25110;ubuntu&amp;">
-<meta property="og:updated_time" content="2014-11-27T07:43:47.000Z">
+<meta property="og:updated_time" content="2016-05-13T03:54:41.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongodb 设置权限">
 <meta name="twitter:description" content="Mongodb提供了数据加权限的方法
@@ -23,7 +23,7 @@
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -209,6 +209,7 @@
 <li>开启安全认证模式<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#25214;&#21040;mongodb.conf&#25991;&#20214;&#65292;&#23558;auth = true&#30340;&#27880;&#37322;&#21435;&#25481;&#65292;&#10;//&#22914;&#26524;&#26159;linux&#25110;ubuntu&#31995;&#32479;&#20351;&#29992;apt-get&#23433;&#35013;&#30340;mongodb&#30340;&#35805;&#10;$ cd /etc&#10;$ vim mongodb.conf&#10;//&#20854;&#19982;&#31995;&#32479;&#25110;&#20854;&#20182;&#23433;&#35013;&#26041;&#27861;&#27809;&#26377;&#23581;&#35797;&#36807;&#65292;&#20854;&#33258;&#34892;&#26597;&#25214;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <p><br></p>
 <ul>
 <li>admin数据库添加管理员账号<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo&#10;$ use admin&#10;$ db.system.users.find()  //&#30475;&#30475;&#26377;&#27809;&#26377;&#25968;&#25454;&#10;$ db.addUser(&#39;name&#39;,&#39;password&#39;)  //&#28155;&#21152;&#31649;&#29702;&#21592;&#36134;&#21495;&#21450;&#23494;&#30721;</span><br></pre></td></tr></table></figure>
