@@ -355,7 +355,7 @@ a:focus {
     'Tiny ideas' just need some tiny styling.
 */
 #tiny {
-  width: 500px;
+  width: 900px;
   text-align: center;
 }
 /*
@@ -421,7 +421,7 @@ a:focus {
     The 'imagination' step is again some boring font-sizing.
 */
 #imagination {
-  width: 600px;
+  width: 800px;
 }
 #imagination .imagination {
   font-size: 78px;
@@ -437,8 +437,7 @@ a:focus {
     Just make sure you don't blindly copy this approach.
 */
 #source {
-  width: 700px;
-  padding-bottom: 300px;
+  width: 800px;
 /* Yoda Icon :: Pixel Art from Star Wars http://www.pixeljoint.com/pixelart/1423.htm */
 /*background-image: url("/img/heart.png");*/
   background-position: bottom right;
@@ -603,7 +602,7 @@ a:focus {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 200px;
+  bottom: 100px;
   background: rgba(0,0,0,0.5);
   color: #eee;
   text-align: center;

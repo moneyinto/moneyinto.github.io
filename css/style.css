@@ -610,11 +610,10 @@ a {
   margin-right: 0;
 }
 #header .header-nav .social a.weibo {
-  background: url("/img/weibo.png") center no-repeat #aaf;
-  border: 1px solid #aaf;
-}
-#header .header-nav .social a.weibo:hover {
-  border: 1px solid #aaf;
+  background: url("/img/weibo.png") center no-repeat #bebebe;
+  -webkit-background-size: 16px 16px;
+  -moz-background-size: 16px 16px;
+  background-size: 16px 16px;
 }
 #header .header-nav .social a.rss {
   background: url("/img/rss.png") center no-repeat #ef7522;
@@ -624,11 +623,28 @@ a {
   border: 1px solid #cf5d0f;
 }
 #header .header-nav .social a.github {
-  background: url("/img/github.png") center no-repeat #afb6ca;
-  border: 1px solid #afb6ca;
+  background: url("/img/github.png") center no-repeat #bebebe;
+  -webkit-background-size: 28px 28px;
+  -moz-background-size: 28px 28px;
+  background-size: 28px 28px;
 }
-#header .header-nav .social a.github:hover {
-  border: 1px solid #909ab6;
+#header .header-nav .social a.gitbook {
+  background: url("/img/gitbook.png") center no-repeat #bebebe;
+  -webkit-background-size: 16px 16px;
+  -moz-background-size: 16px 16px;
+  background-size: 16px 16px;
+}
+#header .header-nav .social a.iteye {
+  background: url("/img/iteye.png") center no-repeat #bebebe;
+  -webkit-background-size: 16px 16px;
+  -moz-background-size: 16px 16px;
+  background-size: 16px 16px;
+}
+#header .header-nav .social a.sf {
+  background: url("/img/sf.png") center no-repeat #bebebe;
+  -webkit-background-size: 16px 16px;
+  -moz-background-size: 16px 16px;
+  background-size: 16px 16px;
 }
 #header .header-nav .social a.facebook {
   background: url("/img/facebook.png") center no-repeat #3b5998;
