@@ -203,6 +203,72 @@
 
       <div class="body-wrap">
   
+    <article id="post-js-date" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/14/js-date/" class="article-date">
+  	<time datetime="2014-12-14T02:05:25.000Z" itemprop="datePublished">2014-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/14/js-date/">js时间上的操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-首先了解一下javascript_Date对象的一些基本方法：">1.首先了解一下javascript Date对象的一些基本方法：</h5><blockquote>
+<p>可以打印一下Date对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Date</span>)</span><br></pre></td></tr></table></figure></p>
+<p>可以看一下它的原型 <strong><em>prototype</em></strong>，里面是Date对象的function</p>
+</blockquote>
+<p>下面就简单介绍几种常用的方法：(详细请看<a href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp">http://www.w3school.com.cn/jsref/jsref_obj_date.asp</a>)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">myDate.getDate();   <span class="comment">//返回日期</span></span><br><span class="line">myDate.getDay();    <span class="comment">//返回周几（0~6，0为周日）</span></span><br><span class="line">myDate.getMouth();    <span class="comment">//返回月份</span></span><br><span class="line">mydate.getFullYear();    <span class="comment">//返回年份</span></span><br><span class="line">myDate.getHours();    <span class="comment">//返回小时（0~23）</span></span><br><span class="line">myDate.getMinutes();    <span class="comment">//返回分钟（0~59）</span></span><br><span class="line">myDate.getSeconds();     <span class="comment">//返回秒数（0~59）</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>注：get如果在没有设置时间的情况下，获取的时间日期为当天的；</em></strong><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/14/js-date/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-tengyuanzuowei" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -451,68 +517,6 @@
       
         <p class="article-more-link">
           <a  href="/2014/11/05/JsClosure/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JQuery" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/10/21/JQuery/" class="article-date">
-  	<time datetime="2014-10-21T04:43:11.000Z" itemprop="datePublished">2014-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/JQuery/">利用JQuery解决IE9不支持placeholder属性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><br><br>HTMl5增加了很多的属性，但是有些属性不兼容旧版本的浏览器，尤其是IE的。</p>
-<p>现在就利用JQuery的方法来解决IE9及之前的版本不支持input的placeholder属性的问题。</p>
-<p><a href="http://jsfiddle.net/moneyinto/rb3z6mcm/"><strong><em>demo</em></strong></a><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/web前端/">web前端</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/10/21/JQuery/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

@@ -203,6 +203,68 @@
 
       <div class="body-wrap">
   
+    <article id="post-html-tag-nested-rules-new-discovery" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/30/html-tag-nested-rules-new-discovery/" class="article-date">
+  	<time datetime="2016-08-30T05:56:50.000Z" itemprop="datePublished">2016-08-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/30/html-tag-nested-rules-new-discovery/">a标签嵌套-标签嵌套规则</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开发时偶然写到两个a标签嵌套，发现一个奇怪问题。</p>
+<p>在chrome浏览器上：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span>&gt;</span> 外层a标签 <span class="tag">&lt;<span class="title">a</span>&gt;</span> 内层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>结果浏览器解析成了：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span>&gt;</span> 外层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;<span class="title">a</span>&gt;</span> 内层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web前端/">web前端</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/30/html-tag-nested-rules-new-discovery/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iphone-date-problem" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -245,71 +307,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/08/28/iphone-date-problem/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-keycode" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/18/js-keycode/" class="article-date">
-  	<time datetime="2016-06-18T01:54:45.000Z" itemprop="datePublished">2016-06-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/18/js-keycode/">键盘事件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="键盘事件">键盘事件</h2><ul>
-<li>onkeydown 会在键盘按下时触发</li>
-<li>onkeypress 会在键盘按下并抬起时触发</li>
-<li>onkeyup 会在键盘抬起时触发</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> e = event || <span class="built_in">window</span>.event || <span class="built_in">arguments</span>.callee.caller.arguments[<span class="number">0</span>];</span><br><span class="line">        alert(e.keyCode);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/06/18/js-keycode/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -398,6 +395,71 @@
 
 
   
+    <article id="post-js-keycode" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/18/js-keycode/" class="article-date">
+  	<time datetime="2016-06-18T01:54:45.000Z" itemprop="datePublished">2016-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/18/js-keycode/">键盘事件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="键盘事件">键盘事件</h2><ul>
+<li>onkeydown 会在键盘按下时触发</li>
+<li>onkeypress 会在键盘按下并抬起时触发</li>
+<li>onkeyup 会在键盘抬起时触发</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> e = event || <span class="built_in">window</span>.event || <span class="built_in">arguments</span>.callee.caller.arguments[<span class="number">0</span>];</span><br><span class="line">        alert(e.keyCode);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/18/js-keycode/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-gulp-study" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -442,64 +504,6 @@
         <p class="article-more-link">
           <a  href="/2016/05/13/gulp-study/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-type-writing" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/13/js-type-writing/" class="article-date">
-  	<time datetime="2016-05-13T02:51:36.000Z" itemprop="datePublished">2016-05-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/13/js-type-writing/">js-type-writing</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>我们简单的通过js实现打字的功能，直接看代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"myWriting"</span> <span class="attribute">write-data</span>=<span class="value">"我们一起来学习web前端的知识吧！Let's get together to learn front end!"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="openscad"></span><br><span class="line">	var myWrite = document.getElementById<span class="params">('myWriting')</span>;</span><br><span class="line">    var <span class="built_in">text</span> = myWrite.getAttribute<span class="params">('write-data')</span>;</span><br><span class="line">    typeWriting<span class="params">(text, <span class="number">0</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">typeWriting</span><span class="params">(txt, n)</span> &#123;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="params">(txt.length &gt; n)</span> &#123;</span><br><span class="line">            n++;</span><br><span class="line">            myWrite.innerHTML = txt.substring<span class="params">(<span class="number">0</span>, n)</span>;</span><br><span class="line">            setTimeout<span class="params">(function <span class="params">()</span> &#123;</span><br><span class="line">                typeWriting<span class="params">(txt, n)</span>;</span><br><span class="line">            &#125;, <span class="number">100</span>)</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            typeWriting<span class="params">(txt, <span class="number">0</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;script&gt;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
       
       <div class="clearfix"></div>
     </div>
