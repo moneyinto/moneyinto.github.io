@@ -203,6 +203,78 @@
 
       <div class="body-wrap">
   
+    <article id="post-localhost" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/10/localhost/" class="article-date">
+  	<time datetime="2015-07-10T00:52:46.000Z" itemprop="datePublished">2015-07-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/10/localhost/">localhost</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <h3 id="localhost和127-0-0-1的区别">localhost和127.0.0.1的区别</h3><ul>
+<li>127.0.0.1是一个回送地址，指本机（本地地址）；</li>
+<li><p>localhost是一个指向127.0.0.1这个本地IP的域名（本地服务器）。</p>
+<p>在操作系统中一般配置localhost与127.0.0.1绑定在一起。</p>
+<p>当用户访问localhost会通过本地的hosts文件，将localhost解析到相应设置的IP（127.0.0.1）</p>
+<p>在hosts文件中可以配置： 127.0.0.1 localhost</p>
+</li>
+<li><p>localhost 访问不需要经网卡传输，不受网络防火墙和网卡相关的限制</p>
+</li>
+<li><p>127.0.0.1 访问需要通过网卡传输，受网络防火墙和网卡相关的限制</p>
+<p><strong><em>一般访问本地服务用localhost，不会解析成IP，也不用占用网卡，网络资源</em></strong></p>
+<p><strong><em>localhost访问会有本机当前用户权限，127.0.0.1访问会通过网络再去访问本机，有可能涉及到权限问题二不能访问</em></strong></p>
+<p><strong><em>注：web开发调试时，当遇到localhost不能使用，或跳转到不相关的网址，极有可能是hosts文件配置有误的问题。</em></strong></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-zhengze-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -424,74 +496,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/03/16/JSCompress/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Nodemailer" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/12/14/Nodemailer/" class="article-date">
-  	<time datetime="2014-12-14T04:25:13.000Z" itemprop="datePublished">2014-12-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/14/Nodemailer/">利用Nodemailer发送邮件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><h5 id="安装Nodemailer">安装Nodemailer</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nodemailer@v0.7.1</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong><em>注：版本为v0.7.1，当时试用了一次v1.0之后的版本，没有成功，报错提示让用v0.7.1版本，还没研究明白为什么新版本没有成功，可能一些方法配置还是老版本的，新版本有所更新，有待研究，希望有大神分享解释原因</em></strong></p>
-<ul>
-<li><h5 id="进行配置">进行配置</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    host: <span class="string">"主机名"</span>, <span class="comment">// 主机</span></span><br><span class="line">    secureConnection: <span class="literal">true</span>, <span class="comment">// 使用 SSL</span></span><br><span class="line">    use_authentication: <span class="literal">true</span>,  <span class="comment">//使用qq等邮箱需要配置</span></span><br><span class="line">    port: <span class="number">465</span>, <span class="comment">// SMTP 端口</span></span><br><span class="line">    auth: &#123;</span><br><span class="line">        user: <span class="string">"***@***"</span>, <span class="comment">// 账号</span></span><br><span class="line">        pass: <span class="string">"password"</span> <span class="comment">// 密码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/NodeJs/">NodeJs</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/12/14/Nodemailer/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
