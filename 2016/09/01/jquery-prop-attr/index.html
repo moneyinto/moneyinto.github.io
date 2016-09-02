@@ -4,24 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>a标签嵌套-标签嵌套规则 | 萧书语</title>
+  <title>jquery中prop()与attr()的区别 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开发时偶然写到两个a标签嵌套，发现一个奇怪问题。
-在chrome浏览器上：1&amp;lt;a&amp;gt; 外层a标签 &amp;lt;a&amp;gt; 内层a标签 &amp;lt;/a&amp;gt; &amp;lt;/a&amp;gt;
-结果浏览器解析成了：1&amp;lt;a&amp;gt; 外层a标签 &amp;lt;/a&amp;gt; &amp;lt;a&amp;gt; 内层a标签 &amp;lt;/a&amp;gt;">
+  <meta name="description" content="当在做多选时用jquery的attr()时发现只能实现一次，而且是在input初始化时没点击过的情况下，可以实现一次，再次使用就不管用了。这时搜资料发现可以用prop()解决问题。
+关于这个问题，我们对attr()和prop()做一些探究：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="a标签嵌套-标签嵌套规则">
-<meta property="og:url" content="http://yoursite.com/2016/08/30/html-tag-nested-rules-new-discovery/index.html">
+<meta property="og:title" content="jquery中prop()与attr()的区别">
+<meta property="og:url" content="http://yoursite.com/2016/09/01/jquery-prop-attr/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description" content="开发时偶然写到两个a标签嵌套，发现一个奇怪问题。
-在chrome浏览器上：1&amp;lt;a&amp;gt; 外层a标签 &amp;lt;a&amp;gt; 内层a标签 &amp;lt;/a&amp;gt; &amp;lt;/a&amp;gt;
-结果浏览器解析成了：1&amp;lt;a&amp;gt; 外层a标签 &amp;lt;/a&amp;gt; &amp;lt;a&amp;gt; 内层a标签 &amp;lt;/a&amp;gt;">
-<meta property="og:updated_time" content="2016-09-01T10:01:32.944Z">
+<meta property="og:description" content="当在做多选时用jquery的attr()时发现只能实现一次，而且是在input初始化时没点击过的情况下，可以实现一次，再次使用就不管用了。这时搜资料发现可以用prop()解决问题。
+关于这个问题，我们对attr()和prop()做一些探究：">
+<meta property="og:updated_time" content="2016-09-02T09:54:40.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="a标签嵌套-标签嵌套规则">
-<meta name="twitter:description" content="开发时偶然写到两个a标签嵌套，发现一个奇怪问题。
-在chrome浏览器上：1&amp;lt;a&amp;gt; 外层a标签 &amp;lt;a&amp;gt; 内层a标签 &amp;lt;/a&amp;gt; &amp;lt;/a&amp;gt;
-结果浏览器解析成了：1&amp;lt;a&amp;gt; 外层a标签 &amp;lt;/a&amp;gt; &amp;lt;a&amp;gt; 内层a标签 &amp;lt;/a&amp;gt;">
+<meta name="twitter:title" content="jquery中prop()与attr()的区别">
+<meta name="twitter:description" content="当在做多选时用jquery的attr()时发现只能实现一次，而且是在input初始化时没点击过的情况下，可以实现一次，再次使用就不管用了。这时搜资料发现可以用prop()解决问题。
+关于这个问题，我们对attr()和prop()做一些探究：">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
@@ -208,11 +205,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-html-tag-nested-rules-new-discovery" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-jquery-prop-attr" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/30/html-tag-nested-rules-new-discovery/" class="article-date">
-  	<time datetime="2016-08-30T05:56:50.000Z" itemprop="datePublished">2016-08-30</time>
+      <a href="/2016/09/01/jquery-prop-attr/" class="article-date">
+  	<time datetime="2016-09-01T08:53:06.000Z" itemprop="datePublished">2016-09-01</time>
 </a>
     </div>
   
@@ -225,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      a标签嵌套-标签嵌套规则
+      jquery中prop()与attr()的区别
     </h1>
   
 
@@ -235,7 +232,7 @@
         
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/web前端/">web前端</a>
+	<a class="article-category-link" href="/categories/JQuery/">JQuery</a>
 	</div>
 
 
@@ -246,18 +243,24 @@
     <div class="article-entry" itemprop="articleBody">
       
 
-        <p>开发时偶然写到两个a标签嵌套，发现一个奇怪问题。</p>
-<p>在chrome浏览器上：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span>&gt;</span> 外层a标签 <span class="tag">&lt;<span class="title">a</span>&gt;</span> 内层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>结果浏览器解析成了：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span>&gt;</span> 外层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;<span class="title">a</span>&gt;</span> 内层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+        <p>当在做多选时用jquery的attr()时发现只能实现一次，而且是在input初始化时没点击过的情况下，可以实现一次，再次使用就不管用了。<br>这时搜资料发现可以用prop()解决问题。</p>
+<p>关于这个问题，我们对attr()和prop()做一些探究：</p>
 <a id="more"></a>
-<p>首先html元素包括块级元素和内嵌元素：</p>
-<p>1.块级元素<br>address、blockquote、center、dir、div、dl、dt、dd、fieldset、form、h1~h6、hr、        isindex、menu、noframes、noscript、ol、p、pre、table、ul<br>2.内嵌元素<br>a、abbr、acronym、b、bdo、big、br、cite、code、dfn、em、font、i、img、input、kbd、label、q、s、samp、select、small、span、strike、strong、sub、sup、textarea、tt、u、var</p>
-<p>下面我们就来总结一下标签的嵌套规则：</p>
-<ul>
-<li>块级元素可以包含内嵌元素或某些块级元素，但内嵌元素不能包含块级元素，只能包含某些内嵌元素</li>
-<li>块级标签不能放到p标签，h1~h6标签和dt标签里</li>
-</ul>
-<p>下面可以参考<a href="http://www.smallni.com/element-nesting/" target="_blank" rel="external">WEB标准系列-HTML元素嵌套</a>特别详细。</p>
+<p>说到prop()和attr()，就要牵扯到<strong><em>attribute</em></strong>和<strong><em>property</em></strong>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"myClass"</span> <span class="attribute">id</span>=<span class="value">"myId"</span>&gt;</span><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>attribute是一个特性节点，每个DOM元素都有一个对应的attributes属性存放所有的attribute节点。</p>
+<p>attributes就像是一个数组容器。形式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="class"><span class="keyword">class</span></span>=<span class="string">"myClass"</span>, id=<span class="string">"myId"</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//我们可以这样取到他的attribute</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'myId'</span>)[<span class="number">0</span>].attributes[<span class="number">0</span>]   <span class="comment">//class="myClass"</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'myId'</span>)[<span class="number">0</span>].attributes[<span class="number">0</span>].name  <span class="comment">//class</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'myId'</span>)[<span class="number">0</span>].attributes[<span class="number">0</span>].value  <span class="comment">//myClass</span></span><br></pre></td></tr></table></figure>
+<p>property就是一个属性，每个DOM元素就像是一个Object，property就是以键值对的形式存储在properties中。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[&#123;class:"myClass", id:"myId"&#125;]</span><br><span class="line"></span><br><span class="line">//我们可以这样取到他的property</span><br><span class="line">document.getElementById('myId')[0].class   //myClass</span><br></pre></td></tr></table></figure>
+<p><strong><em>注：property在html标签只是一个键值对属性，是不可见的，而attitude节点都是html标签上可见的，但是标签原先自带的attitude节点好像都有对应的属性property。（比如我们在标签上自定义一个attitude， 这是去他的对应的property是undefined的，是没有值的）</em></strong></p>
+<p>下面我们就来说一下prop()和attr():</p>
+<p>prop()就像data()方法，prop()改变或返回的是property的值；attr()改变和返回的是attitude的值。<br>而input的checkbox选中与与不选中状态需要改变的是checked的property的值，所以使用attr()不管用，需要使用prop()。</p>
+<p>举个例子深入了解一下prop()和attr():<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"myClass"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.myClass'</span>).attr(<span class="string">'data_1'</span>, <span class="string">'data_1'</span>);</span><br><span class="line"><span class="comment">//这时我们标签会变成 &lt;div class="myClass" "data_1"="data_1"&gt;&lt;/div&gt;</span></span><br><span class="line">    </span><br><span class="line">$(<span class="string">'.myClass'</span>).prop(<span class="string">'data_1'</span>);  <span class="comment">//undefined</span></span><br><span class="line">$(<span class="string">'.myClass'</span>).attr(<span class="string">'data_1'</span>); <span class="comment">//data_1</span></span><br><span class="line">    </span><br><span class="line">$(<span class="string">'.myClass'</span>).prop(<span class="string">'data_2'</span>, <span class="string">'data_2'</span>);</span><br><span class="line"><span class="comment">//这时我们标签还是 &lt;div class="myClass" "data_1"="data_1"&gt;&lt;/div&gt;，没有任何变化</span></span><br><span class="line">    </span><br><span class="line">$(<span class="string">'.myClass'</span>).prop(<span class="string">'data_2'</span>);  <span class="comment">//data_2</span></span><br><span class="line">$(<span class="string">'.myClass'</span>).prop(<span class="string">'data_2'</span>);  <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>那我们什么时候使用prop()，什么时候选用attr()呢？一般总结下来，当标签改变值传的是boolean类型时，通常选用prop()，其余的情况选用attr()。这样的判定其实不是很精确，只能是通常情况。最好还是理清上面的原理。</em></strong></p>
+<hr>
+<p>但是到这里，还是不能解释为什么input的checkbox使用attr第一次有效，第二次就失效的问题。</p>
 
       
     </div>
@@ -267,18 +270,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/01/jquery-prop-attr/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          jquery中prop()与attr()的区别
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/08/28/iphone-date-problem/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">safari浏览器iphone开发new Date()的注意问题</div>
+    <a href="/2016/08/30/html-tag-nested-rules-new-discovery/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">a标签嵌套-标签嵌套规则</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -313,7 +307,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="html-tag-nested-rules-new-discovery" data-title="a标签嵌套-标签嵌套规则" data-url="http://yoursite.com/2016/08/30/html-tag-nested-rules-new-discovery/"></div>
+	<div class="ds-thread" data-thread-key="jquery-prop-attr" data-title="jquery中prop()与attr()的区别" data-url="http://yoursite.com/2016/09/01/jquery-prop-attr/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
