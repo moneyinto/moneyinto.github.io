@@ -4,18 +4,44 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>canvas-some-problem-1 | 萧书语</title>
+  <title>学习canvas遇到的一些问题一 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="最近在写一个canvas编辑图片的demo时遇到了两个canvas的奇怪问题，这里记载一下。
+
+问题一：canvas的宽高度设置问题有两种可以正确的实现的方式
+
+直接在标签上实现
+  1&amp;lt;canvas width=&quot;200&quot; height=&quot;200&quot;&amp;gt;&amp;lt;/canvas&amp;gt;
+
+通过js设置实现
+  12345678&amp;lt;canvas id=&quot;canvas&quot;&amp;gt;&amp;lt;/c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas-some-problem-1">
+<meta property="og:title" content="学习canvas遇到的一些问题一">
 <meta property="og:url" content="http://yoursite.com/2016/09/02/canvas-some-problem-1/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-09-02T10:33:56.206Z">
+<meta property="og:description" content="最近在写一个canvas编辑图片的demo时遇到了两个canvas的奇怪问题，这里记载一下。
+
+问题一：canvas的宽高度设置问题有两种可以正确的实现的方式
+
+直接在标签上实现
+  1&amp;lt;canvas width=&quot;200&quot; height=&quot;200&quot;&amp;gt;&amp;lt;/canvas&amp;gt;
+
+通过js设置实现
+  12345678&amp;lt;canvas id=&quot;canvas&quot;&amp;gt;&amp;lt;/c">
+<meta property="og:image" content="http://7sbq8w.com1.z0.glb.clouddn.com/709529-20151122233544546-1786923820.png">
+<meta property="og:image" content="http://7sbq8w.com1.z0.glb.clouddn.com/709529-20151122234722093-1526218567.png">
+<meta property="og:updated_time" content="2016-09-11T03:58:09.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas-some-problem-1">
-<meta name="twitter:description">
+<meta name="twitter:title" content="学习canvas遇到的一些问题一">
+<meta name="twitter:description" content="最近在写一个canvas编辑图片的demo时遇到了两个canvas的奇怪问题，这里记载一下。
+
+问题一：canvas的宽高度设置问题有两种可以正确的实现的方式
+
+直接在标签上实现
+  1&amp;lt;canvas width=&quot;200&quot; height=&quot;200&quot;&amp;gt;&amp;lt;/canvas&amp;gt;
+
+通过js设置实现
+  12345678&amp;lt;canvas id=&quot;canvas&quot;&amp;gt;&amp;lt;/c">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
@@ -118,7 +144,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
+						<a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
 					</div>
 				</section>
 				
@@ -219,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      canvas-some-problem-1
+      学习canvas遇到的一些问题一
     </h1>
   
 
@@ -228,6 +254,10 @@
       <div class="article-info article-info-post">
         
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Canvas/">Canvas</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -236,7 +266,52 @@
     <div class="article-entry" itemprop="articleBody">
       
 
-        
+        <p>最近在写一个canvas编辑图片的demo时遇到了两个canvas的奇怪问题，这里记载一下。</p>
+<hr>
+<h5 id="问题一：canvas的宽高度设置问题">问题一：canvas的宽高度设置问题</h5><p><strong><em>有两种可以正确的实现的方式</em></strong></p>
+<ul>
+<li><p>直接在标签上实现</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">width</span>=<span class="value">"200"</span> <span class="attribute">height</span>=<span class="value">"200"</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过js设置实现</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">id</span>=<span class="value">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="mel"></span><br><span class="line">    <span class="keyword">canvas</span> = document.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    context = <span class="keyword">canvas</span>.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    <span class="keyword">canvas</span>.width = <span class="number">200</span>;</span><br><span class="line">    <span class="keyword">canvas</span>.height = <span class="number">200</span>;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>通过css实现的都是错误的实现方式，都会使canvas被拉伸，使得canvas画图不准</em></strong></p>
+<a id="more"></a>
+<ul>
+<li>通过嵌入式，内联式或者外联式写入的css样式都会导致canvas被拉伸</li>
+<li>通过js的操作dom改变css同样会拉伸canvas</li>
+<li>通过jquery也是同样的问题</li>
+</ul>
+<p><strong><em>【注】：canvas的width和height也不能用百分比表示。canvas会将百分值当成数值显示</em></strong></p>
+<blockquote>
+<p>这里借用别人的一个例子来说明这个问题：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">id</span>=<span class="value">"canvas1"</span> <span class="attribute">style</span>=<span class="value">"width: 200px;height: 200px; border:1px solid black;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="openscad"></span><br><span class="line">    var oC = document.getElementById<span class="params">('canvas1')</span>;</span><br><span class="line">    var ctx = oC.getContext<span class="params">(<span class="string">"2d"</span>)</span>;</span><br><span class="line">    ctx.moveTo<span class="params">(<span class="number">0</span>, <span class="number">0</span>)</span>;</span><br><span class="line">    ctx.lineTo<span class="params">(<span class="number">200</span>, <span class="number">200</span>)</span>;</span><br><span class="line">    ctx.stroke<span class="params">()</span>;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>通过代码我们知道画出的图应该是一个正方形canvas的斜对角线，但效果图确实这样的：</p>
+<p><img src="http://7sbq8w.com1.z0.glb.clouddn.com/709529-20151122233544546-1786923820.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">id</span>=<span class="value">"myCanvas"</span> <span class="attribute">width</span>=<span class="value">"200"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black;"</span>&gt;</span></span><br><span class="line">    Your browser does not support the canvas element.</span><br><span class="line"><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="openscad"></span><br><span class="line">    var c = document.getElementById<span class="params">(<span class="string">"myCanvas"</span>)</span>;</span><br><span class="line">    var cxt = c.getContext<span class="params">(<span class="string">"2d"</span>)</span>;</span><br><span class="line">    cxt.moveTo<span class="params">(<span class="number">0</span>, <span class="number">0</span>)</span>;</span><br><span class="line">    cxt.lineTo<span class="params">(<span class="number">200</span>, <span class="number">200</span>)</span>;</span><br><span class="line">    cxt.stroke<span class="params">()</span>;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>通过正确的方式设置宽高度，我们得出的效果图如下：</p>
+<p><img src="http://7sbq8w.com1.z0.glb.clouddn.com/709529-20151122234722093-1526218567.png" alt=""></p>
+</blockquote>
+<h5 id="问题二：canvas的drawImage问题">问题二：canvas的drawImage问题</h5><p>我们对于canvas的drawImage可以有两种实现方式：</p>
+<ul>
+<li>我们可以通过在页面上写一个img的标签，然后获取到该标签作为参数传值给drawImage()</li>
+<li>我们也可以通过new Image()创建一个img传值给drawImage()</li>
+</ul>
+<p>我们的问题就出现在<code>imageObj.src = imageSrc</code>上，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    canvas = <span class="built_in">document</span>.getElementById(<span class="string">"drawingCanvas"</span>);</span><br><span class="line">    context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    canvas.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">    canvas.height = <span class="built_in">window</span>.innerHeight;</span><br><span class="line">    imageObj = <span class="keyword">new</span> Image();</span><br><span class="line">	imageObj.src = imageSrc;  <span class="comment">//imageSrc为图片的路径</span></span><br><span class="line">    context.drawImage(imageObj, <span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这样我们在浏览器居然没有看见图片，没有画成功，可是代码是没有问题的，</p>
+<p>但是如果我们这样写就没有问题了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">imageObj = <span class="keyword">new</span> Image();</span><br><span class="line">imageObj.src = imageSrc;  <span class="comment">//imageSrc为图片的路径</span></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    canvas = <span class="built_in">document</span>.getElementById(<span class="string">"drawingCanvas"</span>);</span><br><span class="line">    context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    canvas.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">    canvas.height = <span class="built_in">window</span>.innerHeight;</span><br><span class="line">    context.drawImage(imageObj, <span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>网上查了<em>image加载是异步的</em>，也就是说<code>imageObj.src = imageSrc;</code>在渲染图片时异步了，所以我们要将drawImage写在image的回调里</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    canvas = <span class="built_in">document</span>.getElementById(<span class="string">"drawingCanvas"</span>);</span><br><span class="line">    context = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    canvas.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">    canvas.height = <span class="built_in">window</span>.innerHeight;</span><br><span class="line">    imageObj = <span class="keyword">new</span> Image();</span><br><span class="line">    imageObj.src = imageSrc;  <span class="comment">//imageSrc为图片的路径</span></span><br><span class="line">    imageObj.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    	context.drawImage(imageObj, <span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -282,7 +357,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="canvas-some-problem-1" data-title="canvas-some-problem-1" data-url="http://yoursite.com/2016/09/02/canvas-some-problem-1/"></div>
+	<div class="ds-thread" data-thread-key="canvas-some-problem-1" data-title="学习canvas遇到的一些问题一" data-url="http://yoursite.com/2016/09/02/canvas-some-problem-1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

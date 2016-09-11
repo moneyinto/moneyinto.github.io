@@ -117,7 +117,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
+						<a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
 					</div>
 				</section>
 				
@@ -220,7 +220,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/02/canvas-some-problem-1/">canvas-some-problem-1</a>
+      <a class="article-title" href="/2016/09/02/canvas-some-problem-1/">学习canvas遇到的一些问题一</a>
     </h1>
   
 
@@ -229,8 +229,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-
-        
+        <p>最近在写一个canvas编辑图片的demo时遇到了两个canvas的奇怪问题，这里记载一下。</p>
+<hr>
+<h5 id="问题一：canvas的宽高度设置问题">问题一：canvas的宽高度设置问题</h5><p><strong><em>有两种可以正确的实现的方式</em></strong></p>
+<ul>
+<li><p>直接在标签上实现</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">width</span>=<span class="value">"200"</span> <span class="attribute">height</span>=<span class="value">"200"</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过js设置实现</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">id</span>=<span class="value">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="mel"></span><br><span class="line">    <span class="keyword">canvas</span> = document.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    context = <span class="keyword">canvas</span>.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    <span class="keyword">canvas</span>.width = <span class="number">200</span>;</span><br><span class="line">    <span class="keyword">canvas</span>.height = <span class="number">200</span>;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>通过css实现的都是错误的实现方式，都会使canvas被拉伸，使得canvas画图不准</em></strong></p>
       
     </div>
     
@@ -238,7 +248,15 @@
       
       
       
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Canvas/">Canvas</a>
+	</div>
 
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/02/canvas-some-problem-1/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
