@@ -203,6 +203,68 @@
 
       <div class="body-wrap">
   
+    <article id="post-ble-app-develop-knowledge-accumulation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/24/ble-app-develop-knowledge-accumulation/" class="article-date">
+  	<time datetime="2016-09-23T23:30:23.000Z" itemprop="datePublished">2016-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/24/ble-app-develop-knowledge-accumulation/">app蓝牙与硬件交互的一些积累</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近又在做需要蓝牙和硬件交互的app应用，想正好做一些这方面的积累，方便以后直接可以使用。</p>
+<p>手机app通过手机蓝牙向硬件的蓝牙发送数据，数据的处理都是有硬件底层的蓝牙缓存着再向硬件发送命令，命令执行完后硬件通过蓝牙向手机app发送通知命令。具体的底层的流程协议不做硬件开发还是不了解。</p>
+<p>关于与蓝牙的数据交互都是十六进制的。这里就会涉及到十进制和十六进制的转换。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/24/ble-app-develop-knowledge-accumulation/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-react-native-study-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -434,68 +496,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/09/01/jquery-prop-attr/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-html-tag-nested-rules-new-discovery" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/30/html-tag-nested-rules-new-discovery/" class="article-date">
-  	<time datetime="2016-08-30T05:56:50.000Z" itemprop="datePublished">2016-08-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/30/html-tag-nested-rules-new-discovery/">a标签嵌套-标签嵌套规则</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>开发时偶然写到两个a标签嵌套，发现一个奇怪问题。</p>
-<p>在chrome浏览器上：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span>&gt;</span> 外层a标签 <span class="tag">&lt;<span class="title">a</span>&gt;</span> 内层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>结果浏览器解析成了：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span>&gt;</span> 外层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;<span class="title">a</span>&gt;</span> 内层a标签 <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/web前端/">web前端</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/30/html-tag-nested-rules-new-discovery/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
