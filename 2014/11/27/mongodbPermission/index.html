@@ -7,25 +7,25 @@
   <title>mongodb 设置权限 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Mongodb提供了数据加权限的方法
-开启安全认证模式1//&amp;#25214;&amp;#21040;mongodb.conf&amp;#25991;&amp;#20214;&amp;#65292;&amp;#23558;auth = true&amp;#30340;&amp;#27880;&amp;#37322;&amp;#21435;&amp;#25481;&amp;#65292;&amp;#10;//&amp;#22914;&amp;#26524;&amp;#26159;linux&amp;#25110;ubuntu&amp;">
+开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongodb 设置权限">
 <meta property="og:url" content="http://yoursite.com/2014/11/27/mongodbPermission/index.html">
 <meta property="og:site_name" content="萧书语">
 <meta property="og:description" content="Mongodb提供了数据加权限的方法
-开启安全认证模式1//&amp;#25214;&amp;#21040;mongodb.conf&amp;#25991;&amp;#20214;&amp;#65292;&amp;#23558;auth = true&amp;#30340;&amp;#27880;&amp;#37322;&amp;#21435;&amp;#25481;&amp;#65292;&amp;#10;//&amp;#22914;&amp;#26524;&amp;#26159;linux&amp;#25110;ubuntu&amp;">
+开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
 <meta property="og:updated_time" content="2016-05-13T03:54:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongodb 设置权限">
 <meta name="twitter:description" content="Mongodb提供了数据加权限的方法
-开启安全认证模式1//&amp;#25214;&amp;#21040;mongodb.conf&amp;#25991;&amp;#20214;&amp;#65292;&amp;#23558;auth = true&amp;#30340;&amp;#27880;&amp;#37322;&amp;#21435;&amp;#25481;&amp;#65292;&amp;#10;//&amp;#22914;&amp;#26524;&amp;#26159;linux&amp;#25110;ubuntu&amp;">
+开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -244,32 +244,32 @@
       
 
         <h4 id="Mongodb提供了数据加权限的方法">Mongodb提供了数据加权限的方法</h4><ul>
-<li>开启安全认证模式<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#25214;&#21040;mongodb.conf&#25991;&#20214;&#65292;&#23558;auth = true&#30340;&#27880;&#37322;&#21435;&#25481;&#65292;&#10;//&#22914;&#26524;&#26159;linux&#25110;ubuntu&#31995;&#32479;&#20351;&#29992;apt-get&#23433;&#35013;&#30340;mongodb&#30340;&#35805;&#10;$ cd /etc&#10;$ vim mongodb.conf&#10;//&#20854;&#19982;&#31995;&#32479;&#25110;&#20854;&#20182;&#23433;&#35013;&#26041;&#27861;&#27809;&#26377;&#23581;&#35797;&#36807;&#65292;&#20854;&#33258;&#34892;&#26597;&#25214;</span><br></pre></td></tr></table></figure>
+<li>开启安全认证模式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//找到mongodb.conf文件，将auth = true的注释去掉，</div><div class="line">//如果是linux或ubuntu系统使用apt-get安装的mongodb的话</div><div class="line">$ cd /etc</div><div class="line">$ vim mongodb.conf</div><div class="line">//其与系统或其他安装方法没有尝试过，其自行查找</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <a id="more"></a>
 <p><br></p>
 <ul>
-<li>admin数据库添加管理员账号<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo&#10;$ use admin&#10;$ db.system.users.find()  //&#30475;&#30475;&#26377;&#27809;&#26377;&#25968;&#25454;&#10;$ db.addUser(&#39;name&#39;,&#39;password&#39;)  //&#28155;&#21152;&#31649;&#29702;&#21592;&#36134;&#21495;&#21450;&#23494;&#30721;</span><br></pre></td></tr></table></figure>
+<li>admin数据库添加管理员账号<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mongo</div><div class="line">$ use admin</div><div class="line">$ db.system.users.find()  //看看有没有数据</div><div class="line">$ db.addUser(&apos;name&apos;,&apos;password&apos;)  //添加管理员账号及密码</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><br></p>
 <ul>
-<li>用户数据库添加用户管理员账号<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo&#10;$ use &#39;dbName&#39;   //dbName&#20026;&#25968;&#25454;&#24211;&#30340;&#21517;&#10;$ db.addUser(&#39;name&#39;,&#39;password&#39;)</span><br></pre></td></tr></table></figure>
+<li>用户数据库添加用户管理员账号<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mongo</div><div class="line">$ use &apos;dbName&apos;   //dbName为数据库的名</div><div class="line">$ db.addUser(&apos;name&apos;,&apos;password&apos;)</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><br></p>
 <ul>
-<li>重启mongodb<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#20851;&#38381;mongodb&#10;$ sudo service mongodb stop&#10;$ sudo /etc/init.d/mongodb stop&#10;//&#24320;&#21551;mongodb&#10;$ sudo service mongodb start&#10;$ sudo /etc/init.d/mongodb start</span><br></pre></td></tr></table></figure>
+<li>重启mongodb<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//关闭mongodb</div><div class="line">$ sudo service mongodb stop</div><div class="line">$ sudo /etc/init.d/mongodb stop</div><div class="line">//开启mongodb</div><div class="line">$ sudo service mongodb start</div><div class="line">$ sudo /etc/init.d/mongodb start</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><br></p>
 <ul>
-<li>mongodb验证登陆<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo&#10;$ show dbs   //&#26174;&#31034;&#25968;&#25454;&#22833;&#36133;&#65292;&#22240;&#20026;&#27809;&#26377;&#35748;&#35777;&#10;$ use admin   //&#20999;&#25442;&#21040;admin&#25968;&#25454;&#24211;&#10;$ db.auth(&#39;name&#39;,&#39;password&#39;)   //&#39564;&#35777;&#25104;&#21151;&#36820;&#22238;1&#65292;&#22833;&#36133;&#36820;&#22238;0&#10;//&#20063;&#21487;&#20197;&#20999;&#25442;&#21040;&#26222;&#36890;&#29992;&#25143;&#25968;&#25454;&#24211;&#65292;&#20877;&#36827;&#34892;&#30331;&#38470;&#65292;&#20004;&#32773;&#30340;&#30331;&#38470;&#26435;&#38480;&#19981;&#21516;&#65292;&#19968;&#20010;&#26435;&#38480;&#26159;&#25805;&#20316;&#25152;&#26377;&#30340;&#25968;&#25454;&#24211;&#65292;&#19968;&#20010;&#26159;&#21482;&#33021;&#25805;&#20316;&#29992;&#25143;&#33258;&#24049;&#30340;&#25968;&#25454;&#24211;</span><br></pre></td></tr></table></figure>
+<li>mongodb验证登陆<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ mongo</div><div class="line">$ show dbs   //显示数据失败，因为没有认证</div><div class="line">$ use admin   //切换到admin数据库</div><div class="line">$ db.auth(&apos;name&apos;,&apos;password&apos;)   //验证成功返回1，失败返回0</div><div class="line">//也可以切换到普通用户数据库，再进行登陆，两者的登陆权限不同，一个权限是操作所有的数据库，一个是只能操作用户自己的数据库</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><br></p>
-<h4 id="那么工程应该如何登陆呢？">那么工程应该如何登陆呢？</h4><p>下面以nodejs工程为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链接数据库时候要加上用户名和密码</span></span><br><span class="line"><span class="string">"mongodb://"</span> + dbUsername + <span class="string">":"</span> + dbPassword + <span class="string">"@"</span> + host + <span class="string">":"</span> + port + <span class="string">"/"</span> + dbName</span><br></pre></td></tr></table></figure></p>
+<h4 id="那么工程应该如何登陆呢？">那么工程应该如何登陆呢？</h4><p>下面以nodejs工程为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//链接数据库时候要加上用户名和密码</span></div><div class="line"><span class="string">"mongodb://"</span> + dbUsername + <span class="string">":"</span> + dbPassword + <span class="string">"@"</span> + host + <span class="string">":"</span> + port + <span class="string">"/"</span> + dbName</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -352,15 +352,12 @@
     	<div class="footer-left">
     		&copy; 2016 moneyinto
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
     </div>
   </div>
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -376,8 +373,8 @@
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

@@ -6,22 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="萧书语">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="萧书语">
-<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -202,6 +199,71 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-npm-registry" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/04/npm-registry/" class="article-date">
+  	<time datetime="2016-10-04T15:33:48.000Z" itemprop="datePublished">2016-10-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/04/npm-registry/">npm换源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>npm为node.js的模块依赖管理工具，全称node package manager。</p>
+<p>npm的源由于在国外，所以用起来比较慢，这里可以使用国内比较优秀的npm镜像资源。</p>
+<p><a href="https://npm.taobao.org" target="_blank" rel="external">npm淘宝镜像</a></p>
+<h5 id="如何使用呢">如何使用呢</h5><p>1.通过cnpm使用<br>安装cnpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div><div class="line"></div><div class="line">cnpm -v</div></pre></td></tr></table></figure></p>
+<p>以后就可以通过cnpm代替npm来安装东西，只是cnpm安装的东西在位置上和npm有些区别，所以有时会导致requre找不到目标文件。</p>
+<p>2.临时使用npm换源下载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm --registry https://registry.npm.taobao.org install &apos;some&apos;</div></pre></td></tr></table></figure></p>
+<p>3.永久换源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org</div><div class="line"></div><div class="line">npm config get registry // 查看换源是否成功</div></pre></td></tr></table></figure></p>
+<p>关于npm的源有一个配置文件.npmrc，源配置路径都在这个文件里。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-angular2-study-1" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -442,77 +504,6 @@
 
 
   
-    <article id="post-canvas-some-problem-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/02/canvas-some-problem-1/" class="article-date">
-  	<time datetime="2016-09-02T10:33:56.000Z" itemprop="datePublished">2016-09-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/02/canvas-some-problem-1/">学习canvas遇到的一些问题一</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在写一个canvas编辑图片的demo时遇到了两个canvas的奇怪问题，这里记载一下。</p>
-<hr>
-<h5 id="问题一：canvas的宽高度设置问题">问题一：canvas的宽高度设置问题</h5><p><strong><em>有两种可以正确的实现的方式</em></strong></p>
-<ul>
-<li><p>直接在标签上实现</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">width</span>=<span class="value">"200"</span> <span class="attribute">height</span>=<span class="value">"200"</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过js设置实现</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">id</span>=<span class="value">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="mel"></span><br><span class="line">    <span class="keyword">canvas</span> = document.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">    context = <span class="keyword">canvas</span>.getContext(<span class="string">"2d"</span>);</span><br><span class="line">    <span class="keyword">canvas</span>.width = <span class="number">200</span>;</span><br><span class="line">    <span class="keyword">canvas</span>.height = <span class="number">200</span>;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong><em>通过css实现的都是错误的实现方式，都会使canvas被拉伸，使得canvas画图不准</em></strong></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Canvas/">Canvas</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/02/canvas-some-problem-1/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -525,15 +516,12 @@
     	<div class="footer-left">
     		&copy; 2016 moneyinto
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
     </div>
   </div>
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -549,8 +537,8 @@
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

@@ -6,22 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="萧书语">
 <meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="萧书语">
-<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -203,6 +200,74 @@
 
       <div class="body-wrap">
   
+    <article id="post-Nodemailer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/14/Nodemailer/" class="article-date">
+  	<time datetime="2014-12-14T04:25:13.000Z" itemprop="datePublished">2014-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/14/Nodemailer/">利用Nodemailer发送邮件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h5 id="安装Nodemailer">安装Nodemailer</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodemailer@v0.7.1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>注：版本为v0.7.1，当时试用了一次v1.0之后的版本，没有成功，报错提示让用v0.7.1版本，还没研究明白为什么新版本没有成功，可能一些方法配置还是老版本的，新版本有所更新，有待研究，希望有大神分享解释原因</em></strong></p>
+<ul>
+<li><h5 id="进行配置">进行配置</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"主机名"</span>, <span class="comment">// 主机</span></div><div class="line">    secureConnection: <span class="literal">true</span>, <span class="comment">// 使用 SSL</span></div><div class="line">    use_authentication: <span class="literal">true</span>,  <span class="comment">//使用qq等邮箱需要配置</span></div><div class="line">    port: <span class="number">465</span>, <span class="comment">// SMTP 端口</span></div><div class="line">    auth: &#123;</div><div class="line">        <span class="attr">user</span>: <span class="string">"***@***"</span>, <span class="comment">// 账号</span></div><div class="line">        pass: <span class="string">"password"</span> <span class="comment">// 密码</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/NodeJs/">NodeJs</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/14/Nodemailer/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-random-create-str" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -230,7 +295,7 @@
     <div class="article-entry" itemprop="articleBody">
       
 
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chars=<span class="string">'0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghijklmnopqrstuvwxyz'</span>.split(<span class="string">''</span>);</span><br><span class="line"><span class="keyword">var</span> length = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * chars.length);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    str += chars[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * chars.length)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> chars=<span class="string">'0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghijklmnopqrstuvwxyz'</span>.split(<span class="string">''</span>);</div><div class="line"><span class="keyword">var</span> length = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * chars.length);</div><div class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</div><div class="line">    str += chars[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * chars.length)];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -287,11 +352,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h5 id="1-首先了解一下javascript_Date对象的一些基本方法：">1.首先了解一下javascript Date对象的一些基本方法：</h5><blockquote>
-<p>可以打印一下Date对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Date</span>)</span><br></pre></td></tr></table></figure></p>
+<p>可以打印一下Date对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.dir(<span class="built_in">Date</span>)</div></pre></td></tr></table></figure></p>
 <p>可以看一下它的原型 <strong><em>prototype</em></strong>，里面是Date对象的function</p>
 </blockquote>
 <p>下面就简单介绍几种常用的方法：(详细请看<a href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp">http://www.w3school.com.cn/jsref/jsref_obj_date.asp</a>)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">myDate.getDate();   <span class="comment">//返回日期</span></span><br><span class="line">myDate.getDay();    <span class="comment">//返回周几（0~6，0为周日）</span></span><br><span class="line">myDate.getMouth();    <span class="comment">//返回月份</span></span><br><span class="line">mydate.getFullYear();    <span class="comment">//返回年份</span></span><br><span class="line">myDate.getHours();    <span class="comment">//返回小时（0~23）</span></span><br><span class="line">myDate.getMinutes();    <span class="comment">//返回分钟（0~59）</span></span><br><span class="line">myDate.getSeconds();     <span class="comment">//返回秒数（0~59）</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">myDate.getDate();   <span class="comment">//返回日期</span></div><div class="line">myDate.getDay();    <span class="comment">//返回周几（0~6，0为周日）</span></div><div class="line">myDate.getMouth();    <span class="comment">//返回月份</span></div><div class="line">mydate.getFullYear();    <span class="comment">//返回年份</span></div><div class="line">myDate.getHours();    <span class="comment">//返回小时（0~23）</span></div><div class="line">myDate.getMinutes();    <span class="comment">//返回分钟（0~59）</span></div><div class="line">myDate.getSeconds();     <span class="comment">//返回秒数（0~59）</span></div></pre></td></tr></table></figure>
 <p><strong><em>注：get如果在没有设置时间的情况下，获取的时间日期为当天的；</em></strong><br>
       
     </div>
@@ -420,13 +485,13 @@
         <ul>
 <li>创建数据库</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use test    //&#21019;&#24314;&#25968;&#25454;&#24211;test</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use test    //创建数据库test</div></pre></td></tr></table></figure>
 <p><br/></p>
 <ul>
 <li>创建collection并插入数据</li>
 </ul>
 <p>在传统的数据库中，创建完库后就会是创建表，但在mongodb中没有表的概念，而与其对应的概念是集合，即collection。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.insert(&#123;&#39;name&#39;:&#39;moneyinto&#39;,&#39;sex&#39;:&#39;man&#39;&#125;)&#10;//&#24403;&#26377;users&#26102;&#65292;&#36825;&#26465;&#21629;&#20196;&#21363;&#20026;&#22312;users&#20013;&#25554;&#20837;&#19968;&#26465;&#25968;&#25454;&#65292;&#22914;&#26524;&#27809;&#26377;users&#65292;&#21017;&#20250;&#26032;&#24314;&#19968;&#20010;&#22312;&#20889;&#20837;&#25968;&#25454;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.users.insert(&#123;&apos;name&apos;:&apos;moneyinto&apos;,&apos;sex&apos;:&apos;man&apos;&#125;)</div><div class="line">//当有users时，这条命令即为在users中插入一条数据，如果没有users，则会新建一个在写入数据</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -460,69 +525,6 @@
 
 
   
-    <article id="post-mongodbPermission" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/11/27/mongodbPermission/" class="article-date">
-  	<time datetime="2014-11-27T06:07:54.000Z" itemprop="datePublished">2014-11-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/27/mongodbPermission/">mongodb 设置权限</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Mongodb提供了数据加权限的方法">Mongodb提供了数据加权限的方法</h4><ul>
-<li>开启安全认证模式<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#25214;&#21040;mongodb.conf&#25991;&#20214;&#65292;&#23558;auth = true&#30340;&#27880;&#37322;&#21435;&#25481;&#65292;&#10;//&#22914;&#26524;&#26159;linux&#25110;ubuntu&#31995;&#32479;&#20351;&#29992;apt-get&#23433;&#35013;&#30340;mongodb&#30340;&#35805;&#10;$ cd /etc&#10;$ vim mongodb.conf&#10;//&#20854;&#19982;&#31995;&#32479;&#25110;&#20854;&#20182;&#23433;&#35013;&#26041;&#27861;&#27809;&#26377;&#23581;&#35797;&#36807;&#65292;&#20854;&#33258;&#34892;&#26597;&#25214;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/11/27/mongodbPermission/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -535,15 +537,12 @@
     	<div class="footer-left">
     		&copy; 2016 moneyinto
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
     </div>
   </div>
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -559,8 +558,8 @@
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 
