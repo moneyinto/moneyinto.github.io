@@ -7,21 +7,18 @@
   <title>JS积累学习 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、数组的合并
-数组合并不去重可以直接用Array.concat()1234var a = [1];var b = [1, 2];var c = [1, 2, 3];a.concat(b, c); //[1,1,2,1,2,3]
-自定义数组合并去重1234567891011121314151617181920212223var a = [1, 2, 3, 4];var b = [3, 4, 5,">
+数组合并不去重可以直接用Array.concat()1234var a = [1];var b = [1, 2];var c = [1, 2, 3];a.concat(b, c); //[1,1,2,1,2,3]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS积累学习">
 <meta property="og:url" content="http://yoursite.com/2016/10/30/js-knowledge-accumulation-1/index.html">
 <meta property="og:site_name" content="萧书语">
 <meta property="og:description" content="一、数组的合并
-数组合并不去重可以直接用Array.concat()1234var a = [1];var b = [1, 2];var c = [1, 2, 3];a.concat(b, c); //[1,1,2,1,2,3]
-自定义数组合并去重1234567891011121314151617181920212223var a = [1, 2, 3, 4];var b = [3, 4, 5,">
-<meta property="og:updated_time" content="2016-10-30T13:16:39.000Z">
+数组合并不去重可以直接用Array.concat()1234var a = [1];var b = [1, 2];var c = [1, 2, 3];a.concat(b, c); //[1,1,2,1,2,3]">
+<meta property="og:updated_time" content="2016-10-30T13:18:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS积累学习">
 <meta name="twitter:description" content="一、数组的合并
-数组合并不去重可以直接用Array.concat()1234var a = [1];var b = [1, 2];var c = [1, 2, 3];a.concat(b, c); //[1,1,2,1,2,3]
-自定义数组合并去重1234567891011121314151617181920212223var a = [1, 2, 3, 4];var b = [3, 4, 5,">
+数组合并不去重可以直接用Array.concat()1234var a = [1];var b = [1, 2];var c = [1, 2, 3];a.concat(b, c); //[1,1,2,1,2,3]">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
@@ -248,6 +245,7 @@
 
         <p>一、数组的合并</p>
 <p>数组合并不去重可以直接用Array.concat()<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>];</div><div class="line"><span class="keyword">var</span> b = [<span class="number">1</span>, <span class="number">2</span>];</div><div class="line"><span class="keyword">var</span> c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">a.concat(b, c); <span class="comment">//[1,1,2,1,2,3]</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>自定义数组合并去重<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> b = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MergeArray</span>(<span class="params">arr1,arr2</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> _arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr1.length;i++)&#123;</div><div class="line">       _arr.push(arr1[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr2.length;i++)&#123;</div><div class="line">        <span class="keyword">var</span> flag = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;arr1.length;j++)&#123;</div><div class="line">            <span class="keyword">if</span>(arr2[i]==arr1[j])&#123;</div><div class="line">                flag=<span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(flag)&#123;</div><div class="line">            _arr.push(arr2[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">MergeArray(a, b);  <span class="comment">//[1, 2, 3, 4, 5, 6]</span></div></pre></td></tr></table></figure></p>
 <p>关于数组去重的方法很多，详细的请看<a href="http://www.cnblogs.com/raincha/p/4848433.html" target="_blank" rel="external">javascript 数组合并与去重</a></p>
 <p>二、数组排序</p>
