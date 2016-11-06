@@ -200,6 +200,74 @@
 
       <div class="body-wrap">
   
+    <article id="post-android-gradle-speed" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/06/android-gradle-speed/" class="article-date">
+  	<time datetime="2016-11-06T02:59:43.000Z" itemprop="datePublished">2016-11-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/06/android-gradle-speed/">加速android gradle</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>在做webapp时打包android时，platform add android时需要下载android gradle，但是下载的速度特别的慢，要好久，我们可以拷贝下载链接，使用浏览器或者迅雷下载，这样会比较快。</p>
+<p>当下载好压缩包后，我们把它拷贝到相应的位置，首先我们找到.gradle文件夹：</p>
+<ul>
+<li>/home/<username>/.gradle/ (Linux)</username></li>
+<li>/Users/<username>/.gradle/ (Mac)</username></li>
+<li>C:\Users\<username>.gradle (Windows)</username></li>
+</ul>
+<p>我们在这个文件夹下线先创建gradle.properties文件，内容：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org<span class="selector-class">.gradle</span><span class="selector-class">.daemon</span>=true</div></pre></td></tr></table></figure></p>
+<p>然后我们找到添加platform产生的对应的文件夹，和压缩报名版本一样的文件夹，点进去里面存在一个像id一样长串名称的文件夹，点进去再点进dist文件夹，将压缩包拷贝进去，然后我们remove platform重新添加就可以了，这里后面的路径都是基于windows的，具体的Mac和Linux还没有看过。</p>
+<hr>
+<p>这样我们打包的速度就快了，不然下载一个60多MB的gradle，都要10-30分钟，这样我们1分钟可能就完成了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js-knowledge-accumulation-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -448,66 +516,9 @@
 
 
   
-    <article id="post-react-native-study-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/18/react-native-study-1/" class="article-date">
-  	<time datetime="2016-09-18T04:25:16.000Z" itemprop="datePublished">2016-09-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/18/react-native-study-1/">react-native学习笔记（一）之环境配置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/react-native/">react-native</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
