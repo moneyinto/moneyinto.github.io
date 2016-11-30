@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
+						<a class="article-category-link" href="/categories/Android/">Android</a><a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
 					</div>
 				</section>
 				
@@ -199,6 +199,137 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-canvas-image-editor" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/17/canvas-image-editor/" class="article-date">
+  	<time datetime="2016-09-17T10:51:10.000Z" itemprop="datePublished">2016-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/17/canvas-image-editor/">canvas图片编辑</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近学习canvas，用canvas做了一个简单的图片编辑器！<br><a href="https://jsfiddle.net/moneyinto/7jmLyqr8/">demo</a></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Canvas/">Canvas</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/17/canvas-image-editor/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-canvas-some-problem-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/02/canvas-some-problem-1/" class="article-date">
+  	<time datetime="2016-09-02T10:33:56.000Z" itemprop="datePublished">2016-09-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/02/canvas-some-problem-1/">学习canvas遇到的一些问题一</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在写一个canvas编辑图片的demo时遇到了两个canvas的奇怪问题，这里记载一下。</p>
+<hr>
+<h5 id="问题一：canvas的宽高度设置问题">问题一：canvas的宽高度设置问题</h5><p><strong><em>有两种可以正确的实现的方式</em></strong></p>
+<ul>
+<li><p>直接在标签上实现</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"200"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>通过js设置实现</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></div><div class="line">    canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</div><div class="line">    context = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line">    canvas.width = <span class="number">200</span>;</div><div class="line">    canvas.height = <span class="number">200</span>;</div><div class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>通过css实现的都是错误的实现方式，都会使canvas被拉伸，使得canvas画图不准</em></strong></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Canvas/">Canvas</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/02/canvas-some-problem-1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-jquery-prop-attr" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -365,141 +496,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/08/28/iphone-date-problem/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-mouse" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/18/js-mouse/" class="article-date">
-  	<time datetime="2016-06-18T01:54:45.000Z" itemprop="datePublished">2016-06-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/18/js-mouse/">Javascript鼠标事件总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Javascript鼠标事件总结">Javascript鼠标事件总结</h1><p><a href="http://codepen.io/moneyinto/pen/PzwoQE">demo</a></p>
-<ul>
-<li>mousedown：鼠标按下</li>
-<li>mouseup：鼠标弹起</li>
-<li>click：鼠标点击</li>
-<li>dblclick：鼠标双击</li>
-<li>contextmenu：鼠标右击</li>
-<li>mouseover：鼠标移到目标上</li>
-<li>mouseout：鼠标移出目标上</li>
-<li>mousemove：鼠标在目标上移动</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/06/18/js-mouse/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-keycode" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/18/js-keycode/" class="article-date">
-  	<time datetime="2016-06-18T01:54:45.000Z" itemprop="datePublished">2016-06-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/18/js-keycode/">键盘事件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="键盘事件">键盘事件</h2><ul>
-<li>onkeydown 会在键盘按下时触发</li>
-<li>onkeypress 会在键盘按下并抬起时触发</li>
-<li>onkeyup 会在键盘抬起时触发</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> e = event || <span class="built_in">window</span>.event || <span class="built_in">arguments</span>.callee.caller.arguments[<span class="number">0</span>];</div><div class="line">        alert(e.keyCode);</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/06/18/js-keycode/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

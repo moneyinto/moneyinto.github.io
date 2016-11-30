@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
+						<a class="article-category-link" href="/categories/Android/">Android</a><a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
 					</div>
 				</section>
 				
@@ -199,6 +199,138 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-JSCompress" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/16/JSCompress/" class="article-date">
+  	<time datetime="2015-03-16T06:57:35.000Z" itemprop="datePublished">2015-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/16/JSCompress/">JS 压缩字符串和图片</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-_JS压缩字符串">1. JS压缩字符串</h3><p><a href="http://www.cnblogs.com/liyinkan/archive/2011/09/16/2178686.html">摘录</a></p>
+<ul>
+<li><h5 id="对字符串进行压缩">对字符串进行压缩</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Compress</span>(<span class="params">strNormalString</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> strCompressedString = <span class="string">""</span>;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> ht = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">128</span>; i++) &#123;</div><div class="line">        ht[i] = i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> used = <span class="number">128</span>;</div><div class="line">    <span class="keyword">var</span> intLeftOver = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> intOutputCode = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> pcode = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> ccode = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> k = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;strNormalString.length; i++) &#123;</div><div class="line">        ccode = strNormalString.charCodeAt(i);</div><div class="line">        k = (pcode &lt;&lt; <span class="number">8</span>) | ccode;</div><div class="line">        <span class="keyword">if</span>(ht[k] != <span class="literal">null</span>) &#123;</div><div class="line">            pcode = ht[k];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            intLeftOver += <span class="number">12</span>;</div><div class="line">            intOutputCode &lt;&lt;= <span class="number">12</span>;</div><div class="line">            intOutputCode |= pcode;</div><div class="line">            pcode = ccode;</div><div class="line">            <span class="keyword">if</span>(intLeftOver &gt;= <span class="number">16</span>) &#123;</div><div class="line">                strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode &gt;&gt; ( intLeftOver - <span class="number">16</span> ) );</div><div class="line">                intOutputCode &amp;= (<span class="built_in">Math</span>.pow(<span class="number">2</span>, (intLeftOver - <span class="number">16</span>)) - <span class="number">1</span>);</div><div class="line">                intLeftOver -= <span class="number">16</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(used &lt; <span class="number">4096</span>) &#123;</div><div class="line">                used ++;</div><div class="line">                ht[k] = used - <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(pcode != <span class="number">0</span>) &#123;</div><div class="line">        intLeftOver += <span class="number">12</span>;</div><div class="line">        intOutputCode &lt;&lt;= <span class="number">12</span>;</div><div class="line">        intOutputCode |= pcode;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(intLeftOver &gt;= <span class="number">16</span>) &#123;</div><div class="line">        strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode &gt;&gt; ( intLeftOver - <span class="number">16</span> ) );</div><div class="line">        intOutputCode &amp;= (<span class="built_in">Math</span>.pow(<span class="number">2</span>,(intLeftOver - <span class="number">16</span>)) - <span class="number">1</span>);</div><div class="line">        intLeftOver -= <span class="number">16</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>( intLeftOver &gt; <span class="number">0</span>) &#123;</div><div class="line">        intOutputCode &lt;&lt;= (<span class="number">16</span> - intLeftOver);</div><div class="line">        strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> strCompressedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/03/16/JSCompress/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Nodemailer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/14/Nodemailer/" class="article-date">
+  	<time datetime="2014-12-14T04:25:13.000Z" itemprop="datePublished">2014-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/14/Nodemailer/">利用Nodemailer发送邮件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h5 id="安装Nodemailer">安装Nodemailer</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodemailer@v0.7.1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>注：版本为v0.7.1，当时试用了一次v1.0之后的版本，没有成功，报错提示让用v0.7.1版本，还没研究明白为什么新版本没有成功，可能一些方法配置还是老版本的，新版本有所更新，有待研究，希望有大神分享解释原因</em></strong></p>
+<ul>
+<li><h5 id="进行配置">进行配置</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"主机名"</span>, <span class="comment">// 主机</span></div><div class="line">    secureConnection: <span class="literal">true</span>, <span class="comment">// 使用 SSL</span></div><div class="line">    use_authentication: <span class="literal">true</span>,  <span class="comment">//使用qq等邮箱需要配置</span></div><div class="line">    port: <span class="number">465</span>, <span class="comment">// SMTP 端口</span></div><div class="line">    auth: &#123;</div><div class="line">        <span class="attr">user</span>: <span class="string">"***@***"</span>, <span class="comment">// 账号</span></div><div class="line">        pass: <span class="string">"password"</span> <span class="comment">// 密码</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/NodeJs/">NodeJs</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/14/Nodemailer/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-random-create-str" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -370,138 +502,6 @@
       
         <p class="article-more-link">
           <a  href="/2014/12/01/tengyuanzuowei/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-mongodb-base" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/11/27/mongodb-base/" class="article-date">
-  	<time datetime="2014-11-27T07:43:06.000Z" itemprop="datePublished">2014-11-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/27/mongodb-base/">mongodb 基础操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>创建数据库</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use test    //创建数据库test</div></pre></td></tr></table></figure>
-<p><br/></p>
-<ul>
-<li>创建collection并插入数据</li>
-</ul>
-<p>在传统的数据库中，创建完库后就会是创建表，但在mongodb中没有表的概念，而与其对应的概念是集合，即collection。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.users.insert(&#123;&apos;name&apos;:&apos;moneyinto&apos;,&apos;sex&apos;:&apos;man&apos;&#125;)</div><div class="line">//当有users时，这条命令即为在users中插入一条数据，如果没有users，则会新建一个在写入数据</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/11/27/mongodb-base/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-mongodbPermission" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/11/27/mongodbPermission/" class="article-date">
-  	<time datetime="2014-11-27T06:07:54.000Z" itemprop="datePublished">2014-11-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/27/mongodbPermission/">mongodb 设置权限</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Mongodb提供了数据加权限的方法">Mongodb提供了数据加权限的方法</h4><ul>
-<li>开启安全认证模式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//找到mongodb.conf文件，将auth = true的注释去掉，</div><div class="line">//如果是linux或ubuntu系统使用apt-get安装的mongodb的话</div><div class="line">$ cd /etc</div><div class="line">$ vim mongodb.conf</div><div class="line">//其与系统或其他安装方法没有尝试过，其自行查找</div></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/11/27/mongodbPermission/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
