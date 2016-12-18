@@ -200,6 +200,124 @@
 
       <div class="body-wrap">
   
+    <article id="post-wx-problem-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/18/wx-problem-1/" class="article-date">
+  	<time datetime="2016-12-18T08:14:15.000Z" itemprop="datePublished">2016-12-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/18/wx-problem-1/">微信公众号开发遇到的问题一</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="问题一：video脱离文档流">问题一：video脱离文档流</h5><p>在微信里嵌入视频播放，我想大家都会想到html5的video标签，嵌入一个视频播放，很简单，但是在微信中，video标签会被微信进行修改，<strong><code>微信的x5浏览器不支持html5的标准格式</code></strong>。<br>微信为什么要这样做了，在微信中的视频播放完后都会<strong><code>插入广告</code></strong>。要做公众号这点只能任由微信这样做了。<br>但是这样也就算了，微信开发中video都会<strong><code>脱离文档流</code></strong>，浮动到整个页面的最上层，特别当播放完后，这个video都不受控制了，上下滑动页面，视频会上下抖动，会遮住别的标签内容。</p>
+<p>关于这个问题的解决方案，目前我想到的有两种：</p>
+<ol>
+<li>接腾讯视频API，这样会很好的兼容x5内核浏览器；</li>
+<li>当页面滚动重写video（很扯淡的解法，但是没办法，有时还是很好用）。</li>
+</ol>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/web前端/">web前端</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/18/wx-problem-1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-asp-net-study-life-cycle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/15/asp-net-study-life-cycle/" class="article-date">
+  	<time datetime="2016-12-15T13:52:28.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/asp-net-study-life-cycle/">asp.net-study-life-cycle</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-android-study-activity-life-cycle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -392,139 +510,9 @@
 
 
   
-    <article id="post-angular1-directive" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/13/angular1-directive/" class="article-date">
-  	<time datetime="2016-11-13T00:51:29.000Z" itemprop="datePublished">2016-11-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/13/angular1-directive/">angular指令学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>指令，简单的说就是一个在DOM上运行的函数，对元素进行扩展。<br>关于指令的方法directive()接受两个参数，name和function，下面我们来看一下指令长啥样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[])</div><div class="line">.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//一个指令定义对象</span></div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">    	<span class="comment">//这里来写指令，和一些配置值</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/11/13/angular1-directive/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-android-gradle-speed" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/06/android-gradle-speed/" class="article-date">
-  	<time datetime="2016-11-06T02:59:43.000Z" itemprop="datePublished">2016-11-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/06/android-gradle-speed/">加速android gradle</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>在做webapp时打包android时，platform add android时需要下载android gradle，但是下载的速度特别的慢，要好久，我们可以拷贝下载链接，使用浏览器或者迅雷下载，这样会比较快。</p>
-<p>当下载好压缩包后，我们把它拷贝到相应的位置，首先我们找到.gradle文件夹：</p>
-<ul>
-<li>/home/<username>/.gradle/ (Linux)</username></li>
-<li>/Users/<username>/.gradle/ (Mac)</username></li>
-<li>C:\Users\<username>.gradle (Windows)</username></li>
-</ul>
-<p>我们在这个文件夹下线先创建gradle.properties文件，内容：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org<span class="selector-class">.gradle</span><span class="selector-class">.daemon</span>=true</div></pre></td></tr></table></figure></p>
-<p>然后我们找到添加platform产生的对应的文件夹，和压缩报名版本一样的文件夹，点进去里面存在一个像id一样长串名称的文件夹，点进去再点进dist文件夹，将压缩包拷贝进去，然后我们remove platform重新添加就可以了，这里后面的路径都是基于windows的，具体的Mac和Linux还没有看过。</p>
-<hr>
-<p>这样我们打包的速度就快了，不然下载一个60多MB的gradle，都要10-30分钟，这样我们1分钟可能就完成了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
