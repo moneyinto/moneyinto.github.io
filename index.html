@@ -200,6 +200,68 @@
 
       <div class="body-wrap">
   
+    <article id="post-history-study" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/24/history-study/" class="article-date">
+  	<time datetime="2016-12-24T00:29:19.000Z" itemprop="datePublished">2016-12-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/24/history-study/">history之学习联想</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.history.back()<br>通过这个方法我们可以像点击浏览器的返回按钮，实现页面的返回。<br>2.history.forward()<br>通过这个方法我们可以如果点击浏览器的前进按钮。<br>3.history.go()<br>跳转到session历史中的一个页面。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history.go(<span class="number">1</span>); <span class="comment">//向前一页</span></div><div class="line">history.go(<span class="number">-1</span>); <span class="comment">//向后一页</span></div><div class="line"><span class="comment">//通过传入参数可以前进退后多页（session中的历史页面）</span></div></pre></td></tr></table></figure></p>
+<p>4.history.pushState()<br>pushState可以传入三个参数，第一个参数为state对象，第二个参数为标题（试了好像不管用），第三个参数为跳转的url。</p>
+<p>state可以让我们存储一些json对象的值，我们可以在history.state中获取到值。<br>url可以传入一个相对路径，会在当前的路径下加上传入的url：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//路径为http://localhost:3000</span></div><div class="line">history.pushState(&#123;<span class="attr">name</span>: <span class="string">'moneyinto'</span>&#125;, <span class="string">'页面标题'</span>, <span class="string">'#another'</span>);</div><div class="line"><span class="comment">//之后的路径为http://localhost:3000/#another</span></div></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/web前端/">web前端</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/24/history-study/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-wx-problem-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -430,68 +492,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/11/30/web-layout-summary/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-array-object-clone" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/26/js-array-object-clone/" class="article-date">
-  	<time datetime="2016-11-26T01:10:51.000Z" itemprop="datePublished">2016-11-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/26/js-array-object-clone/">js数组对象克隆</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数组和对象都会有指向问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> b = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line">a==b; <span class="comment">//false</span></div><div class="line"><span class="comment">//这时a和b都是指向不同的数组，所以a和b不等</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> b = a;</div><div class="line">a==b; <span class="comment">//true</span></div><div class="line"><span class="comment">//这时a和b都指向同一个数组，所以a和b相等，这里不要理解为a指向数组，b指向a，其实他们都是直接指向数组的。</span></div></pre></td></tr></table></figure></p>
-<p>如果a和b都指向同一个数组或对象，当我们改变其中一个的值时，就会使得另外一个变量的值也跟着变了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> b = a;</div><div class="line">b.pop();</div><div class="line">a; <span class="comment">//[1,2]</span></div></pre></td></tr></table></figure></p>
-<p><strong><em>【注】数组是引用传值，数组的push(),pop(),splice()都会改变修改数组，但是concat()和slice()不会，所以这里说道简单的克隆数组，就可以用这两个方法实现。</em></strong></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/11/26/js-array-object-clone/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
