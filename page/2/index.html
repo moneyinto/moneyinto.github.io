@@ -200,6 +200,69 @@
 
       <div class="body-wrap">
   
+    <article id="post-web-layout-summary" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/30/web-layout-summary/" class="article-date">
+  	<time datetime="2016-11-30T00:20:51.000Z" itemprop="datePublished">2016-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/30/web-layout-summary/">web布局方式小结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于前端布局的方式，总结了一下，我自己常用的有这么几个：</p>
+<h6 id="1-最常用的就是float:left">1.最常用的就是<code>float:left</code></h6><p><code>float:left</code>直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。</p>
+<iframe scrolling="no" width="100%" height="300" src="http://jsfiddle.net/5n5ey5a3/embedded/result,html,css/light" frameborder="0" allowfullscreen></iframe>
+<p>但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的<code>clear:both</code>和<code>display:table</code>就可以很好的解决这个问题了。我们直接看代码和效果更直观些。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/web前端/">web前端</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/11/30/web-layout-summary/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js-array-object-clone" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -453,71 +516,6 @@
 
 
   
-    <article id="post-npm-registry" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/04/npm-registry/" class="article-date">
-  	<time datetime="2016-10-04T15:33:48.000Z" itemprop="datePublished">2016-10-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/04/npm-registry/">npm换源</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>npm为node.js的模块依赖管理工具，全称node package manager。</p>
-<p>npm的源由于在国外，所以用起来比较慢，这里可以使用国内比较优秀的npm镜像资源。</p>
-<p><a href="https://npm.taobao.org" target="_blank" rel="external">npm淘宝镜像</a></p>
-<h5 id="如何使用呢">如何使用呢</h5><p>1.通过cnpm使用<br>安装cnpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div><div class="line"></div><div class="line">cnpm -v</div></pre></td></tr></table></figure></p>
-<p>以后就可以通过cnpm代替npm来安装东西，只是cnpm安装的东西在位置上和npm有些区别，所以有时会导致requre找不到目标文件。</p>
-<p>2.临时使用npm换源下载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm --registry https://registry.npm.taobao.org install &apos;some&apos;</div></pre></td></tr></table></figure></p>
-<p>3.永久换源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org</div><div class="line"></div><div class="line">npm config get registry // 查看换源是否成功</div></pre></td></tr></table></figure></p>
-<p>关于npm的源有一个配置文件.npmrc，源配置路径都在这个文件里。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -528,7 +526,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 moneyinto
+    		&copy; 2017 moneyinto
     	</div>
     </div>
   </div>
