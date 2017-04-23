@@ -4,33 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>键盘事件 | 萧书语</title>
+  <title>ios history.back 页面不会刷新问题 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="键盘事件
-onkeydown 会在键盘按下时触发
-onkeypress 会在键盘按下并抬起时触发
-onkeyup 会在键盘抬起时触发
-
-1234document.onkeydown = function (event) &amp;#123;        var e = event || window.event || arguments.callee.caller.arguments[0];">
+  <meta name="description" content="苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。
+这里我们可以通过判断 onpageshow 的 persisted 状态来确定是否reload页面。
+12345678910111213//js写法window.onpageshow = function(event) &amp;#123;    if (event.persi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="键盘事件">
-<meta property="og:url" content="http://yoursite.com/2016/06/18/js-keycode/index.html">
+<meta property="og:title" content="ios history.back 页面不会刷新问题">
+<meta property="og:url" content="http://yoursite.com/2017/04/23/ios-history-back-reload/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description" content="键盘事件
-onkeydown 会在键盘按下时触发
-onkeypress 会在键盘按下并抬起时触发
-onkeyup 会在键盘抬起时触发
-
-1234document.onkeydown = function (event) &amp;#123;        var e = event || window.event || arguments.callee.caller.arguments[0];">
-<meta property="og:updated_time" content="2016-06-18T13:22:28.000Z">
+<meta property="og:description" content="苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。
+这里我们可以通过判断 onpageshow 的 persisted 状态来确定是否reload页面。
+12345678910111213//js写法window.onpageshow = function(event) &amp;#123;    if (event.persi">
+<meta property="og:updated_time" content="2017-04-23T07:26:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="键盘事件">
-<meta name="twitter:description" content="键盘事件
-onkeydown 会在键盘按下时触发
-onkeypress 会在键盘按下并抬起时触发
-onkeyup 会在键盘抬起时触发
-
-1234document.onkeydown = function (event) &amp;#123;        var e = event || window.event || arguments.callee.caller.arguments[0];">
+<meta name="twitter:title" content="ios history.back 页面不会刷新问题">
+<meta name="twitter:description" content="苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。
+这里我们可以通过判断 onpageshow 的 persisted 状态来确定是否reload页面。
+12345678910111213//js写法window.onpageshow = function(event) &amp;#123;    if (event.persi">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
@@ -217,11 +208,11 @@ onkeyup 会在键盘抬起时触发
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-js-keycode" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ios-history-back-reload" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/18/js-keycode/" class="article-date">
-  	<time datetime="2016-06-18T01:54:45.000Z" itemprop="datePublished">2016-06-18</time>
+      <a href="/2017/04/23/ios-history-back-reload/" class="article-date">
+  	<time datetime="2017-04-23T06:44:40.000Z" itemprop="datePublished">2017-04-23</time>
 </a>
     </div>
   
@@ -234,7 +225,7 @@ onkeyup 会在键盘抬起时触发
         
   
     <h1 class="article-title" itemprop="name">
-      键盘事件
+      ios history.back 页面不会刷新问题
     </h1>
   
 
@@ -255,248 +246,9 @@ onkeyup 会在键盘抬起时触发
     <div class="article-entry" itemprop="articleBody">
       
 
-        <h2 id="键盘事件">键盘事件</h2><ul>
-<li>onkeydown 会在键盘按下时触发</li>
-<li>onkeypress 会在键盘按下并抬起时触发</li>
-<li>onkeyup 会在键盘抬起时触发</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> e = event || <span class="built_in">window</span>.event || <span class="built_in">arguments</span>.callee.caller.arguments[<span class="number">0</span>];</div><div class="line">        alert(e.keyCode);</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="keycode积累">keycode积累</h5><table>
-<thead>
-<tr>
-<th>keycode</th>
-<th style="text-align:right">keyboard</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>8</td>
-<td style="text-align:right">Backspace</td>
-</tr>
-<tr>
-<td>9</td>
-<td style="text-align:right">Tab</td>
-</tr>
-<tr>
-<td>13</td>
-<td style="text-align:right">Enter</td>
-</tr>
-<tr>
-<td>16</td>
-<td style="text-align:right">shift</td>
-</tr>
-<tr>
-<td>17</td>
-<td style="text-align:right">ctrl</td>
-</tr>
-<tr>
-<td>18</td>
-<td style="text-align:right">Alt</td>
-</tr>
-<tr>
-<td>20</td>
-<td style="text-align:right">CspdLk</td>
-</tr>
-<tr>
-<td>27</td>
-<td style="text-align:right">Esc</td>
-</tr>
-<tr>
-<td>32</td>
-<td style="text-align:right">Space</td>
-</tr>
-<tr>
-<td>33</td>
-<td style="text-align:right">PgUp</td>
-</tr>
-<tr>
-<td>34</td>
-<td style="text-align:right">PgDn</td>
-</tr>
-<tr>
-<td>35</td>
-<td style="text-align:right">End</td>
-</tr>
-<tr>
-<td>36</td>
-<td style="text-align:right">Home</td>
-</tr>
-<tr>
-<td>37</td>
-<td style="text-align:right">left</td>
-</tr>
-<tr>
-<td>38</td>
-<td style="text-align:right">up</td>
-</tr>
-<tr>
-<td>39</td>
-<td style="text-align:right">right</td>
-</tr>
-<tr>
-<td>40</td>
-<td style="text-align:right">down</td>
-</tr>
-<tr>
-<td>45</td>
-<td style="text-align:right">Insert</td>
-</tr>
-<tr>
-<td>46</td>
-<td style="text-align:right">Delete</td>
-</tr>
-<tr>
-<td>48</td>
-<td style="text-align:right">0</td>
-</tr>
-<tr>
-<td>49</td>
-<td style="text-align:right">1</td>
-</tr>
-<tr>
-<td>50</td>
-<td style="text-align:right">2</td>
-</tr>
-<tr>
-<td>51</td>
-<td style="text-align:right">3</td>
-</tr>
-<tr>
-<td>52</td>
-<td style="text-align:right">4</td>
-</tr>
-<tr>
-<td>53</td>
-<td style="text-align:right">5</td>
-</tr>
-<tr>
-<td>54</td>
-<td style="text-align:right">6</td>
-</tr>
-<tr>
-<td>55</td>
-<td style="text-align:right">7</td>
-</tr>
-<tr>
-<td>56</td>
-<td style="text-align:right">8</td>
-</tr>
-<tr>
-<td>57</td>
-<td style="text-align:right">9</td>
-</tr>
-<tr>
-<td>65</td>
-<td style="text-align:right">a</td>
-</tr>
-<tr>
-<td>66</td>
-<td style="text-align:right">b</td>
-</tr>
-<tr>
-<td>67</td>
-<td style="text-align:right">c</td>
-</tr>
-<tr>
-<td>68</td>
-<td style="text-align:right">d</td>
-</tr>
-<tr>
-<td>69</td>
-<td style="text-align:right">e</td>
-</tr>
-<tr>
-<td>70</td>
-<td style="text-align:right">f</td>
-</tr>
-<tr>
-<td>71</td>
-<td style="text-align:right">g</td>
-</tr>
-<tr>
-<td>72</td>
-<td style="text-align:right">h</td>
-</tr>
-<tr>
-<td>73</td>
-<td style="text-align:right">i</td>
-</tr>
-<tr>
-<td>74</td>
-<td style="text-align:right">j</td>
-</tr>
-<tr>
-<td>75</td>
-<td style="text-align:right">k</td>
-</tr>
-<tr>
-<td>76</td>
-<td style="text-align:right">l</td>
-</tr>
-<tr>
-<td>77</td>
-<td style="text-align:right">m</td>
-</tr>
-<tr>
-<td>78</td>
-<td style="text-align:right">n</td>
-</tr>
-<tr>
-<td>79</td>
-<td style="text-align:right">o</td>
-</tr>
-<tr>
-<td>80</td>
-<td style="text-align:right">p</td>
-</tr>
-<tr>
-<td>81</td>
-<td style="text-align:right">q</td>
-</tr>
-<tr>
-<td>82</td>
-<td style="text-align:right">r</td>
-</tr>
-<tr>
-<td>83</td>
-<td style="text-align:right">s</td>
-</tr>
-<tr>
-<td>84</td>
-<td style="text-align:right">t</td>
-</tr>
-<tr>
-<td>85</td>
-<td style="text-align:right">u</td>
-</tr>
-<tr>
-<td>86</td>
-<td style="text-align:right">v</td>
-</tr>
-<tr>
-<td>87</td>
-<td style="text-align:right">w</td>
-</tr>
-<tr>
-<td>88</td>
-<td style="text-align:right">x</td>
-</tr>
-<tr>
-<td>89</td>
-<td style="text-align:right">y</td>
-</tr>
-<tr>
-<td>90</td>
-<td style="text-align:right">z</td>
-</tr>
-<tr>
-<td>91</td>
-<td style="text-align:right">win</td>
-</tr>
-</tbody>
-</table>
-
+        <p>苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。</p>
+<p>这里我们可以通过判断 <code>onpageshow</code> 的 <code>persisted</code> 状态来确定是否reload页面。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js写法</span></div><div class="line"><span class="built_in">window</span>.onpageshow = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()；</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//jquery写法</span></div><div class="line">$(<span class="built_in">window</span>).bind(<span class="string">"pageshow"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.originalEvent.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()；</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -505,18 +257,9 @@ onkeyup 会在键盘抬起时触发
     
 <nav id="article-nav">
   
-    <a href="/2016/06/18/js-mouse/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Javascript鼠标事件总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/13/gulp-study/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">gulp学习</div>
+    <a href="/2017/03/12/recursion/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">递归算法在组织架构的应用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -551,7 +294,7 @@ onkeyup 会在键盘抬起时触发
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js-keycode" data-title="键盘事件" data-url="http://yoursite.com/2016/06/18/js-keycode/"></div>
+	<div class="ds-thread" data-thread-key="ios-history-back-reload" data-title="ios history.back 页面不会刷新问题" data-url="http://yoursite.com/2017/04/23/ios-history-back-reload/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
