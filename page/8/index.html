@@ -200,6 +200,262 @@
 
       <div class="body-wrap">
   
+    <article id="post-Nodemailer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/14/Nodemailer/" class="article-date">
+  	<time datetime="2014-12-14T04:25:13.000Z" itemprop="datePublished">2014-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/14/Nodemailer/">利用Nodemailer发送邮件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h5 id="安装Nodemailer">安装Nodemailer</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodemailer@v0.7.1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>注：版本为v0.7.1，当时试用了一次v1.0之后的版本，没有成功，报错提示让用v0.7.1版本，还没研究明白为什么新版本没有成功，可能一些方法配置还是老版本的，新版本有所更新，有待研究，希望有大神分享解释原因</em></strong></p>
+<ul>
+<li><h5 id="进行配置">进行配置</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"主机名"</span>, <span class="comment">// 主机</span></div><div class="line">    secureConnection: <span class="literal">true</span>, <span class="comment">// 使用 SSL</span></div><div class="line">    use_authentication: <span class="literal">true</span>,  <span class="comment">//使用qq等邮箱需要配置</span></div><div class="line">    port: <span class="number">465</span>, <span class="comment">// SMTP 端口</span></div><div class="line">    auth: &#123;</div><div class="line">        <span class="attr">user</span>: <span class="string">"***@***"</span>, <span class="comment">// 账号</span></div><div class="line">        pass: <span class="string">"password"</span> <span class="comment">// 密码</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/NodeJs/">NodeJs</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/14/Nodemailer/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-random-create-str" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/14/random-create-str/" class="article-date">
+  	<time datetime="2014-12-14T03:34:51.000Z" itemprop="datePublished">2014-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/14/random-create-str/">随机产生字符串（积累）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> chars=<span class="string">'0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghijklmnopqrstuvwxyz'</span>.split(<span class="string">''</span>);</div><div class="line"><span class="keyword">var</span> length = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * chars.length);</div><div class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</div><div class="line">    str += chars[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * chars.length)];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-js-date" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/14/js-date/" class="article-date">
+  	<time datetime="2014-12-14T02:05:25.000Z" itemprop="datePublished">2014-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/14/js-date/">js时间上的操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-首先了解一下javascript_Date对象的一些基本方法：">1.首先了解一下javascript Date对象的一些基本方法：</h5><blockquote>
+<p>可以打印一下Date对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.dir(<span class="built_in">Date</span>)</div></pre></td></tr></table></figure></p>
+<p>可以看一下它的原型 <strong><em>prototype</em></strong>，里面是Date对象的function</p>
+</blockquote>
+<p>下面就简单介绍几种常用的方法：(详细请看<a href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp">http://www.w3school.com.cn/jsref/jsref_obj_date.asp</a>)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">myDate.getDate();   <span class="comment">//返回日期</span></div><div class="line">myDate.getDay();    <span class="comment">//返回周几（0~6，0为周日）</span></div><div class="line">myDate.getMouth();    <span class="comment">//返回月份</span></div><div class="line">mydate.getFullYear();    <span class="comment">//返回年份</span></div><div class="line">myDate.getHours();    <span class="comment">//返回小时（0~23）</span></div><div class="line">myDate.getMinutes();    <span class="comment">//返回分钟（0~59）</span></div><div class="line">myDate.getSeconds();     <span class="comment">//返回秒数（0~59）</span></div></pre></td></tr></table></figure>
+<p><strong><em>注：get如果在没有设置时间的情况下，获取的时间日期为当天的；</em></strong><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/14/js-date/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tengyuanzuowei" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/01/tengyuanzuowei/" class="article-date">
+  	<time datetime="2014-12-01T05:16:44.000Z" itemprop="datePublished">2014-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/01/tengyuanzuowei/">藤原佐为</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="藤原佐为，千年执着">藤原佐为，千年执着</h4><p><img src="/img/tengyuanzuowei/9.jpg" /></p>
+<p>偶然间看了一个动漫，对围棋执着的藤原佐为。</p>
+<p>看了之后，被里面人物的努力，执着，冷静，耐心深深折服，感慨自己。。。</p>
+<p>一个棋盘，黑白的棋子，静静坐在旁边思考自己的人生，领悟围棋的真谛。</p>
+<p>我需要的不是围棋，只是它给我带来的心的宁静！</p>
+<p>吾日三省吾身，每天净化自己的灵魂，提升自己的境界！<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/随笔/">随笔</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/01/tengyuanzuowei/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-mongodb-base" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -269,261 +525,9 @@
 
 
   
-    <article id="post-mongodbPermission" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/11/27/mongodbPermission/" class="article-date">
-  	<time datetime="2014-11-27T06:07:54.000Z" itemprop="datePublished">2014-11-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/27/mongodbPermission/">mongodb 设置权限</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Mongodb提供了数据加权限的方法">Mongodb提供了数据加权限的方法</h4><ul>
-<li>开启安全认证模式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//找到mongodb.conf文件，将auth = true的注释去掉，</div><div class="line">//如果是linux或ubuntu系统使用apt-get安装的mongodb的话</div><div class="line">$ cd /etc</div><div class="line">$ vim mongodb.conf</div><div class="line">//其与系统或其他安装方法没有尝试过，其自行查找</div></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/11/27/mongodbPermission/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JsClosure" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/11/05/JsClosure/" class="article-date">
-  	<time datetime="2014-11-05T07:45:48.000Z" itemprop="datePublished">2014-11-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/05/JsClosure/">Javascript闭包了解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-_闭包的概念">1. 闭包的概念</h3><ul>
-<li>简单理解为 <strong><em><code>所有的函数</code></em></strong> 都是闭包；</li>
-<li>细化理解一下，闭包就是 <strong><em><code>读取外部变量</code></em></strong> 的函数；</li>
-<li>再细化一下，可以理解为定义在一个 <strong><em><code>函数内部</code></em></strong> 读取外部变量的函数。</li>
-</ul>
-<p><strong>函数读取外部变量:</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">&#125;</div><div class="line">f1();  <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
-<p><strong><em>注意：</em></strong></p>
-<ul>
-<li>函数内部声明的局部变量，函数外部无法读取；</li>
-<li><p>子对象可以获取父级对象的变量，但是父级对象无法获取子对象的变量！</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/11/05/JsClosure/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JQuery" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/10/21/JQuery/" class="article-date">
-  	<time datetime="2014-10-21T04:43:11.000Z" itemprop="datePublished">2014-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/JQuery/">利用JQuery解决IE9不支持placeholder属性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><br><br>HTMl5增加了很多的属性，但是有些属性不兼容旧版本的浏览器，尤其是IE的。</p>
-<p>现在就利用JQuery的方法来解决IE9及之前的版本不支持input的placeholder属性的问题。</p>
-<p><a href="http://jsfiddle.net/moneyinto/rb3z6mcm/"><strong><em>demo</em></strong></a><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/web前端/">web前端</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/10/21/JQuery/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-my-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/10/21/my-first-blog/" class="article-date">
-  	<time datetime="2014-10-21T01:57:00.000Z" itemprop="datePublished">2014-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/my-first-blog/">my_first_blog</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>借助github开源，终于搭建完了属于自己的blog，这里就是我畅游记忆的天地了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/随笔/">随笔</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 </div>
