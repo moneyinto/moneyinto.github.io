@@ -200,6 +200,59 @@
 
       <div class="body-wrap">
   
+    <article id="post-browser-compatibility" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/21/browser-compatibility/" class="article-date">
+  	<time datetime="2015-08-21T06:28:52.000Z" itemprop="datePublished">2015-08-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/21/browser-compatibility/">browser-compatibility</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-localhost" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -447,70 +500,6 @@
 
 
   
-    <article id="post-JSCompress" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/03/16/JSCompress/" class="article-date">
-  	<time datetime="2015-03-16T06:57:35.000Z" itemprop="datePublished">2015-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/16/JSCompress/">JS 压缩字符串和图片</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-_JS压缩字符串">1. JS压缩字符串</h3><p><a href="http://www.cnblogs.com/liyinkan/archive/2011/09/16/2178686.html">摘录</a></p>
-<ul>
-<li><h5 id="对字符串进行压缩">对字符串进行压缩</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Compress</span>(<span class="params">strNormalString</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> strCompressedString = <span class="string">""</span>;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> ht = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">128</span>; i++) &#123;</div><div class="line">        ht[i] = i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> used = <span class="number">128</span>;</div><div class="line">    <span class="keyword">var</span> intLeftOver = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> intOutputCode = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> pcode = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> ccode = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> k = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;strNormalString.length; i++) &#123;</div><div class="line">        ccode = strNormalString.charCodeAt(i);</div><div class="line">        k = (pcode &lt;&lt; <span class="number">8</span>) | ccode;</div><div class="line">        <span class="keyword">if</span>(ht[k] != <span class="literal">null</span>) &#123;</div><div class="line">            pcode = ht[k];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            intLeftOver += <span class="number">12</span>;</div><div class="line">            intOutputCode &lt;&lt;= <span class="number">12</span>;</div><div class="line">            intOutputCode |= pcode;</div><div class="line">            pcode = ccode;</div><div class="line">            <span class="keyword">if</span>(intLeftOver &gt;= <span class="number">16</span>) &#123;</div><div class="line">                strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode &gt;&gt; ( intLeftOver - <span class="number">16</span> ) );</div><div class="line">                intOutputCode &amp;= (<span class="built_in">Math</span>.pow(<span class="number">2</span>, (intLeftOver - <span class="number">16</span>)) - <span class="number">1</span>);</div><div class="line">                intLeftOver -= <span class="number">16</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(used &lt; <span class="number">4096</span>) &#123;</div><div class="line">                used ++;</div><div class="line">                ht[k] = used - <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(pcode != <span class="number">0</span>) &#123;</div><div class="line">        intLeftOver += <span class="number">12</span>;</div><div class="line">        intOutputCode &lt;&lt;= <span class="number">12</span>;</div><div class="line">        intOutputCode |= pcode;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(intLeftOver &gt;= <span class="number">16</span>) &#123;</div><div class="line">        strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode &gt;&gt; ( intLeftOver - <span class="number">16</span> ) );</div><div class="line">        intOutputCode &amp;= (<span class="built_in">Math</span>.pow(<span class="number">2</span>,(intLeftOver - <span class="number">16</span>)) - <span class="number">1</span>);</div><div class="line">        intLeftOver -= <span class="number">16</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>( intLeftOver &gt; <span class="number">0</span>) &#123;</div><div class="line">        intOutputCode &lt;&lt;= (<span class="number">16</span> - intLeftOver);</div><div class="line">        strCompressedString += <span class="built_in">String</span>.fromCharCode( intOutputCode );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> strCompressedString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/03/16/JSCompress/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -521,7 +510,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 moneyinto
+    		&copy; 2019 moneyinto
     	</div>
     </div>
   </div>

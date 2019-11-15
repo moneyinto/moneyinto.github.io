@@ -200,6 +200,64 @@
 
       <div class="body-wrap">
   
+    <article id="post-teminal-set-proxy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/15/teminal-set-proxy/" class="article-date">
+  	<time datetime="2019-11-15T12:44:32.000Z" itemprop="datePublished">2019-11-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/15/teminal-set-proxy/">终端设置取消代理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <h4 id="设置代理">设置代理</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> http_proxy=http:<span class="comment">//127.0.0.1:1080</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> https_prosy=http:<span class="comment">//127.0.0.1:1080</span></div></pre></td></tr></table></figure>
+<h4 id="取消代理">取消代理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">unset</span> http_proxy</div><div class="line"></div><div class="line"><span class="built_in">unset</span> https_proxy</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js-some-attention-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -449,65 +507,6 @@
 
 
   
-    <article id="post-ios-history-back-reload" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/23/ios-history-back-reload/" class="article-date">
-  	<time datetime="2017-04-23T06:44:40.000Z" itemprop="datePublished">2017-04-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/23/ios-history-back-reload/">ios history.back 页面不会刷新问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。</p>
-<p>这里我们可以通过判断 <code>onpageshow</code> 的 <code>persisted</code> 状态来确定是否reload页面。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js写法</span></div><div class="line"><span class="built_in">window</span>.onpageshow = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()；</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//jquery写法</span></div><div class="line">$(<span class="built_in">window</span>).bind(<span class="string">"pageshow"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.originalEvent.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()；</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -518,7 +517,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 moneyinto
+    		&copy; 2019 moneyinto
     	</div>
     </div>
   </div>

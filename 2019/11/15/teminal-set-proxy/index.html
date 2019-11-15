@@ -4,24 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>ios history.back 页面不会刷新问题 | 萧书语</title>
+  <title>终端设置取消代理 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。
-这里我们可以通过判断 onpageshow 的 persisted 状态来确定是否reload页面。
-12345678910111213//js写法window.onpageshow = function(event) &amp;#123;    if (event.persi">
+  <meta name="description" content="设置代理123export http_proxy=http://127.0.0.1:1080export https_prosy=http://127.0.0.1:1080
+取消代理123unset http_proxyunset https_proxy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ios history.back 页面不会刷新问题">
-<meta property="og:url" content="http://yoursite.com/2017/04/23/ios-history-back-reload/index.html">
+<meta property="og:title" content="终端设置取消代理">
+<meta property="og:url" content="http://yoursite.com/2019/11/15/teminal-set-proxy/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description" content="苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。
-这里我们可以通过判断 onpageshow 的 persisted 状态来确定是否reload页面。
-12345678910111213//js写法window.onpageshow = function(event) &amp;#123;    if (event.persi">
-<meta property="og:updated_time" content="2017-04-23T07:26:28.000Z">
+<meta property="og:description" content="设置代理123export http_proxy=http://127.0.0.1:1080export https_prosy=http://127.0.0.1:1080
+取消代理123unset http_proxyunset https_proxy">
+<meta property="og:updated_time" content="2019-11-15T12:52:34.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ios history.back 页面不会刷新问题">
-<meta name="twitter:description" content="苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。
-这里我们可以通过判断 onpageshow 的 persisted 状态来确定是否reload页面。
-12345678910111213//js写法window.onpageshow = function(event) &amp;#123;    if (event.persi">
+<meta name="twitter:title" content="终端设置取消代理">
+<meta name="twitter:description" content="设置代理123export http_proxy=http://127.0.0.1:1080export https_prosy=http://127.0.0.1:1080
+取消代理123unset http_proxyunset https_proxy">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
@@ -208,11 +205,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-ios-history-back-reload" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-teminal-set-proxy" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/23/ios-history-back-reload/" class="article-date">
-  	<time datetime="2017-04-23T06:44:40.000Z" itemprop="datePublished">2017-04-23</time>
+      <a href="/2019/11/15/teminal-set-proxy/" class="article-date">
+  	<time datetime="2019-11-15T12:44:32.000Z" itemprop="datePublished">2019-11-15</time>
 </a>
     </div>
   
@@ -225,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ios history.back 页面不会刷新问题
+      终端设置取消代理
     </h1>
   
 
@@ -235,7 +232,7 @@
         
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
 	</div>
 
 
@@ -246,9 +243,8 @@
     <div class="article-entry" itemprop="articleBody">
       
 
-        <p>苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。</p>
-<p>这里我们可以通过判断 <code>onpageshow</code> 的 <code>persisted</code> 状态来确定是否reload页面。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js写法</span></div><div class="line"><span class="built_in">window</span>.onpageshow = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()；</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//jquery写法</span></div><div class="line">$(<span class="built_in">window</span>).bind(<span class="string">"pageshow"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.originalEvent.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()；</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+        <h4 id="设置代理">设置代理</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> http_proxy=http:<span class="comment">//127.0.0.1:1080</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> https_prosy=http:<span class="comment">//127.0.0.1:1080</span></div></pre></td></tr></table></figure>
+<h4 id="取消代理">取消代理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">unset</span> http_proxy</div><div class="line"></div><div class="line"><span class="built_in">unset</span> https_proxy</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -257,18 +253,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/08/26/json2array/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JSON转数组
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/12/recursion/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">递归算法在组织架构的应用</div>
+    <a href="/2017/08/26/js-some-attention-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js计算一些要注意的地方</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -303,7 +290,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ios-history-back-reload" data-title="ios history.back 页面不会刷新问题" data-url="http://yoursite.com/2017/04/23/ios-history-back-reload/"></div>
+	<div class="ds-thread" data-thread-key="teminal-set-proxy" data-title="终端设置取消代理" data-url="http://yoursite.com/2019/11/15/teminal-set-proxy/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
