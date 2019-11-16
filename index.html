@@ -229,27 +229,32 @@
 
         <h3 id="Could_not_find_iphone6_simulator">Could not find iphone6 simulator</h3><p><em>*</em>当我们使用的react-native低版本的时候，而我的mac系统环境升级了，我们再运行<figure class="highlight plain"><figcaption><span>run-ios```，这时候就会报上面的异常。***</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">######那我们如何来处理这个异常呢？</div><div class="line"></div><div class="line">- 既然是react-native版本太低了，简单直接的方法就是升级react-native，当然如果是维护已开发的项目，升级react-native版本后，会有一系列的版本代码需要升级。</div><div class="line"></div><div class="line">- 第二种方法呢，就是处理一下react-native这个包里面的代码，如下：</div><div class="line"></div><div class="line">	在node_modules中找到react-native，打开后找到 findMatchingSimulator.js</div><div class="line">    具体路径如下：</div></pre></td></tr></table></figure></p>
 <pre><code>./node_modules/react-native/local-cli/runIOS/findMatchingSimulator.js
-<span class="comment"><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">首先我们找到如下代码块：</div><div class="line">`<span class="javascript"></span>``<span class="javascript">js</span></div><div class="line"><span class="keyword">if</span> (!version.startsWith(<span class="string">'iOS'</span>) &amp;&amp; !version.startsWith(<span class="string">'tvOS'</span>))</div></pre></td></tr></table></figure></span></code></pre>
+<span class="comment"><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">首先我们找到如下代码块：</div><div class="line"></div><div class="line">`<span class="javascript"></span>``<span class="javascript">js</span></div><div class="line"><span class="keyword">if</span> (!version.startsWith(<span class="string">'iOS'</span>) &amp;&amp; !version.startsWith(<span class="string">'tvOS'</span>))</div></pre></td></tr></table></figure></span></code></pre>
 
 将startsWidth改成includes，即如下
+
 <span class="comment"><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!version.includes(<span class="string">'iOS'</span>) &amp;&amp; !version.includes(<span class="string">'tvOS'</span>))</div></pre></td></tr></table></figure></span>
 
 也在别的地方看到改成别的
+
 <span class="comment"><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!version.startsWith(<span class="string">'com.apple.CoreSimulator.SimRuntime.iOS'</span>) &amp;&amp; !version.startsWith(<span class="string">'com.apple.CoreSimulator.SimRuntime.tvOS'</span>))</div></pre></td></tr></table></figure></span>
 
 这里可以自己写一个console.log(version, devices)看看具体的输出。
 
-以上处理完后执行 <span class="comment"><figure class="highlight plain"><figcaption><span>run-ios``` 看看是否还报该异常。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   如果还有异常，在修改该文件中的这个部分</div><div class="line">```js</div><div class="line">   if (simulator.availability !== &apos;(available)&apos;)</div></pre></td></tr></table></figure></span>
+以上处理完后执行 <span class="comment"><figure class="highlight plain"><figcaption><span>run-ios``` 看看是否还报该异常。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   如果还有异常，在修改该文件中的这个部分</div><div class="line"></div><div class="line">```js</div><div class="line">   if (simulator.availability !== &apos;(available)&apos;)</div></pre></td></tr></table></figure></span>
 
 找到这个地方改成
+
 <span class="comment"><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (simulator.isAvailable !== <span class="literal">true</span>)</div></pre></td></tr></table></figure></span>
 
 同样的我们再次启动，如何还有该异常，我们还需要改原生的一块代码，找到如下路径文件
+
 <span class="comment"><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.<span class="regexp">/node_modules/</span>react-<span class="keyword">native</span><span class="regexp">/React/</span>Base<span class="regexp">/RCTModuleMethod.mm</span></div></pre></td></tr></table></figure></span>
 
 <span class="comment"><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="type">BOOL</span> <span class="type">RCTParseUnused</span>(const char **input)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">RCTReadString</span>(input, <span class="string">"__unused"</span>) ||</div><div class="line">         <span class="type">RCTReadString</span>(input, <span class="string">"__attribute__((unused))"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></span>
 
 改成
+
 <span class="comment"><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="type">BOOL</span> <span class="type">RCTParseUnused</span>(const char **input)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">RCTReadString</span>(input, <span class="string">"__unused"</span>) ||</div><div class="line">        <span class="type">RCTReadString</span>(input, <span class="string">"__attribute__((__unused__))"</span>) ||</div><div class="line">         <span class="type">RCTReadString</span>(input, <span class="string">"__attribute__((unused))"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></span>
 
 这时候再启动，恭喜你，应该可以启动成功了！
