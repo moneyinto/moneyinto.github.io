@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a class="article-category-link" href="/categories/Android/">Android</a><a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/iOS/">iOS</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
+						<a class="article-category-link" href="/categories/Android/">Android</a><a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/git/">git</a><a class="article-category-link" href="/categories/iOS/">iOS</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
 					</div>
 				</section>
 				
@@ -199,6 +199,143 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-git-set-ssh-key" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/03/27/git-set-ssh-key/" class="article-date">
+  	<time datetime="2020-03-27T11:48:19.000Z" itemprop="datePublished">2020-03-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/27/git-set-ssh-key/">git账号配置公钥</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>平时工作的时候会涉及到好几个代码管理的平台，<code>coding</code> <code>gitee</code> <code>github</code> <code>gitlab</code> 或者是自己搭建代码的管理库</p>
+<p>这时提交密码设置会很麻烦，有时一个平台甚至有几个账号。</p>
+<p>Mac本中git会记住密码，我当时用Mac，各个自己的平台账号用户名和密码都设置的一样，一开始用起来也没什么，后来和别的程序员对接代码库的时候，要提交到他们代码库的时候，<code>https</code>怎么都提交不上去，最后只能用<code>ssh</code>，我删了秘钥的一些东西，配置了秘钥，提交成功了，后来我自己的一些代码库的东西提交不上去了，丢了些东西。经过这么一折腾，还是老老实实的配置个公钥吧。</p>
+<h3 id="那我们Mac上如何配置公钥，配置多个公钥呢？"><strong><em>那我们Mac上如何配置公钥，配置多个公钥呢？</em></strong></h3><p>一些方面可以参考 <a href="https://gitee.com/help/articles/4191#article-header0" target="_blank" rel="external">gitee的文档</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"***@***.com"</span> -f ~<span class="regexp">/.ssh/</span>***_id_rsa</div></pre></td></tr></table></figure>
+<p>如上命令配置命名一个秘钥，会有三步操作，其中有要输入密码的，不想输入密码，直接<em>回车跳过</em>。</p>
+<p>由于我们的公钥配置的名字是自定义的，这时我们需要创建一个<code>config</code>文件来指定找到这个文件<br>将这些内容拷贝进去</p>
+<hr>
+<p># gitee<br>Host gitee.com<br>HostName gitee.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/***_id_rsa</p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi ~<span class="regexp">/.ssh/</span>config</div></pre></td></tr></table></figure>
+<p>查看文件的内容，将内容复制粘贴到平台的公钥管理的地方。这样我们就可以提交到对应的平台了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~<span class="regexp">/.ssh/</span>***_id_rsa.pub</div></pre></td></tr></table></figure>
+<p>我们可以一个公钥多个平台用，也可以每个平台配置一个，这个看自己需要。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/git/">git</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react-native-clear-cache" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/03/27/react-native-clear-cache/" class="article-date">
+  	<time datetime="2020-03-27T05:30:40.000Z" itemprop="datePublished">2020-03-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/27/react-native-clear-cache/">关于使用react-native-http-cache之 cocoapods 管理的ios项目 遇到的坑</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>关于<code>react-native-http-cache</code>，根据githuba上，第一步我们需要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yarn add react-native-http-cache</div><div class="line"></div><div class="line">// or</div><div class="line"></div><div class="line">npm install react-native-http-cache --save</div></pre></td></tr></table></figure>
+<p>然后执行</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-<span class="keyword">native</span> link react-<span class="keyword">native</span>-http-cache</div></pre></td></tr></table></figure>
+<p>安卓上我先不说了。但是遇到<code>cocoapods</code>管理的项目，<code>build</code>时会一直报找不到 <code>***.h</code>,网上也有些方法，改了之后还是会有一堆其他的问题，然后观察别的第三方库发现<code>cocoapods</code>可以管理 <code>react-native-http-cache</code>，于是依样画葫芦，在 <code>Podfile</code> 中加入了 <code>pod &#39;RCTHttpCache&#39;, :path =&gt; &#39;../node_modules/react-native-http-cache/ios&#39;</code>，但是不如人意，执行 <code>pod install</code> 报找不到 <code>react-native-http-cache</code> 的错误。<br>仔细观察别的没问题的第三方库时，发现每个库里会有这样一个文件 <code>***.podspec</code>，于是一样的也在 <code>react-native-http-cache</code> 加入了这样一个文件，命名为 RCTHttpCache.podspec`，我观察看应该文件名是这个依赖的项目名，然后里面还需要填入一些内容，于是继续仿写</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">require <span class="string">"json"</span></div><div class="line"></div><div class="line"><span class="attr">package</span> = JSON.parse(File.read(File.join(__dir__, <span class="string">"../package.json"</span>)))</div><div class="line"><span class="attr">version</span> = package[<span class="string">"version"</span>]</div><div class="line"><span class="attr">giturl</span> = package[<span class="string">"repository"</span>][<span class="string">"url"</span>]</div><div class="line"><span class="attr">bugsurl</span> = package[<span class="string">"bugs"</span>][<span class="string">"url"</span>]</div><div class="line"></div><div class="line">Pod::Spec.new do |s|</div><div class="line">  s.<span class="attr">name</span>         = <span class="string">"RCTHttpCache"</span></div><div class="line">  s.<span class="attr">version</span>      = version</div><div class="line">  s.<span class="attr">summary</span>      = <span class="string">"react-native-http-cache"</span></div><div class="line">  s.<span class="attr">description</span>  = &lt;&lt;-DESC</div><div class="line">                      Control http cache used by fetch/XMLHttpRequest</div><div class="line">                   DESC</div><div class="line">  s.<span class="attr">homepage</span>     = giturl</div><div class="line">  s.<span class="attr">license</span>      = <span class="string">"MIT"</span></div><div class="line">  <span class="comment"># s.license    = &#123; :type =&gt; "MIT" &#125;</span></div><div class="line">  s.<span class="attr">author</span>       = &#123; <span class="string">"tdzl2003"</span> =&gt; <span class="string">"git+https://github.com/reactnativecn/react-native-http-cache.git"</span> &#125;</div><div class="line">  s.<span class="attr">platform</span>     = :ios, <span class="string">"8.0"</span></div><div class="line">  s.<span class="attr">source</span>       = &#123; :<span class="attr">git</span> =&gt; giturl, :<span class="attr">tag</span> =&gt; version &#125;</div><div class="line">  s.<span class="attr">source_files</span>  = <span class="string">"RCTHttpCache/*.&#123;h,m&#125;"</span></div><div class="line">  s.<span class="attr">requires_arc</span> = <span class="literal">true</span></div><div class="line"></div><div class="line"></div><div class="line">  s.dependency <span class="string">"React"</span></div><div class="line">  <span class="comment">#s.dependency "others"</span></div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
+<p>观察看<br><code>s.name</code> 及为 依赖中 ios 的项目文件名<br><code>s.version</code> 为 版本号<br><code>v.summary</code><br><code>s.description</code> 为描述<br><code>s.homepage</code><br><code>s.license</code><br><code>s.author</code> 为 作者<br><code>s.platform</code> 为 运行系统<br><code>s.source</code><br><code>s.source_files</code> 为 加载的代码文件<br><code>s.requires_arc</code><br><code>s.dependency</code> 为 依赖的第三方库</p>
+<p>这些东西有些不填似乎也没事，我把这个文件拷贝到依赖的ios文件下面，然后执行<code>pod install</code> 成功的导入了 <code>RCTHttpCache</code></p>
+<p><strong><em>注意这里是手动加入的这个文件，当执行yarn操作别的依赖的时候回删掉该文件，可以做好文档记录，备份一份该文档，或者<code>fork</code>一份代码，加入文件，重新的地址安装该依赖</em></strong></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/react-native/">react-native</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-angular6-cannot-resolve-error" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -381,126 +518,6 @@
 
 
   
-    <article id="post-react-native-ImageBackground" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/20/react-native-ImageBackground/" class="article-date">
-  	<time datetime="2019-11-20T04:04:34.000Z" itemprop="datePublished">2019-11-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/20/react-native-ImageBackground/">react-native 背景 之 ImageBackground</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>开发者们常面对的一种需求就是类似web中的背景图（<code>background-image</code>）。要实现这一用例，只需简单使用<code>&lt;ImageBackground&gt;</code>组件，然后把需要背景图的子组件嵌入其中即可。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> (</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">ImageBackground</span> <span class="attr">source</span>=<span class="string">&#123;...&#125;</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">Text</span>&gt;</span>Inside<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ImageBackground</span>&gt;</span></div><div class="line">);</div></pre></td></tr></table></figure>
-<p>我们可以通过 <code>resizeMode</code> 来实现图片的内容模式，这个属性的参数值和 <code>background-size</code> 很相似。</p>
-<ul>
-<li>cover: 图片居中显示，没有被拉伸，超出部分被截断；</li>
-<li>contain: 容器完全容纳图片，图片等比例进拉伸；</li>
-<li>stretch: 图片被拉伸适应容器大小，有可能会发生变形。</li>
-</ul>
-<p><strong><em>这里有个比较重要的属性<code>imageStyle</code>，区别于<code>style</code>，这个属性是针对于背景图片的样式，比如我们如何实现一个背景图的圆角。</em></strong></p>
-<p>首先要设置<code>ImageBackground</code>的圆角，然后还要设置图片的圆角通过<code>imageStyle</code>。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/react-native/">react-native</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-react-native-text" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/20/react-native-text/" class="article-date">
-  	<time datetime="2019-11-20T04:04:11.000Z" itemprop="datePublished">2019-11-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/20/react-native-text/">react-native-text</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -511,7 +528,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 moneyinto
+    		&copy; 2020 moneyinto
     	</div>
     </div>
   </div>
