@@ -200,6 +200,146 @@
 
       <div class="body-wrap">
   
+    <article id="post-console-manage" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/04/06/console-manage/" class="article-date">
+  	<time datetime="2021-04-06T05:57:39.000Z" itemprop="datePublished">2021-04-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/06/console-manage/">自定义console，更优雅的控制日志输出</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>作为一个前端的程序员，我们调试的时候经常会用到<code>console</code>来输出日志，对数据进行分析，定位问题，解决问题，然后删掉console日志的代码。以后我们遇到问题出现在同一地方，还是得在同样的地方输出同样的数据进行分析。对于前端有些必要的地方可以保留日志输出的代码，但是这样有个不好的地方就是代码上线了，在控制台还是会有我们调试的日志的输出。</p>
+<p><strong><em>期望：开发的时候控制台能够看到日志，上线的时候看不到日志。</em></strong></p>
+<p>为了能更好的控制，我们会采取一些办法：</p>
+<ul>
+<li><p>第一种，我们可以通过打包工具配置来控制日志的输出</p>
+<p>  比如使用<code>webpack</code>，我们可以通过<code>UglifyJS</code>来处理，用<code>webpack 4</code>举个例子:<br>  首先安装插件：<code>npm i uglifyjs-webpack-plugin --save-dev</code><br>  配置选项：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">  	<span class="comment">// webpack.config.js</span></div><div class="line">  	<span class="keyword">const</span> UglifyJsPlugin = <span class="built_in">require</span>(<span class="string">'uglifyjs-webpack-plugin'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">			<span class="attr">plugins</span>: [</div><div class="line">  			<span class="keyword">new</span> UglifyJsPlugin(&#123;</div><div class="line">   				<span class="attr">uglifyOptions</span>: &#123;</div><div class="line">                      <span class="attr">compress</span>: &#123;</div><div class="line">                          <span class="attr">drop_console</span>: <span class="literal">true</span></div><div class="line">                  	&#125;</div><div class="line">    				&#125;</div><div class="line">  			&#125;)</div><div class="line">		]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  <strong><em>【注】：webpack 内置了 webpack.optimize.UglifyJsPlugin，基于的是 UglifyjsWebpackPlugin v0.4.6 版本</em></strong></p>
+</li>
+<li><p>第二种，我们通过改写替换原先的<code>console</code>方法</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> environment = <span class="string">'production'</span>;</div><div class="line"><span class="comment">// 自定义输出日志</span></div><div class="line">   <span class="built_in">console</span>.log = (<span class="function"><span class="keyword">function</span> (<span class="params">logFunc</span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">           <span class="keyword">try</span> &#123;</div><div class="line">               <span class="keyword">if</span> (environment == <span class="string">'production'</span>) &#123;</div><div class="line">	<span class="comment">// 发布环境，根据实际情况进行定义</span></div><div class="line">                   <span class="comment">// webapp 可以输出到文件</span></div><div class="line">               &#125; <span class="keyword">else</span> &#123;</div><div class="line">                   logFunc.call(<span class="built_in">console</span>, ...arguments);</div><div class="line">               &#125;</div><div class="line">           &#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line">               <span class="built_in">console</span>.error(e);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;)(<span class="built_in">console</span>.log);</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-about-git-projects-manage" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/04/01/about-git-projects-manage/" class="article-date">
+  	<time datetime="2021-04-01T03:52:58.000Z" itemprop="datePublished">2021-04-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/01/about-git-projects-manage/">关于项目Git代码管理的一些总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、项目Git分支构建">一、项目Git分支构建</h4><ul>
+<li><p><code>master</code> 主分支，只有项目的最高管理的研发具有该分支的操作权限，主分支的代码为线上稳定运行的版本代码；</p>
+</li>
+<li><p><code>develop</code> 开发分支，研发不允许直接在该分支上进行开发提交代码，该分支的代码为测试环境部署的最新代码；</p>
+</li>
+<li><p><code>release-(版本号)</code> 该分支是由<code>master</code>分离出的分支，对测试通过的<code>develop</code>上的代码进行<code>merge</code>合并，该分支版本为上线试运行版本，运行没问题后再合并到<code>master</code>分支上；</p>
+</li>
+<li><p><code>feature-(功能命名分支)</code> 该分支为迭代开发的一个模块功能的需求，有<code>develop</code>分支上切分出来的分支；</p>
+</li>
+<li><p><code>feature-(功能命名分支)-(功能开发者)</code> 该分支为对应的研发的分支，有功能分支切分出来的代码，<strong><em>该分支仅为本地分支，可以不提交到线上</em></strong>；</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2021/04/01/about-git-projects-manage/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git-set-ssh-key" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -401,123 +541,6 @@
 
 
   
-    <article id="post-iOS-archive-connect-unsupported-architecture-x86-64s" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/27/iOS-archive-connect-unsupported-architecture-x86-64s/" class="article-date">
-  	<time datetime="2019-11-27T02:30:34.000Z" itemprop="datePublished">2019-11-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/27/iOS-archive-connect-unsupported-architecture-x86-64s/">解决iOS archive到App Store Connect时提示AipBase.framework contains unsupported architectures [x86_64, i386]</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>用script命令去掉这3个framework里面不支持的x86_64, i386的结构</p>
-<p><img src="/img/ios_architectures_add_scripts.png"></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">APP_PATH="$&#123;TARGET_BUILD_DIR&#125;/$&#123;WRAPPER_NAME&#125;"</div><div class="line"></div><div class="line"># This script loops through the frameworks embedded in the application and</div><div class="line"></div><div class="line"># removes unused architectures.</div><div class="line"></div><div class="line">find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK</div><div class="line"></div><div class="line">do</div><div class="line"></div><div class="line">FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)</div><div class="line"></div><div class="line">FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"</div><div class="line"></div><div class="line">echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">EXTRACTED_ARCHS=()</div><div class="line"></div><div class="line">for ARCH in $ARCHS</div><div class="line"></div><div class="line">do</div><div class="line"></div><div class="line">echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"</div><div class="line"></div><div class="line">lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"</div><div class="line"></div><div class="line">EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")</div><div class="line"></div><div class="line">done</div><div class="line"></div><div class="line">echo "Merging extracted architectures: $&#123;ARCHS&#125;"</div><div class="line"></div><div class="line">lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "$&#123;EXTRACTED_ARCHS[@]&#125;"</div><div class="line"></div><div class="line">rm "$&#123;EXTRACTED_ARCHS[@]&#125;"</div><div class="line"></div><div class="line">echo "Replacing original executable with thinned version"</div><div class="line"></div><div class="line">rm "$FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">done</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-react-native-shadow" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/20/react-native-shadow/" class="article-date">
-  	<time datetime="2019-11-20T04:06:18.000Z" itemprop="datePublished">2019-11-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/20/react-native-shadow/">react-native 阴影</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <h5 id="阴影效果">阴影效果</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">shadowColor: <span class="string">'#000'</span>,</div><div class="line"><span class="attr">shadowOffset</span>: &#123; <span class="attr">width</span>: <span class="number">0</span>, <span class="attr">height</span>: <span class="number">2</span> &#125;,</div><div class="line"><span class="attr">shadowOpacity</span>: <span class="number">0.2</span></div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/react-native/">react-native</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -528,7 +551,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 moneyinto
+    		&copy; 2021 moneyinto
     	</div>
     </div>
   </div>

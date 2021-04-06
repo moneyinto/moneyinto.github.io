@@ -200,6 +200,123 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS-archive-connect-unsupported-architecture-x86-64s" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/27/iOS-archive-connect-unsupported-architecture-x86-64s/" class="article-date">
+  	<time datetime="2019-11-27T02:30:34.000Z" itemprop="datePublished">2019-11-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/27/iOS-archive-connect-unsupported-architecture-x86-64s/">解决iOS archive到App Store Connect时提示AipBase.framework contains unsupported architectures [x86_64, i386]</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>用script命令去掉这3个framework里面不支持的x86_64, i386的结构</p>
+<p><img src="/img/ios_architectures_add_scripts.png"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">APP_PATH="$&#123;TARGET_BUILD_DIR&#125;/$&#123;WRAPPER_NAME&#125;"</div><div class="line"></div><div class="line"># This script loops through the frameworks embedded in the application and</div><div class="line"></div><div class="line"># removes unused architectures.</div><div class="line"></div><div class="line">find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK</div><div class="line"></div><div class="line">do</div><div class="line"></div><div class="line">FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)</div><div class="line"></div><div class="line">FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"</div><div class="line"></div><div class="line">echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">EXTRACTED_ARCHS=()</div><div class="line"></div><div class="line">for ARCH in $ARCHS</div><div class="line"></div><div class="line">do</div><div class="line"></div><div class="line">echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"</div><div class="line"></div><div class="line">lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"</div><div class="line"></div><div class="line">EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")</div><div class="line"></div><div class="line">done</div><div class="line"></div><div class="line">echo "Merging extracted architectures: $&#123;ARCHS&#125;"</div><div class="line"></div><div class="line">lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "$&#123;EXTRACTED_ARCHS[@]&#125;"</div><div class="line"></div><div class="line">rm "$&#123;EXTRACTED_ARCHS[@]&#125;"</div><div class="line"></div><div class="line">echo "Replacing original executable with thinned version"</div><div class="line"></div><div class="line">rm "$FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">done</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react-native-shadow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/20/react-native-shadow/" class="article-date">
+  	<time datetime="2019-11-20T04:06:18.000Z" itemprop="datePublished">2019-11-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/20/react-native-shadow/">react-native 阴影</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <h5 id="阴影效果">阴影效果</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">shadowColor: <span class="string">'#000'</span>,</div><div class="line"><span class="attr">shadowOffset</span>: &#123; <span class="attr">width</span>: <span class="number">0</span>, <span class="attr">height</span>: <span class="number">2</span> &#125;,</div><div class="line"><span class="attr">shadowOpacity</span>: <span class="number">0.2</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/react-native/">react-native</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-react-native-ImageBackground" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -404,122 +521,6 @@
 
 
   
-    <article id="post-teminal-set-proxy" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/15/teminal-set-proxy/" class="article-date">
-  	<time datetime="2019-11-15T12:44:32.000Z" itemprop="datePublished">2019-11-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/15/teminal-set-proxy/">终端设置取消代理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <h4 id="设置代理">设置代理</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> http_proxy=http:<span class="comment">//127.0.0.1:1080</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> https_prosy=http:<span class="comment">//127.0.0.1:1080</span></div></pre></td></tr></table></figure>
-<h4 id="取消代理">取消代理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">unset</span> http_proxy</div><div class="line"></div><div class="line"><span class="built_in">unset</span> https_proxy</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-some-attention-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/26/js-some-attention-1/" class="article-date">
-  	<time datetime="2017-08-26T09:45:53.000Z" itemprop="datePublished">2017-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/js-some-attention-1/">js计算一些要注意的地方</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p><img src="http://7sbq8w.com1.z0.glb.clouddn.com/js%E8%BF%90%E7%AE%97%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98.png" alt=""></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -530,7 +531,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 moneyinto
+    		&copy; 2021 moneyinto
     	</div>
     </div>
   </div>
