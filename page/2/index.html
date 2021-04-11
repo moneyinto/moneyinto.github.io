@@ -200,6 +200,70 @@
 
       <div class="body-wrap">
   
+    <article id="post-angular6-cannot-resolve-error" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/30/angular6-cannot-resolve-error/" class="article-date">
+  	<time datetime="2019-11-30T01:58:13.000Z" itemprop="datePublished">2019-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/30/angular6-cannot-resolve-error/">angular高版本报cannot resolve error问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>最近使用ionic5的版本做jwt加密时，一直报<code>Can&#39;t resolve &#39;crypto&#39;</code>的错误。而以前ionic3的版本却没有这样的问题。</p>
+<p>发现jwt中是使用了<code>crypto</code>，而<code>crypto</code>是<code>nodejs</code>自带的方法。</p>
+<p>查了些资料有说angular高本版移除了这些方法，比如<code>crypto,fs,https,net,path,stream,tls,zlib</code>。</p>
+<p>很奇怪，为啥这样处理。下面我们需要找到配置的方法，把这些方法加回来。</p>
+<p><code>node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs/browser.js</code></p>
+<p>找到该路径的文件，其中会看到一个配置<code>node: false</code></p>
+<p>我们将该配置改成如下：<br><code>node: {crypto: true, stream: true}</code><br>根据我们的需要进行添加。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/web前端/">web前端</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS-archive-connect-unsupported-architecture-x86-64s" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -437,93 +501,9 @@
 
 
   
-    <article id="post-react-native-cannot-find-iphone-6-simulator" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/16/react-native-cannot-find-iphone-6-simulator/" class="article-date">
-  	<time datetime="2019-11-16T01:42:04.000Z" itemprop="datePublished">2019-11-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/16/react-native-cannot-find-iphone-6-simulator/">Could not find iphone6 simulator</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <h3 id="Could_not_find_iphone6_simulator">Could not find iphone6 simulator</h3><p><strong><em>当我们使用的react-native低版本的时候，而我的mac系统环境升级了，我们再运行<code>react-native run-ios</code>，这时候就会报上面的异常。</em></strong></p>
-<h6 id="那我们如何来处理这个异常呢？">那我们如何来处理这个异常呢？</h6><ul>
-<li><p>既然是react-native版本太低了，简单直接的方法就是升级react-native，当然如果是维护已开发的项目，升级react-native版本后，会有一系列的版本代码需要升级。</p>
-</li>
-<li><p>第二种方法呢，就是处理一下react-native这个包里面的代码，如下：</p>
-<p>  在node_modules中找到react-native，打开后找到 findMatchingSimulator.js<br>  具体路径如下：</p>
-  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.<span class="regexp">/node_modules/</span>react-<span class="keyword">native</span><span class="regexp">/local-cli/</span>runIOS<span class="regexp">/findMatchingSimulator.js</span></div></pre></td></tr></table></figure>
-<p>  首先我们找到如下代码块：</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!version.startsWith(<span class="string">'iOS'</span>) &amp;&amp; !version.startsWith(<span class="string">'tvOS'</span>))</div></pre></td></tr></table></figure>
-<p>  将startsWidth改成includes，即如下</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!version.includes(<span class="string">'iOS'</span>) &amp;&amp; !version.includes(<span class="string">'tvOS'</span>))</div></pre></td></tr></table></figure>
-<p>  也在别的地方看到改成别的</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!version.startsWith(<span class="string">'com.apple.CoreSimulator.SimRuntime.iOS'</span>) &amp;&amp; !version.startsWith(<span class="string">'com.apple.CoreSimulator.SimRuntime.tvOS'</span>))</div></pre></td></tr></table></figure>
-<p>  这里可以自己写一个console.log(version, devices)看看具体的输出。</p>
-<p>  以上处理完后执行 <code>react-native run-ios</code> 看看是否还报该异常。</p>
-<p>  如果还有异常，在修改该文件中的这个部分</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (simulator.availability !== <span class="string">'(available)'</span>)</div></pre></td></tr></table></figure>
-<p>  找到这个地方改成</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (simulator.isAvailable !== <span class="literal">true</span>)</div></pre></td></tr></table></figure>
-<p>  同样的我们再次启动，如何还有该异常，我们还需要改原生的一块代码，找到如下路径文件</p>
-  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.<span class="regexp">/node_modules/</span>react-<span class="keyword">native</span><span class="regexp">/React/</span>Base<span class="regexp">/RCTModuleMethod.mm</span></div></pre></td></tr></table></figure>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="type">BOOL</span> <span class="type">RCTParseUnused</span>(const char **input)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">RCTReadString</span>(input, <span class="string">"__unused"</span>) ||</div><div class="line">         <span class="type">RCTReadString</span>(input, <span class="string">"__attribute__((unused))"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>  改成</p>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="type">BOOL</span> <span class="type">RCTParseUnused</span>(const char **input)</div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">RCTReadString</span>(input, <span class="string">"__unused"</span>) ||</div><div class="line">        <span class="type">RCTReadString</span>(input, <span class="string">"__attribute__((__unused__))"</span>) ||</div><div class="line">         <span class="type">RCTReadString</span>(input, <span class="string">"__attribute__((unused))"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>  这时候再启动，恭喜你，应该可以启动成功了！</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/react-native/">react-native</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
