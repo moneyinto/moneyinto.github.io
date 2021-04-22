@@ -200,6 +200,243 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS-archive-connect-unsupported-architecture-x86-64s" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/27/iOS-archive-connect-unsupported-architecture-x86-64s/" class="article-date">
+  	<time datetime="2019-11-27T02:30:34.000Z" itemprop="datePublished">2019-11-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/27/iOS-archive-connect-unsupported-architecture-x86-64s/">解决iOS archive到App Store Connect时提示AipBase.framework contains unsupported architectures [x86_64, i386]</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>用script命令去掉这3个framework里面不支持的x86_64, i386的结构</p>
+<p><img src="/img/ios_architectures_add_scripts.png"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">APP_PATH="$&#123;TARGET_BUILD_DIR&#125;/$&#123;WRAPPER_NAME&#125;"</div><div class="line"></div><div class="line"># This script loops through the frameworks embedded in the application and</div><div class="line"></div><div class="line"># removes unused architectures.</div><div class="line"></div><div class="line">find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK</div><div class="line"></div><div class="line">do</div><div class="line"></div><div class="line">FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)</div><div class="line"></div><div class="line">FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"</div><div class="line"></div><div class="line">echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">EXTRACTED_ARCHS=()</div><div class="line"></div><div class="line">for ARCH in $ARCHS</div><div class="line"></div><div class="line">do</div><div class="line"></div><div class="line">echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"</div><div class="line"></div><div class="line">lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"</div><div class="line"></div><div class="line">EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")</div><div class="line"></div><div class="line">done</div><div class="line"></div><div class="line">echo "Merging extracted architectures: $&#123;ARCHS&#125;"</div><div class="line"></div><div class="line">lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "$&#123;EXTRACTED_ARCHS[@]&#125;"</div><div class="line"></div><div class="line">rm "$&#123;EXTRACTED_ARCHS[@]&#125;"</div><div class="line"></div><div class="line">echo "Replacing original executable with thinned version"</div><div class="line"></div><div class="line">rm "$FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"</div><div class="line"></div><div class="line">done</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react-native-shadow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/20/react-native-shadow/" class="article-date">
+  	<time datetime="2019-11-20T04:06:18.000Z" itemprop="datePublished">2019-11-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/20/react-native-shadow/">react-native 阴影</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <h5 id="阴影效果">阴影效果</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">shadowColor: <span class="string">'#000'</span>,</div><div class="line"><span class="attr">shadowOffset</span>: &#123; <span class="attr">width</span>: <span class="number">0</span>, <span class="attr">height</span>: <span class="number">2</span> &#125;,</div><div class="line"><span class="attr">shadowOpacity</span>: <span class="number">0.2</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/react-native/">react-native</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react-native-ImageBackground" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/20/react-native-ImageBackground/" class="article-date">
+  	<time datetime="2019-11-20T04:04:34.000Z" itemprop="datePublished">2019-11-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/20/react-native-ImageBackground/">react-native 背景 之 ImageBackground</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>开发者们常面对的一种需求就是类似web中的背景图（<code>background-image</code>）。要实现这一用例，只需简单使用<code>&lt;ImageBackground&gt;</code>组件，然后把需要背景图的子组件嵌入其中即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> (</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">ImageBackground</span> <span class="attr">source</span>=<span class="string">&#123;...&#125;</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">Text</span>&gt;</span>Inside<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ImageBackground</span>&gt;</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<p>我们可以通过 <code>resizeMode</code> 来实现图片的内容模式，这个属性的参数值和 <code>background-size</code> 很相似。</p>
+<ul>
+<li>cover: 图片居中显示，没有被拉伸，超出部分被截断；</li>
+<li>contain: 容器完全容纳图片，图片等比例进拉伸；</li>
+<li>stretch: 图片被拉伸适应容器大小，有可能会发生变形。</li>
+</ul>
+<p><strong><em>这里有个比较重要的属性<code>imageStyle</code>，区别于<code>style</code>，这个属性是针对于背景图片的样式，比如我们如何实现一个背景图的圆角。</em></strong></p>
+<p>首先要设置<code>ImageBackground</code>的圆角，然后还要设置图片的圆角通过<code>imageStyle</code>。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/react-native/">react-native</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react-native-text" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/20/react-native-text/" class="article-date">
+  	<time datetime="2019-11-20T04:04:11.000Z" itemprop="datePublished">2019-11-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/20/react-native-text/">react-native-text</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-react-native-cannot-find-iphone-6-simulator" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -267,256 +504,6 @@
 	</div>
 
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-teminal-set-proxy" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/15/teminal-set-proxy/" class="article-date">
-  	<time datetime="2019-11-15T12:44:32.000Z" itemprop="datePublished">2019-11-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/15/teminal-set-proxy/">终端设置取消代理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <h4 id="设置代理">设置代理</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> http_proxy=http:<span class="comment">//127.0.0.1:1080</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> https_prosy=http:<span class="comment">//127.0.0.1:1080</span></div></pre></td></tr></table></figure>
-<h4 id="取消代理">取消代理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">unset</span> http_proxy</div><div class="line"></div><div class="line"><span class="built_in">unset</span> https_proxy</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-some-attention-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/26/js-some-attention-1/" class="article-date">
-  	<time datetime="2017-08-26T09:45:53.000Z" itemprop="datePublished">2017-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/js-some-attention-1/">js计算一些要注意的地方</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p><img src="http://7sbq8w.com1.z0.glb.clouddn.com/js%E8%BF%90%E7%AE%97%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98.png" alt=""></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-git-study-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/26/git-study-1/" class="article-date">
-  	<time datetime="2017-08-26T09:43:00.000Z" itemprop="datePublished">2017-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/git-study-1/">git的一些基础知识学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>git 有远程库和本地库，比如github.com和git.oschina.net上我们称为<code>远程库</code>，我们本地项目中会有个<code>.git</code>的文件夹，那个我们称为<code>本地库</code>。</p>
-<p>1、 git init<br><code>git init</code>命令可以在我们本地项目中初始化一个本地库，我们的代码一开始都是放在本地库的；</p>
-<p>2、 git status<br><code>git status</code>命令可以查看我们更改的代码的文件，这里的比对对象是本地库，如果和本地库比较，有过修改的文件显示为<strong>红色</strong>；</p>
-<p>3、 git add<br><code>git add</code>是将我们修改的代码存到缓存中，这时我们通过<code>git status</code>查看的话所有的红色文件都会变成<strong>绿色</strong>，git add 后面需要接参数：</p>
-<blockquote>
-<p><code>space + .</code> 就是所有的的修改文件加入到缓存<br><code>space + 文件路径</code> 单独把需要的文件加入到缓存<br><code>space + -A</code> 有些特殊情况，<code>space + .</code>不能把文件加入到缓存，我们用这条命令</p>
-</blockquote>
-<p><strong><em>【注】这里我们插入讲一下<code>.gitignore</code>, 在有些时候依赖包，.idea文件夹，我们是不提交到库上的，这是我们就要对一些文件进行add 操作的忽略，这种情况我们在项目里创建一个.gitignore的文件，在里面加入需要忽略的文件夹或文件路径。</em></strong></p>
-<p>4、 git commit -m “提交描述”<br>当我们执行<code>git add</code>操作后，我们可以通过<code>git commit</code>创建一个提交记录，把代码加入到本地的库中，这时候执行<code>git status</code>命令时，绿色的文件夹就没有了。</p>
-<p>5、 git push<br>执行<code>git push</code>操作我们把本地库和远程库进行比较，如果本地库commit 版本高于远程库，就说明本地代码最新，这是后执行<code>git push</code>操作就会把优先的commit的代码更新到远程库上，如果远程库有commit 本地库没有，这时执行这步操作就会报错，会提示执行git pull操作；<br><strong><em>【注】如果是刚创建的项目，我们本地执行完以上命令，远程库也创建了，这时我们需要将本地库与远程库连接起来，我们需要执行<code>git remote add origin + 远程库路径</code>，这样就关联起来了，然后执行<code>git push -u origin master</code>这里的master就是我们指定代码的提交的分支，关于分支的概念可以自己学习了解一下。</em></strong></p>
-<p>6、git pull<br>每次在我们执行<code>git commit</code>操作后都需要执行<code>git status</code>查看一下，如果commit成功了，我们都需要执行一下<code>git pull</code>将别人提交的代码拉取下来，这里我们就会遇到一个常见的问题，代码的冲突问题。冲突是怎么产生的呢？当一个程序员编写修改了a文件的第一行，并且提交了，另一个程序员这是也编写修改a文件的第一行，然后commit操作完之后，执行<code>git pull</code>操作会有冲突提示：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Auto<span class="params">-merging</span> <span class="string">"冲突的文件路径"</span></div><div class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> <span class="params">...</span></div></pre></td></tr></table></figure></p>
-<p>这个时候代码已经拉取下来了，我们打开a文件会发现这样一串：<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line"><span class="section">aaaabbb</span></div><div class="line">=======</div><div class="line">aaaaccc</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 6853e5ff961e684d3a6c02d4d06183b5ff330dcc</div></pre></td></tr></table></figure></p>
-<p><code>HEAD</code>和<code>======</code>之间的代码是自己修改的，<code>======</code>到一串字符串（commit的版本号）之间是另一个程序员修改的，这时我们要根据项目需求保留正确的代码，如果自己是对的，就删除别人的，那些标识也要删除掉，如果都是要保留的，那就需要进行修改，两者都保留，然后在执行以上一系列命令把解决冲突的代码提交上去。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/git/">git</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue-global-component-and-emit" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/26/vue-global-component-and-emit/" class="article-date">
-  	<time datetime="2017-08-26T09:42:49.000Z" itemprop="datePublished">2017-08-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/vue-global-component-and-emit/">vue 自定义全局组件和通信</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>用了几天vue，在写vue时，我们都会自定义组件，比如<code>loading</code>和<code>alert</code>，每个页面都要<code>import</code>这个组件注入到<code>component</code>中去，然后再调用，感觉挺麻烦的，所以就想定义个全局的组件。</p>
-<p>比如我们的目录机构是这样的</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby">- components</div><div class="line"></span>	-<span class="ruby">- index.js</div><div class="line"></span>    -<span class="ruby">- loading.vue</div><div class="line"></span>-<span class="ruby">- pages</div><div class="line"></span>-<span class="ruby">- app.vue</div><div class="line"></span>-<span class="ruby">- main.js</span></div></pre></td></tr></table></figure>
-<p>index.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Loading <span class="keyword">from</span> <span class="string">'./loading'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    install(Vue) &#123;</div><div class="line">        Vue.component(<span class="string">'Loading'</span>, Loading);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>main.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</div><div class="line"><span class="keyword">import</span> Overall <span class="keyword">from</span> <span class="string">'./components'</span>;</div><div class="line"></div><div class="line">Vue.use(Overall);</div></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/web前端/">web前端</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/08/26/vue-global-component-and-emit/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

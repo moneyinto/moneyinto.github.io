@@ -200,6 +200,269 @@
 
       <div class="body-wrap">
   
+    <article id="post-mongodb-base" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/27/mongodb-base/" class="article-date">
+  	<time datetime="2014-11-27T07:43:06.000Z" itemprop="datePublished">2014-11-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/27/mongodb-base/">mongodb 基础操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>创建数据库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use test    //创建数据库test</div></pre></td></tr></table></figure>
+<p><br/></p>
+<ul>
+<li>创建collection并插入数据</li>
+</ul>
+<p>在传统的数据库中，创建完库后就会是创建表，但在mongodb中没有表的概念，而与其对应的概念是集合，即collection。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.users.insert(&#123;&apos;name&apos;:&apos;moneyinto&apos;,&apos;sex&apos;:&apos;man&apos;&#125;)</div><div class="line">//当有users时，这条命令即为在users中插入一条数据，如果没有users，则会新建一个在写入数据</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/11/27/mongodb-base/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mongodbPermission" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/27/mongodbPermission/" class="article-date">
+  	<time datetime="2014-11-27T06:07:54.000Z" itemprop="datePublished">2014-11-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/27/mongodbPermission/">mongodb 设置权限</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Mongodb提供了数据加权限的方法">Mongodb提供了数据加权限的方法</h4><ul>
+<li>开启安全认证模式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//找到mongodb.conf文件，将auth = true的注释去掉，</div><div class="line">//如果是linux或ubuntu系统使用apt-get安装的mongodb的话</div><div class="line">$ cd /etc</div><div class="line">$ vim mongodb.conf</div><div class="line">//其与系统或其他安装方法没有尝试过，其自行查找</div></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/11/27/mongodbPermission/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JsClosure" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/05/JsClosure/" class="article-date">
+  	<time datetime="2014-11-05T07:45:48.000Z" itemprop="datePublished">2014-11-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/05/JsClosure/">Javascript闭包了解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-_闭包的概念">1. 闭包的概念</h3><ul>
+<li>简单理解为 <strong><em><code>所有的函数</code></em></strong> 都是闭包；</li>
+<li>细化理解一下，闭包就是 <strong><em><code>读取外部变量</code></em></strong> 的函数；</li>
+<li>再细化一下，可以理解为定义在一个 <strong><em><code>函数内部</code></em></strong> 读取外部变量的函数。</li>
+</ul>
+<p><strong>函数读取外部变量:</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">&#125;</div><div class="line">f1();  <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
+<p><strong><em>注意：</em></strong></p>
+<ul>
+<li>函数内部声明的局部变量，函数外部无法读取；</li>
+<li><p>子对象可以获取父级对象的变量，但是父级对象无法获取子对象的变量！</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/11/05/JsClosure/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/10/21/JQuery/" class="article-date">
+  	<time datetime="2014-10-21T04:43:11.000Z" itemprop="datePublished">2014-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/21/JQuery/">利用JQuery解决IE9不支持placeholder属性</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br><br>HTMl5增加了很多的属性，但是有些属性不兼容旧版本的浏览器，尤其是IE的。</p>
+<p>现在就利用JQuery的方法来解决IE9及之前的版本不支持input的placeholder属性的问题。</p>
+<p><a href="http://jsfiddle.net/moneyinto/rb3z6mcm/"><strong><em>demo</em></strong></a><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/web前端/">web前端</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/10/21/JQuery/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-my-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

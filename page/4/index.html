@@ -200,6 +200,256 @@
 
       <div class="body-wrap">
   
+    <article id="post-teminal-set-proxy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/15/teminal-set-proxy/" class="article-date">
+  	<time datetime="2019-11-15T12:44:32.000Z" itemprop="datePublished">2019-11-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/15/teminal-set-proxy/">终端设置取消代理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <h4 id="设置代理">设置代理</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> http_proxy=http:<span class="comment">//127.0.0.1:1080</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> https_prosy=http:<span class="comment">//127.0.0.1:1080</span></div></pre></td></tr></table></figure>
+<h4 id="取消代理">取消代理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">unset</span> http_proxy</div><div class="line"></div><div class="line"><span class="built_in">unset</span> https_proxy</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-js-some-attention-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/26/js-some-attention-1/" class="article-date">
+  	<time datetime="2017-08-26T09:45:53.000Z" itemprop="datePublished">2017-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/26/js-some-attention-1/">js计算一些要注意的地方</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p><img src="http://7sbq8w.com1.z0.glb.clouddn.com/js%E8%BF%90%E7%AE%97%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98.png" alt=""></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-git-study-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/26/git-study-1/" class="article-date">
+  	<time datetime="2017-08-26T09:43:00.000Z" itemprop="datePublished">2017-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/26/git-study-1/">git的一些基础知识学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>git 有远程库和本地库，比如github.com和git.oschina.net上我们称为<code>远程库</code>，我们本地项目中会有个<code>.git</code>的文件夹，那个我们称为<code>本地库</code>。</p>
+<p>1、 git init<br><code>git init</code>命令可以在我们本地项目中初始化一个本地库，我们的代码一开始都是放在本地库的；</p>
+<p>2、 git status<br><code>git status</code>命令可以查看我们更改的代码的文件，这里的比对对象是本地库，如果和本地库比较，有过修改的文件显示为<strong>红色</strong>；</p>
+<p>3、 git add<br><code>git add</code>是将我们修改的代码存到缓存中，这时我们通过<code>git status</code>查看的话所有的红色文件都会变成<strong>绿色</strong>，git add 后面需要接参数：</p>
+<blockquote>
+<p><code>space + .</code> 就是所有的的修改文件加入到缓存<br><code>space + 文件路径</code> 单独把需要的文件加入到缓存<br><code>space + -A</code> 有些特殊情况，<code>space + .</code>不能把文件加入到缓存，我们用这条命令</p>
+</blockquote>
+<p><strong><em>【注】这里我们插入讲一下<code>.gitignore</code>, 在有些时候依赖包，.idea文件夹，我们是不提交到库上的，这是我们就要对一些文件进行add 操作的忽略，这种情况我们在项目里创建一个.gitignore的文件，在里面加入需要忽略的文件夹或文件路径。</em></strong></p>
+<p>4、 git commit -m “提交描述”<br>当我们执行<code>git add</code>操作后，我们可以通过<code>git commit</code>创建一个提交记录，把代码加入到本地的库中，这时候执行<code>git status</code>命令时，绿色的文件夹就没有了。</p>
+<p>5、 git push<br>执行<code>git push</code>操作我们把本地库和远程库进行比较，如果本地库commit 版本高于远程库，就说明本地代码最新，这是后执行<code>git push</code>操作就会把优先的commit的代码更新到远程库上，如果远程库有commit 本地库没有，这时执行这步操作就会报错，会提示执行git pull操作；<br><strong><em>【注】如果是刚创建的项目，我们本地执行完以上命令，远程库也创建了，这时我们需要将本地库与远程库连接起来，我们需要执行<code>git remote add origin + 远程库路径</code>，这样就关联起来了，然后执行<code>git push -u origin master</code>这里的master就是我们指定代码的提交的分支，关于分支的概念可以自己学习了解一下。</em></strong></p>
+<p>6、git pull<br>每次在我们执行<code>git commit</code>操作后都需要执行<code>git status</code>查看一下，如果commit成功了，我们都需要执行一下<code>git pull</code>将别人提交的代码拉取下来，这里我们就会遇到一个常见的问题，代码的冲突问题。冲突是怎么产生的呢？当一个程序员编写修改了a文件的第一行，并且提交了，另一个程序员这是也编写修改a文件的第一行，然后commit操作完之后，执行<code>git pull</code>操作会有冲突提示：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Auto<span class="params">-merging</span> <span class="string">"冲突的文件路径"</span></div><div class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> <span class="params">...</span></div></pre></td></tr></table></figure></p>
+<p>这个时候代码已经拉取下来了，我们打开a文件会发现这样一串：<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line"><span class="section">aaaabbb</span></div><div class="line">=======</div><div class="line">aaaaccc</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 6853e5ff961e684d3a6c02d4d06183b5ff330dcc</div></pre></td></tr></table></figure></p>
+<p><code>HEAD</code>和<code>======</code>之间的代码是自己修改的，<code>======</code>到一串字符串（commit的版本号）之间是另一个程序员修改的，这时我们要根据项目需求保留正确的代码，如果自己是对的，就删除别人的，那些标识也要删除掉，如果都是要保留的，那就需要进行修改，两者都保留，然后在执行以上一系列命令把解决冲突的代码提交上去。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/git/">git</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-vue-global-component-and-emit" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/26/vue-global-component-and-emit/" class="article-date">
+  	<time datetime="2017-08-26T09:42:49.000Z" itemprop="datePublished">2017-08-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/26/vue-global-component-and-emit/">vue 自定义全局组件和通信</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用了几天vue，在写vue时，我们都会自定义组件，比如<code>loading</code>和<code>alert</code>，每个页面都要<code>import</code>这个组件注入到<code>component</code>中去，然后再调用，感觉挺麻烦的，所以就想定义个全局的组件。</p>
+<p>比如我们的目录机构是这样的</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby">- components</div><div class="line"></span>	-<span class="ruby">- index.js</div><div class="line"></span>    -<span class="ruby">- loading.vue</div><div class="line"></span>-<span class="ruby">- pages</div><div class="line"></span>-<span class="ruby">- app.vue</div><div class="line"></span>-<span class="ruby">- main.js</span></div></pre></td></tr></table></figure>
+<p>index.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Loading <span class="keyword">from</span> <span class="string">'./loading'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    install(Vue) &#123;</div><div class="line">        Vue.component(<span class="string">'Loading'</span>, Loading);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>main.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</div><div class="line"><span class="keyword">import</span> Overall <span class="keyword">from</span> <span class="string">'./components'</span>;</div><div class="line"></div><div class="line">Vue.use(Overall);</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/web前端/">web前端</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/26/vue-global-component-and-emit/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-json2array" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -240,255 +490,6 @@
 	</div>
 
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ios-history-back-reload" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/23/ios-history-back-reload/" class="article-date">
-  	<time datetime="2017-04-23T06:44:40.000Z" itemprop="datePublished">2017-04-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/23/ios-history-back-reload/">ios history.back 页面不会刷新问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        <p>苹果手机访问网页在返回操作时不会刷新页面重新加载，而是去加载cache，这样会速度更快，但是有些时候我们还是需要重新加载数据的。</p>
-<p>这里我们可以通过判断 <code>onpageshow</code> 的 <code>persisted</code> 状态来确定是否reload页面。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js写法</span></div><div class="line"><span class="built_in">window</span>.onpageshow = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()；</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//jquery写法</span></div><div class="line">$(<span class="built_in">window</span>).bind(<span class="string">"pageshow"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.originalEvent.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()；</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-recursion" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/12/recursion/" class="article-date">
-  	<time datetime="2017-03-12T07:00:58.000Z" itemprop="datePublished">2017-03-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/12/recursion/">递归算法在组织架构的应用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>在解决一些复杂问题的时候，我们需要复杂的算法，最近做组织架构就需要用递归的算法，对此总结一下组织架构对递归算法的应用。</em></p>
-<p>首先我们看一下什么是递归算法，说简单点就是函数自己调用自己，对于递归，我们需要有个明确的退出条件，不然就成死循环了。</p>
-<p><strong><em>但是网上也有提到递归算法解题通常显得很简洁，但递归算法解题的运行效率较低，所以一般不提倡用递归算法设计程序。不过个人感觉，在解决组织架构这块递归还是很方便的。</em></strong></p>
-<p>好了不多说了，关于实际问题，我们直接看代码。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/12/recursion/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-history-study" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/24/history-study/" class="article-date">
-  	<time datetime="2016-12-24T00:29:19.000Z" itemprop="datePublished">2016-12-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/24/history-study/">history之学习联想</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.history.back()<br>通过这个方法我们可以像点击浏览器的返回按钮，实现页面的返回。<br>2.history.forward()<br>通过这个方法我们可以如果点击浏览器的前进按钮。<br>3.history.go()<br>跳转到session历史中的一个页面。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history.go(<span class="number">1</span>); <span class="comment">//向前一页</span></div><div class="line">history.go(<span class="number">-1</span>); <span class="comment">//向后一页</span></div><div class="line"><span class="comment">//通过传入参数可以前进退后多页（session中的历史页面）</span></div></pre></td></tr></table></figure></p>
-<p>4.history.pushState()<br>pushState可以传入三个参数，第一个参数为state对象，第二个参数为标题（试了好像不管用），第三个参数为跳转的url。</p>
-<p>state可以让我们存储一些json对象的值，我们可以在history.state中获取到值。<br>url可以传入一个相对路径，会在当前的路径下加上传入的url：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//路径为http://localhost:3000</span></div><div class="line">history.pushState(&#123;<span class="attr">name</span>: <span class="string">'moneyinto'</span>&#125;, <span class="string">'页面标题'</span>, <span class="string">'#another'</span>);</div><div class="line"><span class="comment">//之后的路径为http://localhost:3000/#another</span></div></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/web前端/">web前端</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/12/24/history-study/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-wx-problem-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/18/wx-problem-1/" class="article-date">
-  	<time datetime="2016-12-18T08:14:15.000Z" itemprop="datePublished">2016-12-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/18/wx-problem-1/">微信公众号开发遇到的问题一</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="问题一：video脱离文档流">问题一：video脱离文档流</h5><p>在微信里嵌入视频播放，我想大家都会想到html5的video标签，嵌入一个视频播放，很简单，但是在微信中，video标签会被微信进行修改，<strong><code>微信的x5浏览器不支持html5的标准格式</code></strong>。<br>微信为什么要这样做了，在微信中的视频播放完后都会<strong><code>插入广告</code></strong>。要做公众号这点只能任由微信这样做了。<br>但是这样也就算了，微信开发中video都会<strong><code>脱离文档流</code></strong>，浮动到整个页面的最上层，特别当播放完后，这个video都不受控制了，上下滑动页面，视频会上下抖动，会遮住别的标签内容。</p>
-<p>关于这个问题的解决方案，目前我想到的有两种：</p>
-<ol>
-<li>接腾讯视频API，这样会很好的兼容x5内核浏览器；</li>
-<li>当页面滚动重写video（很扯淡的解法，但是没办法，有时还是很好用）。</li>
-</ol>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/web前端/">web前端</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/12/18/wx-problem-1/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
