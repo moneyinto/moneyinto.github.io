@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>关于项目Git代码管理的一些总结 | 萧书语</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="####一、项目Git分支构建  master 主分支，只有项目的最高管理的研发具有该分支的操作权限，主分支的代码为线上稳定运行的版本代码；  develop 开发分支，研发不允许直接在该分支上进行开发提交代码，该分支的代码为测试环境部署的最新代码；  release-(版本号) 该分支是由master分离出的分支，对测试通过的develop上的代码进行merge合并，该分支版本为上线试运行版本，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于项目Git代码管理的一些总结">
+<meta property="og:url" content="http://yoursite.com/2021/04/01/about-git-projects-manage/index.html">
+<meta property="og:site_name" content="萧书语">
+<meta property="og:description" content="####一、项目Git分支构建  master 主分支，只有项目的最高管理的研发具有该分支的操作权限，主分支的代码为线上稳定运行的版本代码；  develop 开发分支，研发不允许直接在该分支上进行开发提交代码，该分支的代码为测试环境部署的最新代码；  release-(版本号) 该分支是由master分离出的分支，对测试通过的develop上的代码进行merge合并，该分支版本为上线试运行版本，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-04-06T05:36:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于项目Git代码管理的一些总结">
+<meta name="twitter:description" content="####一、项目Git分支构建  master 主分支，只有项目的最高管理的研发具有该分支的操作权限，主分支的代码为线上稳定运行的版本代码；  develop 开发分支，研发不允许直接在该分支上进行开发提交代码，该分支的代码为测试环境部署的最新代码；  release-(版本号) 该分支是由master分离出的分支，对测试通过的develop上的代码进行merge合并，该分支版本为上线试运行版本，">
+  
+    <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/moneyinto.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">moneyinto</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/moneyinto" title="github">github</a>
+					        
+								<a class="gitbook" target="_blank" href="https://www.gitbook.com/@moneyinto" title="gitbook">gitbook</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="iteye" target="_blank" href="http://moneyinto.iteye.com/" title="iteye">iteye</a>
+					        
+								<a class="sf" target="_blank" href="https://segmentfault.com/u/moneyinto" title="sf">sf</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a class="article-category-link" href="/categories/Android/">Android</a><a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/git/">git</a><a class="article-category-link" href="/categories/iOS/">iOS</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moneyinto.iteye.com/">iteye</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/moneyinto">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/@moneyinto">gitbook</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1">weibo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/u/moneyinto">segmentfault</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">屌丝前端一枚</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">moneyinto</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/moneyinto.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">moneyinto</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/moneyinto" title="github">github</a>
+			        
+						<a class="gitbook" target="_blank" href="https://www.gitbook.com/@moneyinto" title="gitbook">gitbook</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="iteye" target="_blank" href="http://moneyinto.iteye.com/" title="iteye">iteye</a>
+			        
+						<a class="sf" target="_blank" href="https://segmentfault.com/u/moneyinto" title="sf">sf</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-about-git-projects-manage" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/04/01/about-git-projects-manage/" class="article-date">
+  	<time datetime="2021-04-01T03:52:58.000Z" itemprop="datePublished">2021-04-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于项目Git代码管理的一些总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/乱炖/">乱炖</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>####一、项目Git分支构建</p>
+<ul>
+<li><p><code>master</code> 主分支，只有项目的最高管理的研发具有该分支的操作权限，主分支的代码为线上稳定运行的版本代码；</p>
+</li>
+<li><p><code>develop</code> 开发分支，研发不允许直接在该分支上进行开发提交代码，该分支的代码为测试环境部署的最新代码；</p>
+</li>
+<li><p><code>release-(版本号)</code> 该分支是由<code>master</code>分离出的分支，对测试通过的<code>develop</code>上的代码进行<code>merge</code>合并，该分支版本为上线试运行版本，运行没问题后再合并到<code>master</code>分支上；</p>
+</li>
+<li><p><code>feature-(功能命名分支)</code> 该分支为迭代开发的一个模块功能的需求，有<code>develop</code>分支上切分出来的分支；</p>
+</li>
+<li><p><code>feature-(功能命名分支)-(功能开发者)</code> 该分支为对应的研发的分支，有功能分支切分出来的代码，<strong><em>该分支仅为本地分支，可以不提交到线上</em></strong>；</p>
+</li>
+</ul>
+<a id="more"></a>
+<p>####二、项目的开发Git管理流程</p>
+<p>#####1、项目初始化<br>1.1、一个新的项目开始，项目负责人在Git服务器上创建一个Project；</p>
+<p>1.2、项目负责人对参与开发的人员进行Git项目权限的分配；</p>
+<p>1.3、项目负责人进行项目基础的构建配置，出一份基础的环境要求，配置和运行的README文档，后期开发，项目中比较重要的需要记录的注意点，都写到README文档中。项目负责人做好这些基础工作，将代码提交到远程的<code>develop</code>分支上，并合并到<code>master</code>分支。</p>
+<p>#####2、功能划分和分配<br>2.1、开发负责人对项目需求进行功能拆解划分；<br>2.2、开发负责人根据拆解的功能创建对应功能的分支，如<code>feature-login</code>，将相对独立的功能分配给相应的开发人员，也可以多人协同开发一个功能，当多人开发时，开发人员自己拉取功能分支，并分出自己的分支，如<code>feature-login-xxx</code>，后面带上自己的昵称；<br>2.3、开发人员每天及时提交更新自己的代码，当任务完成时，将自己开发的代码合并到对应的功能分支上，多人协同开发的功能需要每天及时拉取功能<code>feature</code>分支的代码，合并到自己的开发分支，并每天及时将自己的代码更新合并到功能<code>feature</code>分支上；<br>2.4、当该功能模块的代码开发完成，开发负责人统一将该功能分支<code>feature</code>的代码合并到<code>develop</code>分支上，并更新代码进行测试，由开发负责人删除改功能<code>feature</code>分支；<br>2.5、在测试过程中出现的<code>bug</code>或者<code>需求变更微调</code>，开发负责人重新从<code>feature</code>分支切出一个对应功能分支的处理分支，如<code>feature-login-bug-adjust</code>，处理产生的<code>bug</code>和<code>改动</code>，合并到<code>develop</code>进行测试，当所有的问题处理完成，测试没问题之后，删除该功能的问题处理的分支。</p>
+<p>#####3、预发布和发布<br>3.1、经过测试的<code>develp</code>分支的功能，开始进行发布，这时暂时不要合并<code>master</code>分支，防止出现严重的问题后能够及时更新会没有问题的<code>master</code>分支的代码，这里我们需要从<code>develop</code>创建一个预发布分支<code>release-feature-功能</code>,进行发布试运行，如果存在严重的问题，影响使用，可以及时换回<code>master</code>分支的代码；<br>3.2、预发布试运行阶段，如果发现小的<code>bug</code>问题，从对应的预发布<code>release-feature-功能</code>切出一个分支<code>release-feature-功能-bug</code>进行问题处理，本地测试完后合并回预发布分支；<br>3.3、试运行<strong><em>规定的一段时间</em></strong>没有问题，合并到<code>master</code>分支，并删除对应预发布分支；<br>3.4、这里主运行的<code>master</code>出现小的<code>bug</code>，从<code>master</code>分支切出问题修改的分支进行修改测试，最后合并更新，没问题了删除切出来的分支；<br>3.5、如果稳定运行的<code>master</code>出现需求变更的逻辑，重新按照以上功能划分和分配的逻辑重新安排，并到最终合并到<code>master</code>上。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/06/console-manage/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          自定义console，更优雅的控制日志输出
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/27/git-set-ssh-key/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git账号配置公钥</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="about-git-projects-manage" data-title="关于项目Git代码管理的一些总结" data-url="http://yoursite.com/2021/04/01/about-git-projects-manage/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2021 moneyinto
+    	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>微信公众号开发遇到的问题一 | 萧书语</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#####问题一：video脱离文档流 在微信里嵌入视频播放，我想大家都会想到html5的video标签，嵌入一个视频播放，很简单，但是在微信中，video标签会被微信进行修改，微信的x5浏览器不支持html5的标准格式。微信为什么要这样做了，在微信中的视频播放完后都会插入广告。要做公众号这点只能任由微信这样做了。但是这样也就算了，微信开发中video都会脱离文档流，浮动到整个页面的最上层，特别当">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信公众号开发遇到的问题一">
+<meta property="og:url" content="http://yoursite.com/2016/12/18/wx-problem-1/index.html">
+<meta property="og:site_name" content="萧书语">
+<meta property="og:description" content="#####问题一：video脱离文档流 在微信里嵌入视频播放，我想大家都会想到html5的video标签，嵌入一个视频播放，很简单，但是在微信中，video标签会被微信进行修改，微信的x5浏览器不支持html5的标准格式。微信为什么要这样做了，在微信中的视频播放完后都会插入广告。要做公众号这点只能任由微信这样做了。但是这样也就算了，微信开发中video都会脱离文档流，浮动到整个页面的最上层，特别当">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-12-18T10:19:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信公众号开发遇到的问题一">
+<meta name="twitter:description" content="#####问题一：video脱离文档流 在微信里嵌入视频播放，我想大家都会想到html5的video标签，嵌入一个视频播放，很简单，但是在微信中，video标签会被微信进行修改，微信的x5浏览器不支持html5的标准格式。微信为什么要这样做了，在微信中的视频播放完后都会插入广告。要做公众号这点只能任由微信这样做了。但是这样也就算了，微信开发中video都会脱离文档流，浮动到整个页面的最上层，特别当">
+  
+    <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/moneyinto.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">moneyinto</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/moneyinto" title="github">github</a>
+					        
+								<a class="gitbook" target="_blank" href="https://www.gitbook.com/@moneyinto" title="gitbook">gitbook</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="iteye" target="_blank" href="http://moneyinto.iteye.com/" title="iteye">iteye</a>
+					        
+								<a class="sf" target="_blank" href="https://segmentfault.com/u/moneyinto" title="sf">sf</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a class="article-category-link" href="/categories/Android/">Android</a><a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/git/">git</a><a class="article-category-link" href="/categories/iOS/">iOS</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moneyinto.iteye.com/">iteye</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/moneyinto">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/@moneyinto">gitbook</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1">weibo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/u/moneyinto">segmentfault</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">屌丝前端一枚</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">moneyinto</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/moneyinto.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">moneyinto</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/moneyinto" title="github">github</a>
+			        
+						<a class="gitbook" target="_blank" href="https://www.gitbook.com/@moneyinto" title="gitbook">gitbook</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="iteye" target="_blank" href="http://moneyinto.iteye.com/" title="iteye">iteye</a>
+			        
+						<a class="sf" target="_blank" href="https://segmentfault.com/u/moneyinto" title="sf">sf</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-wx-problem-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/18/wx-problem-1/" class="article-date">
+  	<time datetime="2016-12-18T08:14:15.000Z" itemprop="datePublished">2016-12-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微信公众号开发遇到的问题一
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/web前端/">web前端</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <p>#####问题一：video脱离文档流</p>
+<p>在微信里嵌入视频播放，我想大家都会想到html5的video标签，嵌入一个视频播放，很简单，但是在微信中，video标签会被微信进行修改，<strong><code>微信的x5浏览器不支持html5的标准格式</code></strong>。<br>微信为什么要这样做了，在微信中的视频播放完后都会<strong><code>插入广告</code></strong>。要做公众号这点只能任由微信这样做了。<br>但是这样也就算了，微信开发中video都会<strong><code>脱离文档流</code></strong>，浮动到整个页面的最上层，特别当播放完后，这个video都不受控制了，上下滑动页面，视频会上下抖动，会遮住别的标签内容。</p>
+<p>关于这个问题的解决方案，目前我想到的有两种：</p>
+<ol>
+<li>接腾讯视频API，这样会很好的兼容x5内核浏览器；</li>
+<li>当页面滚动重写video（很扯淡的解法，但是没办法，有时还是很好用）。</li>
+</ol>
+<a id="more"></a>
+<p>#####问题二：微信中单页应用更换title问题</p>
+<p>当我们在微信开发单页应用的话，因为微信中已经有了header，这时我们在写入一个header话会感觉别扭，可是选择去掉header的话，我们不同的页面需要手动去更换title标签里的值来改变微信header中title值。</p>
+<p>这种做法在android手机是没有问题的，但是在ios手机中就不行了。微信初次加载页面后就不会再监听title的change了。</p>
+<p>这类问题网上有一种解决方法就是使用隐藏的iframe标签来骗过微信，使ios中title改变。</p>
+<p>代码我就直接拷贝网上的了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $body = $(<span class="string">'body'</span>);</span><br><span class="line"><span class="built_in">document</span>.title = <span class="string">'new title'</span>;</span><br><span class="line"><span class="keyword">var</span> $iframe = $(<span class="string">"&lt;iframe style='display:none;' src='/favicon.ico'&gt;&lt;/iframe&gt;"</span>);</span><br><span class="line">$iframe.on(<span class="string">'load'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  	$iframe.off(<span class="string">'load'</span>).remove();</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line">&#125;).appendTo($body);</span><br></pre></td></tr></table></figure>
+<p>#####问题三：微信jdk开发引入脚本使用https问题</p>
+<p>我们使用微信API，前台需要引入脚本，因为苹果以后都要使用安全的https，所以这次开发我看文档用https引入微信的脚本，可惜遇到一个问题没把我坑死。</p>
+<p>现象，当初次加载的时候，我可以获取到config，签名正确，可以使用微信的API，但是当我再次进入页面的时候，签名就一直报错了。代码执行都是一样的，最后问题就是出现在了https上面。换成http后，问题就解决了，所以https在微信如何使用，还是慎用比较好，即使微信提供了https引入，但是在找到原因和方法前还是避免这个坑比较好。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/24/history-study/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          history之学习联想
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/15/asp-net-study-life-cycle/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">asp.net-study-life-cycle</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="wx-problem-1" data-title="微信公众号开发遇到的问题一" data-url="http://yoursite.com/2016/12/18/wx-problem-1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2021 moneyinto
+    	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

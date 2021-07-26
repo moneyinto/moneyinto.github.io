@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>利用Nodemailer发送邮件 | 萧书语</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#####安装Nodemailer1npm install nodemailer@v0.7.1   注：版本为v0.7.1，当时试用了一次v1.0之后的版本，没有成功，报错提示让用v0.7.1版本，还没研究明白为什么新版本没有成功，可能一些方法配置还是老版本的，新版本有所更新，有待研究，希望有大神分享解释原因  #####进行配置12345678910var config = &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Nodemailer发送邮件">
+<meta property="og:url" content="http://yoursite.com/2014/12/14/Nodemailer/index.html">
+<meta property="og:site_name" content="萧书语">
+<meta property="og:description" content="#####安装Nodemailer1npm install nodemailer@v0.7.1   注：版本为v0.7.1，当时试用了一次v1.0之后的版本，没有成功，报错提示让用v0.7.1版本，还没研究明白为什么新版本没有成功，可能一些方法配置还是老版本的，新版本有所更新，有待研究，希望有大神分享解释原因  #####进行配置12345678910var config = &amp;#123;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-05-13T03:54:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Nodemailer发送邮件">
+<meta name="twitter:description" content="#####安装Nodemailer1npm install nodemailer@v0.7.1   注：版本为v0.7.1，当时试用了一次v1.0之后的版本，没有成功，报错提示让用v0.7.1版本，还没研究明白为什么新版本没有成功，可能一些方法配置还是老版本的，新版本有所更新，有待研究，希望有大神分享解释原因  #####进行配置12345678910var config = &amp;#123;">
+  
+    <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/moneyinto.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">moneyinto</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/moneyinto" title="github">github</a>
+					        
+								<a class="gitbook" target="_blank" href="https://www.gitbook.com/@moneyinto" title="gitbook">gitbook</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="iteye" target="_blank" href="http://moneyinto.iteye.com/" title="iteye">iteye</a>
+					        
+								<a class="sf" target="_blank" href="https://segmentfault.com/u/moneyinto" title="sf">sf</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a class="article-category-link" href="/categories/Android/">Android</a><a class="article-category-link" href="/categories/Canvas/">Canvas</a><a class="article-category-link" href="/categories/JQuery/">JQuery</a><a class="article-category-link" href="/categories/Javascript/">Javascript</a><a class="article-category-link" href="/categories/MongoDB/">MongoDB</a><a class="article-category-link" href="/categories/NodeJs/">NodeJs</a><a class="article-category-link" href="/categories/git/">git</a><a class="article-category-link" href="/categories/iOS/">iOS</a><a class="article-category-link" href="/categories/react-native/">react-native</a><a class="article-category-link" href="/categories/web前端/">web前端</a><a class="article-category-link" href="/categories/乱炖/">乱炖</a><a class="article-category-link" href="/categories/正则表达式/">正则表达式</a><a class="article-category-link" href="/categories/随笔/">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moneyinto.iteye.com/">iteye</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/moneyinto">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/@moneyinto">gitbook</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1">weibo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/u/moneyinto">segmentfault</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">屌丝前端一枚</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">moneyinto</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/moneyinto.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">moneyinto</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/moneyinto" title="github">github</a>
+			        
+						<a class="gitbook" target="_blank" href="https://www.gitbook.com/@moneyinto" title="gitbook">gitbook</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/sjzqianjin/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="iteye" target="_blank" href="http://moneyinto.iteye.com/" title="iteye">iteye</a>
+			        
+						<a class="sf" target="_blank" href="https://segmentfault.com/u/moneyinto" title="sf">sf</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Nodemailer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/14/Nodemailer/" class="article-date">
+  	<time datetime="2014-12-14T04:25:13.000Z" itemprop="datePublished">2014-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      利用Nodemailer发送邮件
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/NodeJs/">NodeJs</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <ul>
+<li>#####安装Nodemailer<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nodemailer@v0.7.1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>注：版本为v0.7.1，当时试用了一次v1.0之后的版本，没有成功，报错提示让用v0.7.1版本，还没研究明白为什么新版本没有成功，可能一些方法配置还是老版本的，新版本有所更新，有待研究，希望有大神分享解释原因</em></strong></p>
+<ul>
+<li>#####进行配置<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    host: <span class="string">"主机名"</span>, <span class="comment">// 主机</span></span><br><span class="line">    secureConnection: <span class="literal">true</span>, <span class="comment">// 使用 SSL</span></span><br><span class="line">    use_authentication: <span class="literal">true</span>,  <span class="comment">//使用qq等邮箱需要配置</span></span><br><span class="line">    port: <span class="number">465</span>, <span class="comment">// SMTP 端口</span></span><br><span class="line">    auth: &#123;</span><br><span class="line">        user: <span class="string">"***@***"</span>, <span class="comment">// 账号</span></span><br><span class="line">        pass: <span class="string">"password"</span> <span class="comment">// 密码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>#####引用nodemailer，创建对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nodemailer = <span class="built_in">require</span>(<span class="string">'nodemailer'</span>);</span><br><span class="line"><span class="keyword">var</span> transporter = nodemailer.createTransport(<span class="string">'SMTP'</span>,config);</span><br><span class="line"><span class="comment">// config 为配置项</span></span><br><span class="line"><span class="comment">// SMTP 简单邮件传输协议</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><em>关于主机名，腾讯企业邮箱,<br>接收服务器：<br>pop.exmail.qq.com(使用SSL，端口号995)<br>发送服务器：<br>smtp.exmail.qq.com(使用SSL，端口号465)<br>其他邮箱可网上搜索或在邮箱的设置里找到相关信息。</em></strong></p>
+<ul>
+<li>#####发送邮件<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">transporter.sendMail(&#123;</span><br><span class="line">    <span class="keyword">from</span>: <span class="string">'***@***'</span>,   <span class="comment">//发件箱</span></span><br><span class="line">    to: <span class="string">'***@***'</span>,   <span class="comment">//接受箱</span></span><br><span class="line">    subject: <span class="string">'主题'</span>,</span><br><span class="line">    text: <span class="string">'发件内容'</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error, info</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);   <span class="comment">//发件失败</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Message sent: '</span> + info.response);  <span class="comment">//发件成功</span></span><br><span class="line">    &#125;</span><br><span class="line">    transporter.close();  <span class="comment">//关闭</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><strong><em>from: 发件人</em></strong></li>
+<li><strong><em>to: 收件人</em></strong></li>
+<li><strong><em>cc: 抄送；收件人可以看到邮件抄送给了谁</em></strong></li>
+<li><strong><em>bcc: 密送；收件人不能查到邮件发送给除自己以外的人</em></strong></li>
+<li><strong><em>subject: 主题</em></strong></li>
+<li><strong><em>text: 发送邮件的内容</em></strong></li>
+<li><strong><em>html: 发送html格式的内容</em></strong></li>
+<li><strong><em>attachments: 发送附件</em></strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">attachments: [</span><br><span class="line">    &#123;</span><br><span class="line">        filename: <span class="string">'text0.txt'</span>,</span><br><span class="line">        content: <span class="string">'hello world!'</span>  <span class="comment">//文件的内容</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        filename: <span class="string">'text1.txt'</span>,</span><br><span class="line">        path: <span class="string">'./attach/text1.txt'</span>  <span class="comment">//文件的路径</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><br></p>
+<p>#####简单的创建一个小工程</p>
+<ul>
+<li><p>首先创建文件夹email</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir email</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装nodeemailer如上</p>
+</li>
+<li>创建email.js,在文件中写入上面的代码，配好主机名，邮箱，我用的是腾讯企业邮箱，自动开启了POP3/SMTP服务<br><strong><em>注：如果使用qq邮箱的话，需要自己在设置中开启服务；使用gmail邮箱会被gmail拦截，需要到gmail的安全设置中修改</em></strong></li>
+<li>写完email.js后，开始跑工程<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node email.js</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Nodemailer的github库地址：<a href="https://github.com/andris9/Nodemailer" target="_blank" rel="noopener">https://github.com/andris9/Nodemailer</a></p>
+<p>####参考：</p>
+<ul>
+<li><a href="http://blog.fens.me/nodejs-email-nodemailer/" target="_blank" rel="noopener">Nodejs发邮件组件Nodemailer</a></li>
+<li><a href="http://www.lellansin.com/node-js-%E4%BD%BF%E7%94%A8-qq%E9%82%AE%E7%AE%B1%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6.html" target="_blank" rel="noopener">node.js 使用 qq邮箱发送邮件</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/03/16/JSCompress/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JS 压缩字符串和图片
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/12/14/random-create-str/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">随机产生字符串（积累）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Nodemailer" data-title="利用Nodemailer发送邮件" data-url="http://yoursite.com/2014/12/14/Nodemailer/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2021 moneyinto
+    	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
