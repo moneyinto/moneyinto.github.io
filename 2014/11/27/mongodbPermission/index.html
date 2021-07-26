@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>mongodb 设置权限 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="####Mongodb提供了数据加权限的方法  开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
+  <meta name="description" content="Mongodb提供了数据加权限的方法 开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongodb 设置权限">
 <meta property="og:url" content="http://yoursite.com/2014/11/27/mongodbPermission/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description" content="####Mongodb提供了数据加权限的方法  开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
+<meta property="og:description" content="Mongodb提供了数据加权限的方法 开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-05-13T03:54:42.000Z">
+<meta property="og:updated_time" content="2021-07-26T08:38:45.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongodb 设置权限">
-<meta name="twitter:description" content="####Mongodb提供了数据加权限的方法  开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
+<meta name="twitter:description" content="Mongodb提供了数据加权限的方法 开启安全认证模式12345//找到mongodb.conf文件，将auth = true的注释去掉，//如果是linux或ubuntu系统使用apt-get安装的mongodb的话$ cd /etc$ vim mongodb.conf//其与系统或其他安装方法没有尝试过，其自行查找">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
@@ -241,8 +241,7 @@
     <div class="article-entry" itemprop="articleBody">
       
 
-        <p>####Mongodb提供了数据加权限的方法</p>
-<ul>
+        <h4 id="Mongodb提供了数据加权限的方法"><a href="#Mongodb提供了数据加权限的方法" class="headerlink" title="Mongodb提供了数据加权限的方法"></a>Mongodb提供了数据加权限的方法</h4><ul>
 <li>开启安全认证模式<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//找到mongodb.conf文件，将auth = true的注释去掉，</span><br><span class="line">//如果是linux或ubuntu系统使用apt-get安装的mongodb的话</span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /etc</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim mongodb.conf</span></span><br><span class="line">//其与系统或其他安装方法没有尝试过，其自行查找</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -268,7 +267,7 @@
 </li>
 </ul>
 <p><br></p>
-<p>####那么工程应该如何登陆呢？<br>下面以nodejs工程为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链接数据库时候要加上用户名和密码</span></span><br><span class="line"><span class="string">"mongodb://"</span> + dbUsername + <span class="string">":"</span> + dbPassword + <span class="string">"@"</span> + host + <span class="string">":"</span> + port + <span class="string">"/"</span> + dbName</span><br></pre></td></tr></table></figure></p>
+<h4 id="那么工程应该如何登陆呢？"><a href="#那么工程应该如何登陆呢？" class="headerlink" title="那么工程应该如何登陆呢？"></a>那么工程应该如何登陆呢？</h4><p>下面以nodejs工程为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链接数据库时候要加上用户名和密码</span></span><br><span class="line"><span class="string">"mongodb://"</span> + dbUsername + <span class="string">":"</span> + dbPassword + <span class="string">"@"</span> + host + <span class="string">":"</span> + port + <span class="string">"/"</span> + dbName</span><br></pre></td></tr></table></figure></p>
 
       
     </div>

@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>web布局方式小结 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对于前端布局的方式，总结了一下，我自己常用的有这么几个： ######1.最常用的就是float:left float:left直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。  但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的clear:both和display:ta">
+  <meta name="description" content="对于前端布局的方式，总结了一下，我自己常用的有这么几个： 1.最常用的就是float:leftfloat:left直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。  但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的clear:both和display:table就可以很">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web布局方式小结">
 <meta property="og:url" content="http://yoursite.com/2016/11/30/web-layout-summary/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description" content="对于前端布局的方式，总结了一下，我自己常用的有这么几个： ######1.最常用的就是float:left float:left直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。  但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的clear:both和display:ta">
+<meta property="og:description" content="对于前端布局的方式，总结了一下，我自己常用的有这么几个： 1.最常用的就是float:leftfloat:left直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。  但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的clear:both和display:table就可以很">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-12-04T03:33:31.000Z">
+<meta property="og:updated_time" content="2021-07-26T08:38:45.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web布局方式小结">
-<meta name="twitter:description" content="对于前端布局的方式，总结了一下，我自己常用的有这么几个： ######1.最常用的就是float:left float:left直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。  但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的clear:both和display:ta">
+<meta name="twitter:description" content="对于前端布局的方式，总结了一下，我自己常用的有这么几个： 1.最常用的就是float:leftfloat:left直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。  但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的clear:both和display:table就可以很">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
@@ -242,15 +242,13 @@
       
 
         <p>对于前端布局的方式，总结了一下，我自己常用的有这么几个：</p>
-<p>######1.最常用的就是<code>float:left</code></p>
-<p><code>float:left</code>直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。</p>
+<h6 id="1-最常用的就是float-left"><a href="#1-最常用的就是float-left" class="headerlink" title="1.最常用的就是float:left"></a>1.最常用的就是<code>float:left</code></h6><p><code>float:left</code>直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。</p>
 <iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/5n5ey5a3/embedded/result,html,css/light" frameborder="0" allowfullscreen></iframe>
 <p>但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的<code>clear:both</code>和<code>display:table</code>就可以很好的解决这个问题了。我们直接看代码和效果更直观些。</p>
 <a id="more"></a>
 <iframe scrolling="no" width="100%" height="400" src="//jsfiddle.net/dozx9jc2/embedded/result,html,css/light" frameborder="0" allowfullscreen></iframe>
 <p>float是最常见的用来布局页面方式，一般的需求都可以通过它来解决。但是有时也有特殊的情况，那么就可以选择下面的方式来解决。</p>
-<p>######2.采用<code>display:inline-block</code>来进行布局。</p>
-<p>关于<code>display:inline-block</code>我们首先要知道<code>display:block</code>可以设置宽高度，但是会占满整行，而<code>display:inline</code>不能设置宽高度，但是不会占满整行，可以依次排列。那么我们可以从字面看出<code>display:inline-block</code>在block和inline之间，可以设置宽高度，又不会占满整行，所以我们就可以利用它的特性来进行布局。看代码：</p>
+<h6 id="2-采用display-inline-block来进行布局。"><a href="#2-采用display-inline-block来进行布局。" class="headerlink" title="2.采用display:inline-block来进行布局。"></a>2.采用<code>display:inline-block</code>来进行布局。</h6><p>关于<code>display:inline-block</code>我们首先要知道<code>display:block</code>可以设置宽高度，但是会占满整行，而<code>display:inline</code>不能设置宽高度，但是不会占满整行，可以依次排列。那么我们可以从字面看出<code>display:inline-block</code>在block和inline之间，可以设置宽高度，又不会占满整行，所以我们就可以利用它的特性来进行布局。看代码：</p>
 <iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/6qkexegw/embedded/result,html,css/light" frameborder="0" allowfullscreen></iframe>
 <p><strong><em>【注】但是要注意的一点是<code>display:inline-block</code>布局块与块之间会有间距存在。</em></strong></p>
 <p>3.利用table的<code>display:table-cell</code>来进行布局。</p>

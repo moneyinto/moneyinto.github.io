@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>如何将DOM处理成字符串 | 萧书语</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###？？我们如何将DOM变成string呢 #####方法一：通过innerHTML获取 首先我们创建一个标签，将我们需要获取string的DOM通过appendChild方法加入到标签里，然后就可以使用innerHTML来获取了 12345function dom2str(dom) &amp;#123;	var div = document.createElement(&quot;div&quot;);    div.a">
+  <meta name="description" content="？？我们如何将DOM变成string呢方法一：通过innerHTML获取首先我们创建一个标签，将我们需要获取string的DOM通过appendChild方法加入到标签里，然后就可以使用innerHTML来获取了 12345function dom2str(dom) &amp;#123;	var div = document.createElement(&quot;div&quot;);    div.appendChild">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何将DOM处理成字符串">
 <meta property="og:url" content="http://yoursite.com/2021/04/21/dom-to-str/index.html">
 <meta property="og:site_name" content="萧书语">
-<meta property="og:description" content="###？？我们如何将DOM变成string呢 #####方法一：通过innerHTML获取 首先我们创建一个标签，将我们需要获取string的DOM通过appendChild方法加入到标签里，然后就可以使用innerHTML来获取了 12345function dom2str(dom) &amp;#123;	var div = document.createElement(&quot;div&quot;);    div.a">
+<meta property="og:description" content="？？我们如何将DOM变成string呢方法一：通过innerHTML获取首先我们创建一个标签，将我们需要获取string的DOM通过appendChild方法加入到标签里，然后就可以使用innerHTML来获取了 12345function dom2str(dom) &amp;#123;	var div = document.createElement(&quot;div&quot;);    div.appendChild">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-21T09:06:45.000Z">
+<meta property="og:updated_time" content="2021-07-26T08:39:59.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何将DOM处理成字符串">
-<meta name="twitter:description" content="###？？我们如何将DOM变成string呢 #####方法一：通过innerHTML获取 首先我们创建一个标签，将我们需要获取string的DOM通过appendChild方法加入到标签里，然后就可以使用innerHTML来获取了 12345function dom2str(dom) &amp;#123;	var div = document.createElement(&quot;div&quot;);    div.a">
+<meta name="twitter:description" content="？？我们如何将DOM变成string呢方法一：通过innerHTML获取首先我们创建一个标签，将我们需要获取string的DOM通过appendChild方法加入到标签里，然后就可以使用innerHTML来获取了 12345function dom2str(dom) &amp;#123;	var div = document.createElement(&quot;div&quot;);    div.appendChild">
   
     <link rel="alternative" href="/atom.xml" title="萧书语" type="application/atom+xml">
   
@@ -241,12 +241,9 @@
     <div class="article-entry" itemprop="articleBody">
       
 
-        <p>###？？我们如何将DOM变成string呢</p>
-<p>#####方法一：通过<code>innerHTML</code>获取</p>
-<p>首先我们创建一个标签，将我们需要获取string的DOM通过<code>appendChild</code>方法加入到标签里，然后就可以使用<code>innerHTML</code>来获取了</p>
+        <h3 id="？？我们如何将DOM变成string呢"><a href="#？？我们如何将DOM变成string呢" class="headerlink" title="？？我们如何将DOM变成string呢"></a>？？我们如何将DOM变成string呢</h3><h5 id="方法一：通过innerHTML获取"><a href="#方法一：通过innerHTML获取" class="headerlink" title="方法一：通过innerHTML获取"></a>方法一：通过<code>innerHTML</code>获取</h5><p>首先我们创建一个标签，将我们需要获取string的DOM通过<code>appendChild</code>方法加入到标签里，然后就可以使用<code>innerHTML</code>来获取了</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dom2str</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">    div.appendChild(dom);</span><br><span class="line">    <span class="keyword">return</span> div.innerHTML;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>#####方法二：通过<code>XMLSerializer</code>获取</p>
-<p><code>XMLSerializer</code>的<code>serializeToString()</code>返回DOM子树序列化后的字符串。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dom2str</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> s = <span class="keyword">new</span> XMLSerializer();</span><br><span class="line">    <span class="keyword">return</span> s.serializeToString(dom);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="方法二：通过XMLSerializer获取"><a href="#方法二：通过XMLSerializer获取" class="headerlink" title="方法二：通过XMLSerializer获取"></a>方法二：通过<code>XMLSerializer</code>获取</h5><p><code>XMLSerializer</code>的<code>serializeToString()</code>返回DOM子树序列化后的字符串。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dom2str</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> s = <span class="keyword">new</span> XMLSerializer();</span><br><span class="line">    <span class="keyword">return</span> s.serializeToString(dom);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>

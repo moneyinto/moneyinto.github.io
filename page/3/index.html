@@ -468,8 +468,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#####问题一：video脱离文档流</p>
-<p>在微信里嵌入视频播放，我想大家都会想到html5的video标签，嵌入一个视频播放，很简单，但是在微信中，video标签会被微信进行修改，<strong><code>微信的x5浏览器不支持html5的标准格式</code></strong>。<br>微信为什么要这样做了，在微信中的视频播放完后都会<strong><code>插入广告</code></strong>。要做公众号这点只能任由微信这样做了。<br>但是这样也就算了，微信开发中video都会<strong><code>脱离文档流</code></strong>，浮动到整个页面的最上层，特别当播放完后，这个video都不受控制了，上下滑动页面，视频会上下抖动，会遮住别的标签内容。</p>
+        <h5 id="问题一：video脱离文档流"><a href="#问题一：video脱离文档流" class="headerlink" title="问题一：video脱离文档流"></a>问题一：video脱离文档流</h5><p>在微信里嵌入视频播放，我想大家都会想到html5的video标签，嵌入一个视频播放，很简单，但是在微信中，video标签会被微信进行修改，<strong><code>微信的x5浏览器不支持html5的标准格式</code></strong>。<br>微信为什么要这样做了，在微信中的视频播放完后都会<strong><code>插入广告</code></strong>。要做公众号这点只能任由微信这样做了。<br>但是这样也就算了，微信开发中video都会<strong><code>脱离文档流</code></strong>，浮动到整个页面的最上层，特别当播放完后，这个video都不受控制了，上下滑动页面，视频会上下抖动，会遮住别的标签内容。</p>
 <p>关于这个问题的解决方案，目前我想到的有两种：</p>
 <ol>
 <li>接腾讯视频API，这样会很好的兼容x5内核浏览器；</li>
@@ -655,8 +654,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>对于前端布局的方式，总结了一下，我自己常用的有这么几个：</p>
-<p>######1.最常用的就是<code>float:left</code></p>
-<p><code>float:left</code>直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。</p>
+<h6 id="1-最常用的就是float-left"><a href="#1-最常用的就是float-left" class="headerlink" title="1.最常用的就是float:left"></a>1.最常用的就是<code>float:left</code></h6><p><code>float:left</code>直接这样用的话，外层的div是没有高度的，这样要自己设置高度，不然下面的内容会插到它的下面，就像下面的效果一下，绿色块插到红色块下面去了。</p>
 <iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/5n5ey5a3/embedded/result,html,css/light" frameborder="0" allowfullscreen></iframe>
 <p>但是添加高度的方式实现不是很好，不一定每次布局都是写死高度的，这时我们只要用一下css的<code>clear:both</code>和<code>display:table</code>就可以很好的解决这个问题了。我们直接看代码和效果更直观些。</p>
       

@@ -245,15 +245,15 @@
 <p>这时提交密码设置会很麻烦，有时一个平台甚至有几个账号。</p>
 <p>Mac本中git会记住密码，我当时用Mac，各个自己的平台账号用户名和密码都设置的一样，一开始用起来也没什么，后来和别的程序员对接代码库的时候，要提交到他们代码库的时候，<code>https</code>怎么都提交不上去，最后只能用<code>ssh</code>，我删了秘钥的一些东西，配置了秘钥，提交成功了，后来我自己的一些代码库的东西提交不上去了，丢了些东西。经过这么一折腾，还是老老实实的配置个公钥吧。</p>
 <h3 id="那我们Mac上如何配置公钥，配置多个公钥呢？"><a href="#那我们Mac上如何配置公钥，配置多个公钥呢？" class="headerlink" title="那我们Mac上如何配置公钥，配置多个公钥呢？"></a><strong><em>那我们Mac上如何配置公钥，配置多个公钥呢？</em></strong></h3><p>一些方面可以参考 <a href="https://gitee.com/help/articles/4191#article-header0" target="_blank" rel="noopener">gitee的文档</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"***@***.com"</span> -f ~<span class="regexp">/.ssh/</span>***_id_rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "**<span class="strong">*@*</span>*<span class="strong">*.com" -f ~/.ssh/*</span>*<span class="strong">*_id_rsa</span></span><br></pre></td></tr></table></figure>
 <p>如上命令配置命名一个秘钥，会有三步操作，其中有要输入密码的，不想输入密码，直接<em>回车跳过</em>。</p>
 <p>由于我们的公钥配置的名字是自定义的，这时我们需要创建一个<code>config</code>文件来指定找到这个文件<br>将这些内容拷贝进去</p>
 <hr>
 <p># gitee<br>Host gitee.com<br>HostName gitee.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/***_id_rsa</p>
 <hr>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~<span class="regexp">/.ssh/</span>config</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.ssh/<span class="built_in">config</span></span><br></pre></td></tr></table></figure>
 <p>查看文件的内容，将内容复制粘贴到平台的公钥管理的地方。这样我们就可以提交到对应的平台了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~<span class="regexp">/.ssh/</span>***_id_rsa.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~<span class="regexp">/.ssh/</span>***_id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>我们可以一个公钥多个平台用，也可以每个平台配置一个，这个看自己需要。</p>
 
       
